@@ -1,12 +1,12 @@
-// components/auth/LoginForm.tsx
+"use client";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import { AuthValues } from "../../../types";
+import { useRouter } from "next/navigation";
 
 const LoginForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);

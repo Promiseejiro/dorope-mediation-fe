@@ -1,6 +1,7 @@
 // components/pages/BusinessPageTemplate.tsx
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 interface BusinessPageTemplateProps {
@@ -114,7 +115,22 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+              <Image
+                src={"/assets/images/certification.png"}
+                alt="certification"
+                className="w-full h-auto  rounded-xl"
+                height={20}
+                width={20}
+                unoptimized
+              />
+            </motion.div>
+            {/* <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="relative"
+            >
+              <div className="bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
                 <div className="text-8xl text-center mb-4">
                   {data.hero.image}
                 </div>
@@ -133,7 +149,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>
