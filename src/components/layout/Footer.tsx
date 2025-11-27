@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link
-                  href="#"
+                  href="/education/teachers"
                   className="hover:text-white hover:border-solid hover:border-b-white hover:border-b text-white"
                 >
                   Teachers
@@ -139,7 +139,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/education/schools"
                   className="hover:text-white hover:border-solid hover:border-b-white hover:border-b text-white"
                 >
                   Schools
@@ -147,7 +147,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/education/universities"
                   className="hover:text-white hover:border-solid hover:border-b-white hover:border-b text-white"
                 >
                   Universities & Colleges

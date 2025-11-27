@@ -1,0 +1,313 @@
+{
+  "page": {
+    "title": "EduConnect Pro - Teacher Platform",
+    "description": "All-in-one teaching platform with smart lesson planning, student engagement tools, and professional development resources.",
+    "hero": {
+      "title": "Teach Smarter, Not Harder",
+      "subtitle": "Your All-in-One Classroom Management Platform",
+      "description": "Reduce administrative work, increase student engagement, and reclaim your time with AI-powered teaching tools designed by educators.",
+      "image": "👩‍🏫",
+      "cta": {
+        "primary": {
+          "text": "Start Free Semester",
+          "href": "/free-trial"
+        },
+        "secondary": {
+          "text": "Watch Teacher Demo",
+          "href": "/demo"
+        }
+      },
+      "metrics": [
+        {
+          "value": "8+ hours",
+          "label": "Weekly Time Saved"
+        },
+        {
+          "value": "92%",
+          "label": "More Engaged Students"
+        },
+        {
+          "value": "15K+",
+          "label": "Ready-to-Use Lessons"
+        }
+      ]
+    },
+    "solutions": [
+      {
+        "category": "Lesson Planning & Curriculum",
+        "icon": "fas fa-book-open",
+        "color": "indigo",
+        "items": [
+          {
+            "title": "AI Lesson Planner",
+            "description": "Generate standards-aligned lesson plans in minutes with AI assistance and curriculum mapping.",
+            "features": ["AI-generated plans", "Standards alignment", "Curriculum mapping"],
+            "benefit": "Save 5+ hours weekly"
+          },
+          {
+            "title": "Resource Library",
+            "description": "Access 15,000+ pre-made lessons, activities, and assessments across all subjects and grade levels.",
+            "features": ["15K+ resources", "All subjects", "Differentiated materials"],
+            "benefit": "Instant classroom-ready content"
+          },
+          {
+            "title": "Standards Tracker",
+            "description": "Automatically track and report on standards coverage and student mastery across your curriculum.",
+            "features": ["Auto-tracking", "Progress reports", "Gap analysis"],
+            "benefit": "100% standards compliance"
+          }
+        ]
+      },
+      {
+        "category": "Student Engagement",
+        "icon": "fas fa-users",
+        "color": "green",
+        "items": [
+          {
+            "title": "Interactive Assessments",
+            "description": "Create engaging quizzes, polls, and games that students love with real-time feedback.",
+            "features": ["Gamified quizzes", "Real-time results", "Adaptive learning"],
+            "benefit": "92% student participation"
+          },
+          {
+            "title": "Collaborative Classrooms",
+            "description": "Virtual and hybrid classroom tools with breakout rooms, group projects, and peer feedback.",
+            "features": ["Breakout rooms", "Group projects", "Peer review"],
+            "benefit": "Enhanced collaboration"
+          },
+          {
+            "title": "Behavior & Participation",
+            "description": "Track student participation, provide instant feedback, and encourage positive behavior.",
+            "features": ["Participation tracking", "Instant feedback", "Reward systems"],
+            "benefit": "Improved classroom culture"
+          }
+        ]
+      },
+      {
+        "category": "Assessment & Grading",
+        "icon": "fas fa-chart-line",
+        "color": "purple",
+        "items": [
+          {
+            "title": "Smart Gradebook",
+            "description": "AI-powered gradebook with automatic calculations, trends analysis, and progress predictions.",
+            "features": ["Auto-calculation", "Trend analysis", "Early alerts"],
+            "benefit": "Reduce grading time by 70%"
+          },
+          {
+            "title": "Differentiated Assessments",
+            "description": "Create tiered assignments and adaptive tests that meet each student at their level.",
+            "features": ["Tiered assignments", "Adaptive tests", "Personalized feedback"],
+            "benefit": "Individualized learning paths"
+          },
+          {
+            "title": "Parent Communication",
+            "description": "Automated progress reports, behavior updates, and secure messaging with parents.",
+            "features": ["Auto-reports", "Secure messaging", "Translation tools"],
+            "benefit": "Stronger parent partnerships"
+          }
+        ]
+      }
+    ],
+    "features": [
+      {
+        "icon": "fas fa-robot",
+        "title": "AI Teaching Assistant",
+        "description": "Get AI suggestions for differentiation, intervention strategies, and engagement techniques.",
+        "highlight": "Personalized recommendations"
+      },
+      {
+        "icon": "fas fa-mobile-alt",
+        "title": "Mobile Classroom",
+        "description": "Manage your classroom from anywhere with our full-featured mobile app.",
+        "highlight": "Teaching on-the-go"
+      },
+      {
+        "icon": "fas fa-universal-access",
+        "title": "Accessibility First",
+        "description": "Built-in accessibility tools for diverse learners including translation, text-to-speech, and modifications.",
+        "highlight": "Inclusive by design"
+      },
+      {
+        "icon": "fas fa-graduation-cap",
+        "title": "PD Resources",
+        "description": "Access professional development courses, coaching, and teacher community support.",
+        "highlight": "Continuous growth"
+      }
+    ],
+    "caseStudies": [
+      {
+        "company": "Lincoln Middle School",
+        "industry": "Public School District",
+        "challenge": "Teachers overwhelmed with planning and grading for 150+ students each",
+        "solution": "Implemented AI lesson planning and automated grading systems",
+        "results": [
+          "Reduced planning time by 12 hours weekly",
+          "Improved student test scores by 28%",
+          "Increased teacher retention by 40%"
+        ],
+        "logo": "🏫"
+      },
+      {
+        "company": "Ms. Rodriguez's Science Class",
+        "industry": "High School STEM",
+        "challenge": "Low student engagement in virtual and hybrid learning",
+        "solution": "Adopted interactive labs and collaborative tools",
+        "results": [
+          "Increased class participation from 45% to 92%",
+          "Improved assignment completion by 75%",
+          "100% student satisfaction rating"
+        ],
+        "logo": "🔬"
+      },
+      {
+        "company": "Maple Elementary School",
+        "industry": "Elementary Education",
+        "challenge": "Difficulty meeting diverse learning needs in inclusive classrooms",
+        "solution": "Used differentiated instruction tools and accessibility features",
+        "results": [
+          "95% of students showed growth in reading levels",
+          "Reduced special education referrals by 60%",
+          "Parent satisfaction increased to 98%"
+        ],
+        "logo": "📚"
+      }
+    ],
+    "integration": {
+      "title": "Education Ecosystem",
+      "description": "Seamlessly integrates with your existing education tools and platforms.",
+      "partners": [
+        {
+          "name": "Google Classroom",
+          "icon": "fas fa-graduation-cap",
+          "category": "LMS Integration"
+        },
+        {
+          "name": "Canvas",
+          "icon": "fas fa-palette",
+          "category": "Learning Management"
+        },
+        {
+          "name": "Clever",
+          "icon": "fas fa-shield-alt",
+          "category": "Secure Login"
+        },
+        {
+          "name": "Khan Academy",
+          "icon": "fas fa-laptop-code",
+          "category": "Content Resources"
+        },
+        {
+          "name": "Zoom",
+          "icon": "fas fa-video",
+          "category": "Virtual Classroom"
+        },
+        {
+          "name": "Common Core",
+          "icon": "fas fa-star",
+          "category": "Standards"
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "name": "Sarah Chen",
+        "role": "8th Grade Math Teacher",
+        "company": "Lincoln Middle School",
+        "content": "I've gotten 10 hours of my weekend back! The AI lesson planner creates better lessons than I could in half the time, and the automated grading lets me focus on teaching.",
+        "avatar": "👩‍🏫",
+        "metric": "10+ hours saved weekly"
+      },
+      {
+        "name": "Marcus Johnson",
+        "role": "Special Education Coordinator",
+        "company": "Maple Elementary",
+        "content": "The differentiation tools have been game-changing for our inclusive classrooms. We're meeting every student's needs without overwhelming our teachers.",
+        "avatar": "👨‍💼",
+        "metric": "95% student growth"
+      },
+      {
+        "name": "Dr. Elena Rodriguez",
+        "role": "Science Department Chair",
+        "company": "City High School",
+        "content": "Student engagement has transformed. The interactive labs and real-time feedback keep students excited about learning, even in hybrid settings.",
+        "avatar": "👩‍🔬",
+        "metric": "92% participation rate"
+      }
+    ],
+    "pricing": {
+      "title": "Designed for Educators, Priced for Schools",
+      "plans": [
+        {
+          "name": "Individual Teacher",
+          "price": "$12",
+          "period": "month",
+          "description": "Perfect for individual classrooms",
+          "features": [
+            "AI Lesson Planning",
+            "Basic Gradebook",
+            "5,000+ Resources",
+            "Mobile App Access",
+            "Email Support"
+          ],
+          "cta": "Start Free Trial",
+          "popular": false
+        },
+        {
+          "name": "School License",
+          "price": "$8",
+          "period": "month/teacher",
+          "description": "Best for schools and departments",
+          "features": [
+            "Everything in Individual",
+            "Unlimited Resources",
+            "Advanced Analytics",
+            "Admin Dashboard",
+            "Priority Support",
+            "PD Resources"
+          ],
+          "cta": "Request School Demo",
+          "popular": true
+        },
+        {
+          "name": "District Platform",
+          "price": "Custom",
+          "period": "annual",
+          "description": "Enterprise solution for districts",
+          "features": [
+            "Everything in School",
+            "District-Wide Reporting",
+            "Custom Integration",
+            "Dedicated Success Manager",
+            "Onsite Training",
+            "SIS Integration"
+          ],
+          "cta": "Contact Sales",
+          "popular": false
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Teaching?",
+      "description": "Join 50,000+ teachers who have reclaimed their time and transformed their classrooms with EduConnect Pro.",
+      "background": "gradient",
+      "actions": [
+        {
+          "text": "Start Free Semester Trial",
+          "href": "/free-trial",
+          "variant": "primary"
+        },
+        {
+          "text": "Watch 2-Minute Demo",
+          "href": "/quick-demo",
+          "variant": "secondary"
+        },
+        {
+          "text": "Download Teacher Guide",
+          "href": "/teacher-guide",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}

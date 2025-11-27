@@ -1,10 +1,9 @@
-// components/pages/BusinessPageTemplate.tsx
+// components/pages/education/EducationPageTemplate.tsx
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
-interface BusinessPageTemplateProps {
+interface EducationPageTemplateProps {
   data: {
     title: string;
     description: string;
@@ -15,31 +14,32 @@ interface BusinessPageTemplateProps {
     integration: any;
     testimonials: any[];
     cta: any;
+    pricing?: any;
   };
 }
 
-const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
+const EducationPageTemplate: React.FC<EducationPageTemplateProps> = ({
   data,
 }) => {
   const colorMap = {
-    blue: "from-blue-500 to-blue-600",
+    blue: "from-[var(--primary)] to-[var(--secondary)]",
     green: "from-green-500 to-green-600",
     purple: "from-purple-500 to-purple-600",
-    orange: "from-orange-500 to-orange-600",
-    red: "from-red-500 to-red-600",
+    orange: "from-[var(--accent)] to-orange-600",
     indigo: "from-indigo-500 to-indigo-600",
+    teal: "from-teal-500 to-teal-600",
   };
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      {/* Hero Section - Business Style */}
-      <section className="relative py-20 bg-linear-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] pt-20">
+      {/* Hero Section - Education Style */}
+      <section className="relative py-20 bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-blue-900 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `radial-gradient(circle at 25px 25px, rgba(255,255,255,0.2) 2%, transparent 0%), radial-gradient(circle at 75px 75px, rgba(255,255,255,0.2) 2%, transparent 0%)`,
+              backgroundImage: `radial-gradient(circle at 25px 25px, rgba(255,255,255,0.3) 2%, transparent 0%), radial-gradient(circle at 75px 75px, rgba(255,255,255,0.2) 2%, transparent 0%)`,
               backgroundSize: "100px 100px",
             }}
           ></div>
@@ -52,16 +52,16 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-2 rounded-full text-sm mb-6">
-                <i className="fas fa-briefcase"></i>
-                <span>Business Solutions</span>
+              <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 px-4 py-2 rounded-full text-sm mb-6 backdrop-blur-sm">
+                <i className="fas fa-graduation-cap"></i>
+                <span>Education Solutions</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 {data.hero.title}
               </h1>
 
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
                 {data.hero.description}
               </p>
 
@@ -70,10 +70,10 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-[#005cad] hover:bg-[#1e40af] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="bg-white text-[var(--primary)] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     {data.hero.cta.primary.text}
-                    <i className="fas fa-arrow-right ml-2"></i>
+                    <i className="fas fa-rocket ml-2"></i>
                   </motion.button>
                 </Link>
 
@@ -84,7 +84,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                     className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm"
                   >
                     {data.hero.cta.secondary.text}
-                    <i className="fas fa-download ml-2"></i>
+                    <i className="fas fa-play-circle ml-2"></i>
                   </motion.button>
                 </Link>
               </div>
@@ -102,7 +102,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                     <div className="text-2xl md:text-3xl font-bold text-white">
                       {metric.value}
                     </div>
-                    <div className="text-gray-300 text-sm">{metric.label}</div>
+                    <div className="text-blue-200 text-sm">{metric.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -115,47 +115,32 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
-              <Image
-                src={data.hero.image}
-                alt="certification"
-                className="w-full h-auto  rounded-xl"
-                height={20}
-                width={20}
-                unoptimized
-              />
-            </motion.div>
-            {/* <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="relative"
-            >
-              <div className="bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+              <div className="bg-gradient-to-br from-white/10 to-blue-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
                 <div className="text-8xl text-center mb-4">
                   {data.hero.image}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((item) => (
+                  {["📊", "🎯", "🚀", "⭐"].map((emoji, index) => (
                     <motion.div
-                      key={item}
-                      whileHover={{ y: -5 }}
+                      key={index}
+                      whileHover={{ y: -5, rotate: -2 }}
                       className="bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm border border-white/10"
                     >
-                      <div className="text-2xl mb-2">
-                        <i className="fas fa-chart-line"></i>
+                      <div className="text-2xl mb-2">{emoji}</div>
+                      <div className="text-sm text-blue-200">
+                        Feature {index + 1}
                       </div>
-                      <div className="text-sm text-gray-300">Metric {item}</div>
                     </motion.div>
                   ))}
                 </div>
               </div>
-            </motion.div> */}
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[var(--gray)]/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -164,12 +149,12 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Comprehensive Solutions
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
+              Teaching Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              End-to-end assessment solutions designed specifically for business
-              needs
+              Comprehensive tools designed to make teaching more effective and
+              less stressful
             </p>
           </motion.div>
 
@@ -181,7 +166,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: solutionIndex * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg border border-[var(--gray)] overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 {/* Solution Header */}
                 <div
@@ -197,9 +182,8 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                       <h3 className="text-2xl font-bold">
                         {solution.category}
                       </h3>
-                      <p className="text-blue-100 opacity-90">
-                        Complete assessment solutions for{" "}
-                        {solution.category.toLowerCase()}
+                      <p className="text-white/80">
+                        Tools and features for {solution.category.toLowerCase()}
                       </p>
                     </div>
                   </div>
@@ -214,10 +198,14 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: itemIndex * 0.1 }}
                       viewport={{ once: true }}
-                      whileHover={{ y: -5 }}
-                      className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-300"
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-[var(--gray)] hover:shadow-lg transition-all duration-300 group"
                     >
-                      <h4 className="text-lg font-bold text-gray-800 mb-3">
+                      <div className="bg-white/80 rounded-lg p-3 inline-block mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i className="fas fa-star text-[var(--accent)]"></i>
+                      </div>
+
+                      <h4 className="text-lg font-bold text-[var(--foreground)] mb-3">
                         {item.title}
                       </h4>
                       <p className="text-gray-600 text-sm mb-4 leading-relaxed">
@@ -232,13 +220,13 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                               className="flex items-center gap-2 text-sm text-gray-700"
                             >
                               <i className="fas fa-check text-green-500 text-xs"></i>
-                              {feature}
+                              <span>{feature}</span>
                             </div>
                           )
                         )}
                       </div>
 
-                      <div className="bg-blue-50 text-[#005cad] px-3 py-2 rounded-lg text-sm font-semibold text-center">
+                      <div className="bg-blue-50 text-[var(--primary)] px-3 py-2 rounded-lg text-sm font-semibold text-center border border-blue-200">
                         {item.benefit}
                       </div>
                     </motion.div>
@@ -260,12 +248,12 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Business-Grade Features
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
+              Teacher-Focused Features
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Enterprise-ready features designed for scale, security, and
-              performance
+              Designed by educators to save time, increase engagement, and
+              improve outcomes
             </p>
           </motion.div>
 
@@ -277,21 +265,21 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="text-center group"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="text-center group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-[var(--gray)] hover:shadow-xl transition-all duration-300"
               >
-                <div className="bg-gradient-to-br from-[#005cad] to-[#1e40af] w-16 h-16 rounded-2xl flex items-center justify-center text-white text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] w-16 h-16 rounded-2xl flex items-center justify-center text-white text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <i className={feature.icon}></i>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                <h3 className="text-lg font-bold text-[var(--foreground)] mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   {feature.description}
                 </p>
 
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold inline-block">
+                <div className="bg-blue-50 text-[var(--primary)] px-3 py-1 rounded-full text-xs font-semibold inline-block border border-blue-200">
                   {feature.highlight}
                 </div>
               </motion.div>
@@ -301,7 +289,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -310,12 +298,12 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Success Stories
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
+              Teacher Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how leading companies are transforming their business with our
-              solutions
+              See how educators are transforming their classrooms and reclaiming
+              their time
             </p>
           </motion.div>
 
@@ -327,14 +315,16 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-white rounded-2xl shadow-lg border border-[var(--gray)] overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="text-3xl">{caseStudy.logo}</div>
+                    <div className="text-3xl bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg p-3">
+                      {caseStudy.logo}
+                    </div>
                     <div>
-                      <h3 className="font-bold text-gray-800">
+                      <h3 className="font-bold text-[var(--foreground)]">
                         {caseStudy.company}
                       </h3>
                       <p className="text-gray-600 text-sm">
@@ -345,7 +335,8 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
 
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-700 mb-1">
+                      <h4 className="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+                        <i className="fas fa-exclamation-triangle text-[var(--accent)]"></i>
                         Challenge
                       </h4>
                       <p className="text-gray-600 text-sm">
@@ -354,7 +345,8 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-700 mb-1">
+                      <h4 className="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+                        <i className="fas fa-lightbulb text-[var(--accent)]"></i>
                         Solution
                       </h4>
                       <p className="text-gray-600 text-sm">
@@ -363,7 +355,8 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                        <i className="fas fa-chart-line text-green-500"></i>
                         Results
                       </h4>
                       <ul className="space-y-2">
@@ -373,7 +366,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                               key={resultIndex}
                               className="flex items-center gap-2 text-sm text-gray-600"
                             >
-                              <i className="fas fa-check text-green-500 text-xs"></i>
+                              <i className="fas fa-check-circle text-green-500 text-xs"></i>
                               {result}
                             </li>
                           )
@@ -388,6 +381,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
         </div>
       </section>
 
+      {/* Integration Partners */}
       {/* <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -397,7 +391,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
               {data.integration.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -413,13 +407,13 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.1 }}
-                className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-all duration-300 border border-gray-200"
+                whileHover={{ scale: 1.1, y: -5 }}
+                className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 border border-[var(--gray)]"
               >
-                <div className="text-2xl text-[#005cad] mb-2">
+                <div className="text-2xl text-[var(--primary)] mb-2">
                   <i className={partner.icon}></i>
                 </div>
-                <div className="font-semibold text-gray-800 text-sm mb-1">
+                <div className="font-semibold text-[var(--foreground)] text-sm mb-1">
                   {partner.name}
                 </div>
                 <div className="text-gray-500 text-xs">{partner.category}</div>
@@ -430,7 +424,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
       </section> */}
 
       {/* Testimonials */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -439,12 +433,12 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Trusted by Business Leaders
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
+              Loved by Educators
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear from executives who have transformed their organizations with
-              our platform
+              Hear from teachers who have transformed their classrooms and
+              workload
             </p>
           </motion.div>
 
@@ -456,29 +450,31 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-all duration-300"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-white rounded-2xl shadow-lg border border-[var(--gray)] p-6 hover:shadow-2xl transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="text-3xl">{testimonial.avatar}</div>
+                  <div className="text-3xl bg-gradient-to-br from-blue-100 to-purple-100 rounded-full p-3">
+                    {testimonial.avatar}
+                  </div>
                   <div>
-                    <div className="font-semibold text-gray-800">
+                    <div className="font-semibold text-[var(--foreground)]">
                       {testimonial.name}
                     </div>
                     <div className="text-gray-600 text-sm">
                       {testimonial.role}
                     </div>
-                    <div className="text-[#005cad] text-sm font-medium">
+                    <div className="text-[var(--primary)] text-sm font-medium">
                       {testimonial.company}
                     </div>
                   </div>
                 </div>
 
-                <blockquote className="text-gray-600 mb-4 leading-relaxed">
+                <blockquote className="text-gray-600 mb-4 leading-relaxed italic">
                   "{testimonial.content}"
                 </blockquote>
 
-                <div className="bg-green-50 text-green-800 px-3 py-2 rounded-lg text-sm font-semibold text-center">
+                <div className="bg-blue-50 text-[var(--primary)] px-3 py-2 rounded-lg text-sm font-semibold text-center border border-blue-200">
                   {testimonial.metric}
                 </div>
               </motion.div>
@@ -487,12 +483,92 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
         </div>
       </section>
 
+      {/* Pricing Section (Optional) */}
+      {/* {data.pricing && (
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
+                {data.pricing.title}
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {data.pricing.plans.map((plan: any, index: number) => (
+                <motion.div
+                  key={plan.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className={`bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border-2 ${
+                    plan.popular
+                      ? "border-[var(--primary)] shadow-xl scale-105"
+                      : "border-[var(--gray)] shadow-lg"
+                  } transition-all duration-300`}
+                >
+                  {plan.popular && (
+                    <div className="bg-[var(--primary)] text-white px-4 py-1 rounded-full text-sm font-semibold text-center mb-4">
+                      Most Popular
+                    </div>
+                  )}
+
+                  <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">
+                    {plan.name}
+                  </h3>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold text-[var(--foreground)]">
+                      ${plan.price}
+                    </span>
+                    <span className="text-gray-600">/{plan.period}</span>
+                  </div>
+                  <p className="text-gray-600 text-sm mb-6">
+                    {plan.description}
+                  </p>
+
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map(
+                      (feature: string, featureIndex: number) => (
+                        <li
+                          key={featureIndex}
+                          className="flex items-center gap-2 text-sm text-gray-700"
+                        >
+                          <i className="fas fa-check text-green-500"></i>
+                          {feature}
+                        </li>
+                      )
+                    )}
+                  </ul>
+
+                  <button
+                    className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
+                      plan.popular
+                        ? "bg-[var(--primary)] text-white hover:bg-[var(--secondary)]"
+                        : "bg-[var(--gray)] text-[var(--foreground)] hover:bg-gray-300"
+                    }`}
+                  >
+                    {plan.cta}
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )} */}
+
       {/* CTA Section */}
       <section
         className={`py-16 mb-16 ${
           data.cta.background === "gradient"
-            ? "bg-linear-to-r from-[#005cad] to-[#1e40af]"
-            : "bg-gray-900"
+            ? "bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]"
+            : "bg-[var(--foreground)]"
         } text-white`}
       >
         <div className="container mx-auto px-4">
@@ -516,9 +592,9 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
                     whileTap={{ scale: 0.95 }}
                     className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
                       action.variant === "primary"
-                        ? "bg-white text-[#005cad] hover:bg-gray-100 shadow-lg hover:shadow-xl"
+                        ? "bg-white text-[var(--primary)] hover:bg-gray-100 shadow-lg hover:shadow-xl"
                         : action.variant === "secondary"
-                        ? "border border-white text-white hover:bg-white hover:text-[#005cad] backdrop-blur-sm"
+                        ? "border border-white text-white hover:bg-white hover:text-[var(--primary)] backdrop-blur-sm"
                         : "border border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
                     }`}
                   >
@@ -535,4 +611,4 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
   );
 };
 
-export default BusinessPageTemplate;
+export default EducationPageTemplate;

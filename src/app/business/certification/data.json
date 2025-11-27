@@ -6,7 +6,7 @@
       "title": "Certification",
       "subtitle": "Secure, Scalable Certification Exams",
       "description": "Deliver high-stakes certification exams with confidence using our enterprise-grade platform. Advanced security, proctoring, and global delivery capabilities.",
-      "image": "🏆",
+      "image": "/assets/images/certification.png",
       "cta": {
         "primary": {
           "text": "View Certification Demo",
@@ -16,7 +16,7 @@
           "text": "Security Overview",
           "href": "/security"
         }
-      },
+      }, 
       "metrics": [
         {
           "value": "99.99%",

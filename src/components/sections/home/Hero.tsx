@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
 
   return (
     <section className="py-16 mt-16">
-      <div className="container mx-auto flex items-start px-4 gap-8">
+      <div className="container mx-auto flex flex-col lg:flex-row items-start px-4 gap-8">
         <div className="px-4 text-start flex-1">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 max-w-3xl mx-auto">
             Turn your assessments into success stories
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       <div className="bg-white mt-8">
-        <div className="container flex justify-center items-center lg:flex-row gap-8 p-8  mx-auto  ">
+        <div className="container flex flex-col lg:flex-row justify-center items-center gap-8 p-8  mx-auto  ">
           <div>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
               Here to take a test?
@@ -52,16 +52,16 @@ const Hero: React.FC = () => {
               No registration required. Enter your access code and start.
             </p>
           </div>
-          <div className="flex flex-col justify-end sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 flex-1">
+          <div className="flex flex-col justify-end sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 flex-1 w-full">
             <Input
               id="accessCode"
               placeholder="Enter the access code"
               value={accessCode}
               onChange={(e) => setAccessCode(e.target.value)}
-              className="grow lg:max-w-md"
+              className="grow "
             />
-            <div>
-              <Button variant="accent" size="md" className="whitespace-nowrap">
+            <div className="w-full">
+              <Button variant="accent" size="md" className="lg:max-w-40 w-full">
                 Start your test
               </Button>
             </div>
