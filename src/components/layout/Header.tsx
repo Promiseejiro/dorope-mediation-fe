@@ -333,6 +333,7 @@ const navigationData: NavigationData = {
     ],
   },
   useCases: {
+    items: [],
     title: "Use Cases",
     description:
       "Discover how EduAssess transforms assessment for different industries",
