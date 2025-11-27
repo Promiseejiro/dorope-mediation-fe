@@ -52,19 +52,11 @@ const BetterTestingSection: React.FC = () => {
           {/* Toggle Switch */}
           <div className="flex justify-center mb-8">
             <div className="relative flex bg-gray-100 rounded-xl px-2 py-1 border border-gray-300">
-              <div
-                className={`absolute top-1 bottom-1 rounded-lg bg-white border border-gray-200 shadow-sm transition-all duration-300 ease-in-out ${
-                  activeTab === "features"
-                    ? "left-1 w-[calc(50%-0.25rem)]"
-                    : "left-[calc(50%+0.25rem)] w-[calc(50%-0.25rem)]"
-                }`}
-              />
-
               <button
                 onClick={() => setActiveTab("features")}
-                className={`relative z-10 px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center cursor-pointer ${
+                className={`relative z-10 px-4 lg:px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center cursor-pointer ${
                   activeTab === "features"
-                    ? "text-[#005cad] font-semibold"
+                    ? "text-primary font-semibold bg-white shadow-sm  transition-all duration-300 ease-in-out"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >
@@ -74,9 +66,9 @@ const BetterTestingSection: React.FC = () => {
 
               <button
                 onClick={() => setActiveTab("eco")}
-                className={`relative z-10 px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center  cursor-pointer ${
+                className={`relative z-10 px-4 lg:px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center  cursor-pointer ${
                   activeTab === "eco"
-                    ? "text-[#005cad] font-semibold"
+                    ? "text-primary font-semibold bg-white shadow-sm  transition-all duration-300 ease-in-out"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >

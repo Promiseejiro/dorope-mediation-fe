@@ -5,6 +5,7 @@ import QueryProvider from "@/providers/query-provider";
 import Providers from "@/providers/session-provider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MobileHeader from "@/components/layout/MobileHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 const hostGrotesk = Host_Grotesk({
@@ -36,6 +37,7 @@ export default function RootLayout({
           <QueryProvider>
             <div className="bg-gray-50 min-h-screen flex flex-col">
               <Header />
+              <MobileHeader />
               {children}
               <Footer />
             </div>

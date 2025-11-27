@@ -93,19 +93,11 @@ const UseCasesSection: React.FC = () => {
         {/* Toggle Switch */}
         <div className="flex items-center justify-center mb-12">
           <div className="relative flex bg-gray-100 rounded-xl px-2 py-1 border border-gray-300 shadow-sm">
-            <div
-              className={`absolute top-1 bottom-1 rounded-lg bg-white shadow-sm border border-gray-200 transition-all duration-300 ease-in-out ${
-                useCase === "business"
-                  ? "left-2 w-[calc(50%-0.5rem)]"
-                  : "left-[calc(50%+0.5rem)] w-[calc(50%-0.5rem)]"
-              }`}
-            />
-
             <button
               onClick={() => setUseCase("business")}
               className={`relative z-10 px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center ${
                 useCase === "business"
-                  ? "text-primary font-semibold"
+                  ? "text-primary font-semibold bg-white shadow-sm  transition-all duration-300 ease-in-out"
                   : "text-gray-500 hover:text-gray-700"
               }`}
             >
@@ -117,7 +109,7 @@ const UseCasesSection: React.FC = () => {
               onClick={() => setUseCase("education")}
               className={`relative z-10 px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center ${
                 useCase === "education"
-                  ? "text-primary font-semibold"
+                  ? "text-primary font-semibold bg-white shadow-sm  transition-all duration-300 ease-in-out"
                   : "text-gray-500 hover:text-gray-700"
               }`}
             >

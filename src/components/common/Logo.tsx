@@ -22,14 +22,21 @@ const Logo: React.FC<LogoProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    if (!changeOnScroll) return;
+    if (!changeOnScroll) {
+      // If changeOnScroll is false, always use default state
+      setIsScrolled(false);
+      return;
+    }
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Set initial state
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [changeOnScroll]);
 
@@ -38,18 +45,19 @@ const Logo: React.FC<LogoProps> = ({
 
   return (
     <Link href="/" className="flex items-center space-x-2">
-      <div
-        className={`py-2 rounded-lg transition-all duration-300 ${
-          isScrolled ? "bg-transparent" : "bg-transparent"
-        }`}
-      >
+      <div className="py-2 rounded-lg transition-all duration-300 bg-transparent">
         <Image
-          alt="Logo"
+          alt="EduAssess Logo"
           src={currentLogo}
-          width={20}
+          width={56}
           height={20}
           className="w-14 h-auto transition-all duration-300"
           unoptimized
+          onError={(e) => {
+            // Fallback if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = "none";
+          }}
         />
       </div>
       <h1

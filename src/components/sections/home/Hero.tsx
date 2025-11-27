@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   return (
     <section className="py-16 mt-16">
       <div className="container mx-auto flex flex-col lg:flex-row items-start px-4 gap-8">
-        <div className="px-4 text-start flex-1">
+        <div className="px-4 text-center lg:text-start flex-1">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 max-w-3xl mx-auto">
             Turn your assessments into success stories
           </h1>
