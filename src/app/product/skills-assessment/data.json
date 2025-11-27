@@ -1,0 +1,273 @@
+{
+  "page": {
+    "title": "Skills Assessment",
+    "description": "Comprehensive skills evaluation platform for organizations, educators, and individuals. Identify skill gaps, measure competencies, and drive development with AI-powered assessments.",
+    "hero": {
+      "title": "Skills Assessment",
+      "subtitle": "Identify, Measure, and Develop Talent with Precision",
+      "description": "Transform how you evaluate skills with our AI-powered assessment platform. From technical competencies to soft skills, get accurate insights that drive meaningful development.",
+      "cta": {
+        "primary": {
+          "text": "Start Free Assessment",
+          "href": "/get-started"
+        },
+        "secondary": {
+          "text": "View Demo",
+          "href": "/demo"
+        }
+      },
+      "stats": [
+        {
+          "value": "95%",
+          "label": "Accuracy Rate"
+        },
+        {
+          "value": "50K+",
+          "label": "Skills Measured"
+        },
+        {
+          "value": "2.5M+",
+          "label": "Assessments Completed"
+        },
+        {
+          "value": "78%",
+          "label": "Faster Hiring"
+        }
+      ]
+    },
+    "features": [
+      {
+        "icon": "fas fa-bullseye",
+        "title": "Targeted Skill Evaluation",
+        "description": "Assess specific competencies with precision using our comprehensive skill taxonomy and adaptive testing algorithms.",
+        "benefits": [
+          "Role-specific assessments",
+          "Adaptive difficulty",
+          "Detailed competency mapping"
+        ]
+      },
+      {
+        "icon": "fas fa-robot",
+        "title": "AI-Powered Insights",
+        "description": "Get intelligent recommendations and skill gap analysis powered by advanced machine learning algorithms.",
+        "benefits": [
+          "Automated skill gap analysis",
+          "Personalized development plans",
+          "Predictive performance analytics"
+        ]
+      },
+      {
+        "icon": "fas fa-chart-network",
+        "title": "Competency Frameworks",
+        "description": "Built-in frameworks for technical, soft, and leadership skills aligned with industry standards.",
+        "benefits": [
+          "Industry-standard frameworks",
+          "Custom competency models",
+          "Cross-functional skill mapping"
+        ]
+      },
+      {
+        "icon": "fas fa-user-check",
+        "title": "Candidate Experience",
+        "description": "Engaging, mobile-friendly assessments that provide positive candidate experiences and reduce drop-off rates.",
+        "benefits": [
+          "Mobile-optimized interface",
+          "Real-time feedback",
+          "Progress tracking"
+        ]
+      },
+      {
+        "icon": "fas fa-shield-alt",
+        "title": "Secure & Compliant",
+        "description": "Enterprise-grade security with proctoring, plagiarism detection, and compliance with global data protection standards.",
+        "benefits": [
+          "Advanced proctoring",
+          "Plagiarism detection",
+          "GDPR & SOC2 compliant"
+        ]
+      },
+      {
+        "icon": "fas fa-sync-alt",
+        "title": "Continuous Assessment",
+        "description": "Track skill development over time with periodic assessments and progress monitoring dashboards.",
+        "benefits": [
+          "Longitudinal tracking",
+          "Progress dashboards",
+          "Development milestones"
+        ]
+      }
+    ],
+    "useCases": [
+      {
+        "category": "Recruitment & Hiring",
+        "icon": "fas fa-user-tie",
+        "cases": [
+          {
+            "title": "Technical Skills Screening",
+            "description": "Evaluate coding, design, and technical abilities for IT and engineering roles with real-world scenarios.",
+            "metrics": "Reduce screening time by 65%"
+          },
+          {
+            "title": "Soft Skills Assessment",
+            "description": "Measure communication, problem-solving, and teamwork skills through situational judgment tests.",
+            "metrics": "Improve hiring accuracy by 40%"
+          },
+          {
+            "title": "Cultural Fit Evaluation",
+            "description": "Assess alignment with company values and work preferences for better team integration.",
+            "metrics": "Increase retention by 35%"
+          }
+        ]
+      },
+      {
+        "category": "Employee Development",
+        "icon": "fas fa-chart-line",
+        "cases": [
+          {
+            "title": "Skills Gap Analysis",
+            "description": "Identify development needs and create targeted training programs based on actual skill levels.",
+            "metrics": "Identify 3x more development opportunities"
+          },
+          {
+            "title": "Promotion Readiness",
+            "description": "Evaluate readiness for advancement with role-specific competency assessments.",
+            "metrics": "92% promotion success rate"
+          },
+          {
+            "title": "Succession Planning",
+            "description": "Identify high-potential employees and prepare them for leadership roles.",
+            "metrics": "Accelerate leadership development by 50%"
+          }
+        ]
+      },
+      {
+        "category": "Education & Training",
+        "icon": "fas fa-graduation-cap",
+        "cases": [
+          {
+            "title": "Learning Outcome Measurement",
+            "description": "Assess knowledge retention and skill acquisition after training programs.",
+            "metrics": "Measure training ROI accurately"
+          },
+          {
+            "title": "Student Competency Tracking",
+            "description": "Monitor student progress and identify areas needing additional support.",
+            "metrics": "Improve student outcomes by 45%"
+          },
+          {
+            "title": "Certification Preparation",
+            "description": "Prepare students for professional certifications with practice assessments.",
+            "metrics": "Increase certification pass rates by 60%"
+          }
+        ]
+      }
+    ],
+    "assessmentTypes": [
+      {
+        "name": "Technical Skills",
+        "icon": "fas fa-code",
+        "description": "Comprehensive evaluation of programming, engineering, and technical competencies",
+        "skills": ["Programming Languages", "Software Development", "System Architecture", "DevOps", "Cloud Computing"],
+        "duration": "45-90 minutes",
+        "questions": "20-40 questions"
+      },
+      {
+        "name": "Soft Skills",
+        "icon": "fas fa-users",
+        "description": "Measurement of interpersonal, communication, and emotional intelligence skills",
+        "skills": ["Communication", "Teamwork", "Leadership", "Problem Solving", "Adaptability"],
+        "duration": "30-60 minutes",
+        "questions": "15-25 scenarios"
+      },
+      {
+        "name": "Leadership & Management",
+        "icon": "fas fa-chess-queen",
+        "description": "Assessment of leadership potential and management capabilities",
+        "skills": ["Strategic Thinking", "Decision Making", "People Management", "Conflict Resolution", "Vision Setting"],
+        "duration": "60-120 minutes",
+        "questions": "25-50 questions"
+      },
+      {
+        "name": "Industry-Specific",
+        "icon": "fas fa-industry",
+        "description": "Tailored assessments for specific industries and professional domains",
+        "skills": ["Healthcare Protocols", "Financial Analysis", "Sales Techniques", "Marketing Strategies", "Legal Knowledge"],
+        "duration": "45-90 minutes",
+        "questions": "20-35 questions"
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Sarah Chen",
+        "role": "Head of Talent Acquisition",
+        "company": "TechInnovate Inc.",
+        "content": "The skills assessment platform helped us reduce our technical hiring process from 4 weeks to 5 days while improving candidate quality by 40%.",
+        "avatar": "👩‍💼",
+        "metric": "40% better hires"
+      },
+      {
+        "name": "Dr. Michael Rodriguez",
+        "role": "Training Director",
+        "company": "Global Healthcare Partners",
+        "content": "We've transformed our employee development program using the skills gap analysis. Training ROI increased by 300% in the first year.",
+        "avatar": "👨‍⚕️",
+        "metric": "300% ROI increase"
+      },
+      {
+        "name": "Emily Watson",
+        "role": "University Dean",
+        "company": "State University",
+        "content": "The platform provides invaluable insights into student competencies, helping us tailor our curriculum to actual learning needs.",
+        "avatar": "👩‍🏫",
+        "metric": "45% better outcomes"
+      }
+    ],
+    "integration": {
+      "title": "Seamless Integration",
+      "description": "Connect with your existing HR systems and workflows for a unified talent management experience.",
+      "integrations": [
+        {
+          "name": "ATS Integration",
+          "icon": "fas fa-user-friends",
+          "description": "Sync with popular Applicant Tracking Systems"
+        },
+        {
+          "name": "LMS Connection",
+          "icon": "fas fa-book",
+          "description": "Integrate with Learning Management Systems"
+        },
+        {
+          "name": "HRIS Sync",
+          "icon": "fas fa-database",
+          "description": "Connect with Human Resource Information Systems"
+        },
+        {
+          "name": "API Access",
+          "icon": "fas fa-code",
+          "description": "Custom integrations with RESTful API"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Skills Assessment?",
+      "description": "Join thousands of organizations using our platform to make data-driven talent decisions.",
+      "actions": [
+        {
+          "text": "Start Free Trial",
+          "href": "/signup",
+          "variant": "primary"
+        },
+        {
+          "text": "Schedule Demo",
+          "href": "/demo",
+          "variant": "secondary"
+        },
+        {
+          "text": "Contact Sales",
+          "href": "/contact",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}

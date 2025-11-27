@@ -1,0 +1,261 @@
+{
+  "page": {
+    "title": "Human Resources Solutions",
+    "description": "Comprehensive HR assessment solutions for recruitment, employee development, and talent management. Streamline your HR processes with data-driven insights.",
+    "hero": {
+      "title": "Human Resources",
+      "subtitle": "Transform Your Talent Management",
+      "description": "Streamline recruitment, enhance employee development, and make data-driven HR decisions with our comprehensive assessment platform designed specifically for HR professionals.",
+      "image": "🚀",
+      "cta": {
+        "primary": {
+          "text": "Schedule HR Demo",
+          "href": "/hr-demo"
+        },
+        "secondary": {
+          "text": "Download HR Guide",
+          "href": "/hr-guide"
+        }
+      },
+      "metrics": [
+        {
+          "value": "65%",
+          "label": "Faster Hiring"
+        },
+        {
+          "value": "40%",
+          "label": "Better Retention"
+        },
+        {
+          "value": "3x",
+          "label": "ROI on Training"
+        }
+      ]
+    },
+    "solutions": [
+      {
+        "category": "Recruitment & Selection",
+        "icon": "fas fa-user-plus",
+        "color": "blue",
+        "items": [
+          {
+            "title": "Pre-Employment Testing",
+            "description": "Assess candidate skills, cognitive abilities, and cultural fit before interviews.",
+            "features": ["Skills assessment", "Cognitive testing", "Cultural fit analysis"],
+            "benefit": "Reduce time-to-hire by 50%"
+          },
+          {
+            "title": "Structured Interviews",
+            "description": "Standardize interview process with competency-based questions and scoring.",
+            "features": ["Competency frameworks", "Structured scoring", "Bias reduction"],
+            "benefit": "Improve hiring accuracy by 45%"
+          },
+          {
+            "title": "Candidate Experience",
+            "description": "Provide engaging, mobile-friendly assessments that candidates appreciate.",
+            "features": ["Mobile optimization", "Branded experience", "Quick completion"],
+            "benefit": "85% candidate satisfaction"
+          }
+        ]
+      },
+      {
+        "category": "Employee Development",
+        "icon": "fas fa-chart-line",
+        "color": "green",
+        "items": [
+          {
+            "title": "Skills Gap Analysis",
+            "description": "Identify development needs and create targeted training programs.",
+            "features": ["Current skills assessment", "Future needs mapping", "Development planning"],
+            "benefit": "Targeted training investment"
+          },
+          {
+            "title": "Performance Management",
+            "description": "Support performance reviews with objective assessment data.",
+            "features": ["360-degree feedback", "Performance metrics", "Development tracking"],
+            "benefit": "Data-driven performance decisions"
+          },
+          {
+            "title": "Succession Planning",
+            "description": "Identify high-potential employees and prepare them for leadership.",
+            "features": ["Leadership assessment", "Potential identification", "Readiness scoring"],
+            "benefit": "Reduce leadership gaps by 60%"
+          }
+        ]
+      },
+      {
+        "category": "Training & Compliance",
+        "icon": "fas fa-shield-alt",
+        "color": "purple",
+        "items": [
+          {
+            "title": "Training Effectiveness",
+            "description": "Measure training impact with pre-and post-assessment data.",
+            "features": ["Pre-post testing", "ROI measurement", "Effectiveness tracking"],
+            "benefit": "Quantify training impact"
+          },
+          {
+            "title": "Compliance Training",
+            "description": "Ensure regulatory compliance with mandatory training assessments.",
+            "features": ["Compliance tracking", "Audit reporting", "Certificate management"],
+            "benefit": "100% compliance assurance"
+          },
+          {
+            "title": "Onboarding Programs",
+            "description": "Assess new hire knowledge and accelerate time-to-productivity.",
+            "features": ["Onboarding assessment", "Knowledge checks", "Progress monitoring"],
+            "benefit": "Faster time-to-productivity"
+          }
+        ]
+      }
+    ],
+    "features": [
+      {
+        "icon": "fas fa-bullseye",
+        "title": "HR-Specific Assessments",
+        "description": "Pre-built assessments designed specifically for HR use cases and competencies.",
+        "highlight": "50+ HR-specific templates"
+      },
+      {
+        "icon": "fas fa-users",
+        "title": "Candidate Management",
+        "description": "Streamline candidate evaluation with integrated workflows and collaboration tools.",
+        "highlight": "End-to-end candidate tracking"
+      },
+      {
+        "icon": "fas fa-chart-network",
+        "title": "Analytics Dashboard",
+        "description": "HR-specific analytics for talent acquisition, development, and retention metrics.",
+        "highlight": "Real-time HR analytics"
+      },
+      {
+        "icon": "fas fa-sync",
+        "title": "Integration Ready",
+        "description": "Seamlessly integrate with your existing HRIS, ATS, and performance management systems.",
+        "highlight": "One-click HRIS integration"
+      }
+    ],
+    "caseStudies": [
+      {
+        "company": "TechGrowth Inc.",
+        "industry": "Technology",
+        "challenge": "High turnover in technical roles and lengthy hiring process",
+        "solution": "Implemented skills-based assessments and structured interviews",
+        "results": [
+          "Reduced time-to-hire from 45 to 18 days",
+          "Decreased first-year turnover by 35%",
+          "Improved hiring manager satisfaction by 60%"
+        ],
+        "logo": "💻"
+      },
+      {
+        "company": "HealthCare Partners",
+        "industry": "Healthcare",
+        "challenge": "Compliance training completion and tracking",
+        "solution": "Automated compliance assessment and tracking system",
+        "results": [
+          "Achieved 100% compliance training completion",
+          "Reduced audit preparation time by 80%",
+          "Automated certificate generation"
+        ],
+        "logo": "🏥"
+      },
+      {
+        "company": "Global Retail Corp",
+        "industry": "Retail",
+        "challenge": "Inconsistent performance management across locations",
+        "solution": "Standardized performance assessment framework",
+        "results": [
+          "Standardized evaluations across 200+ locations",
+          "Identified 25% more high-potential employees",
+          "Improved promotion success rate by 40%"
+        ],
+        "logo": "🛍️"
+      }
+    ],
+    "integration": {
+      "title": "HR Ecosystem Integration",
+      "description": "Connect with your existing HR technology stack for seamless workflows.",
+      "partners": [
+        {
+          "name": "Workday",
+          "icon": "fas fa-cloud",
+          "category": "HRIS"
+        },
+        {
+          "name": "Greenhouse",
+          "icon": "fas fa-seedling",
+          "category": "ATS"
+        },
+        {
+          "name": "LinkedIn",
+          "icon": "fab fa-linkedin",
+          "category": "Talent"
+        },
+        {
+          "name": "BambooHR",
+          "icon": "fas fa-tree",
+          "category": "HRIS"
+        },
+        {
+          "name": "Lever",
+          "icon": "fas fa-cogs",
+          "category": "ATS"
+        },
+        {
+          "name": "SuccessFactors",
+          "icon": "fas fa-chart-line",
+          "category": "Performance"
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "name": "Sarah Chen",
+        "role": "VP of Human Resources",
+        "company": "TechInnovate Inc.",
+        "content": "The platform has transformed our recruitment process. We're hiring better candidates in half the time, and the data helps us make objective decisions.",
+        "avatar": "👩‍💼",
+        "metric": "50% faster hiring"
+      },
+      {
+        "name": "Michael Rodriguez",
+        "role": "Talent Development Director",
+        "company": "Global Solutions Ltd.",
+        "content": "Our employee development programs are now data-driven. We can precisely identify skill gaps and measure training effectiveness like never before.",
+        "avatar": "👨‍💼",
+        "metric": "3x training ROI"
+      },
+      {
+        "name": "Dr. Emily Watson",
+        "role": "Chief People Officer",
+        "company": "Healthcare United",
+        "content": "From compliance to succession planning, this platform handles all our assessment needs. The integration with our HRIS makes it seamless.",
+        "avatar": "👩‍⚕️",
+        "metric": "100% compliance"
+      }
+    ],
+    "cta": {
+      "title": "Ready to Transform Your HR Function?",
+      "description": "Join forward-thinking HR teams using data-driven assessments to build better teams and drive organizational success.",
+      "background": "gradient",
+      "actions": [
+        {
+          "text": "Schedule HR Consultation",
+          "href": "/hr-consultation",
+          "variant": "primary"
+        },
+        {
+          "text": "Download HR Toolkit",
+          "href": "/hr-toolkit",
+          "variant": "secondary"
+        },
+        {
+          "text": "View Pricing",
+          "href": "/pricing",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}

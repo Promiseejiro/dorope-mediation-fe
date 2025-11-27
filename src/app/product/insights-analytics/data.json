@@ -1,0 +1,274 @@
+{
+  "page": {
+    "title": "Insights & Analytics",
+    "description": "Transform assessment data into actionable insights with advanced analytics, detailed reporting, and predictive analytics for better decision-making.",
+    "hero": {
+      "title": "Insights & Analytics",
+      "subtitle": "Data-Driven Assessment Intelligence",
+      "description": "Unlock the full potential of your assessment data with advanced analytics, predictive insights, and actionable intelligence for educators and organizations.",
+      "cta": {
+        "primary": {
+          "text": "View Analytics Demo",
+          "href": "/analytics-demo"
+        },
+        "secondary": {
+          "text": "See Sample Reports",
+          "href": "/sample-reports"
+        }
+      },
+      "stats": [
+        {
+          "value": "500%",
+          "label": "More Insights"
+        },
+        {
+          "value": "Real-time",
+          "label": "Data Processing"
+        },
+        {
+          "value": "50+",
+          "label": "Report Types"
+        },
+        {
+          "value": "95%",
+          "label": "Prediction Accuracy"
+        }
+      ]
+    },
+    "features": [
+      {
+        "icon": "fas fa-chart-line",
+        "title": "Performance Analytics",
+        "description": "Comprehensive performance tracking with trend analysis, benchmarking, and progress monitoring.",
+        "benefits": [
+          "Individual & group analytics",
+          "Progress tracking",
+          "Benchmark comparisons"
+        ]
+      },
+      {
+        "icon": "fas fa-brain",
+        "title": "Predictive Analytics",
+        "description": "AI-powered predictions of future performance, at-risk identification, and intervention recommendations.",
+        "benefits": [
+          "Performance forecasting",
+          "At-risk identification",
+          "Intervention planning"
+        ]
+      },
+      {
+        "icon": "fas fa-search",
+        "title": "Deep Dive Analysis",
+        "description": "Drill down into specific areas with item analysis, difficulty metrics, and discrimination indices.",
+        "benefits": [
+          "Question-level analysis",
+          "Difficulty calibration",
+          "Quality metrics"
+        ]
+      },
+      {
+        "icon": "fas fa-user-friends",
+        "title": "Comparative Analytics",
+        "description": "Compare performance across groups, time periods, and demographic segments.",
+        "benefits": [
+          "Group comparisons",
+          "Trend analysis",
+          "Segment insights"
+        ]
+      },
+      {
+        "icon": "fas fa-bell",
+        "title": "Smart Alerts",
+        "description": "Automated alerts for significant changes, anomalies, and achievement milestones.",
+        "benefits": [
+          "Real-time notifications",
+          "Anomaly detection",
+          "Milestone tracking"
+        ]
+      },
+      {
+        "icon": "fas fa-download",
+        "title": "Export & Integration",
+        "description": "Export data in multiple formats and integrate with existing analytics platforms.",
+        "benefits": [
+          "Multiple export formats",
+          "API access",
+          "BI tool integration"
+        ]
+      }
+    ],
+    "useCases": [
+      {
+        "category": "Educational Institutions",
+        "icon": "fas fa-university",
+        "cases": [
+          {
+            "title": "Student Progress Monitoring",
+            "description": "Track individual student progress and identify learning gaps in real-time.",
+            "metrics": "Early intervention enabled"
+          },
+          {
+            "title": "Curriculum Effectiveness",
+            "description": "Measure curriculum effectiveness and identify areas needing improvement.",
+            "metrics": "Data-driven curriculum updates"
+          },
+          {
+            "title": "Teacher Performance",
+            "description": "Analyze teaching effectiveness through student performance patterns.",
+            "metrics": "Targeted professional development"
+          }
+        ]
+      },
+      {
+        "category": "Corporate Training",
+        "icon": "fas fa-briefcase",
+        "cases": [
+          {
+            "title": "Training ROI Analysis",
+            "description": "Measure training effectiveness and calculate return on investment accurately.",
+            "metrics": "Quantifiable training impact"
+          },
+          {
+            "title": "Skills Gap Identification",
+            "description": "Identify organizational skills gaps and prioritize development initiatives.",
+            "metrics": "Strategic training planning"
+          },
+          {
+            "title": "Employee Development",
+            "description": "Track employee development and readiness for advancement opportunities.",
+            "metrics": "Informed promotion decisions"
+          }
+        ]
+      },
+      {
+        "category": "Certification Bodies",
+        "icon": "fas fa-award",
+        "cases": [
+          {
+            "title": "Exam Quality Analysis",
+            "description": "Monitor exam quality, question performance, and reliability metrics.",
+            "metrics": "Continuous exam improvement"
+          },
+          {
+            "title": "Candidate Performance",
+            "description": "Analyze candidate performance patterns and certification readiness.",
+            "metrics": "Improved pass rates"
+          },
+          {
+            "title": "Market Trends",
+            "description": "Track certification trends and industry skill demands over time.",
+            "metrics": "Market-responsive programs"
+          }
+        ]
+      }
+    ],
+    "assessmentTypes": [
+      {
+        "name": "Performance Dashboards",
+        "icon": "fas fa-tachometer-alt",
+        "description": "Real-time performance dashboards with key metrics and visualizations",
+        "skills": ["Performance monitoring", "Trend identification", "Quick insights"],
+        "duration": "Real-time",
+        "questions": "All assessment data"
+      },
+      {
+        "name": "Predictive Reports",
+        "icon": "fas fa-crystal-ball",
+        "description": "AI-powered predictive analytics and future performance forecasting",
+        "skills": ["Future planning", "Risk assessment", "Strategic decision-making"],
+        "duration": "Daily updates",
+        "questions": "Historical pattern analysis"
+      },
+      {
+        "name": "Comparative Analysis",
+        "icon": "fas fa-balance-scale",
+        "description": "Side-by-side comparison of groups, time periods, and performance metrics",
+        "skills": ["Benchmarking", "Progress measurement", "Effectiveness evaluation"],
+        "duration": "On-demand",
+        "questions": "Multi-dimensional comparison"
+      },
+      {
+        "name": "Drill-Down Reports",
+        "icon": "fas fa-search-plus",
+        "description": "Detailed analysis drilling down to individual questions and responses",
+        "skills": ["Root cause analysis", "Detailed investigation", "Quality improvement"],
+        "duration": "Interactive exploration",
+        "questions": "Granular data access"
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. James Wilson",
+        "role": "District Superintendent",
+        "company": "Metro School District",
+        "content": "The analytics platform has transformed how we use assessment data. We can now identify struggling students weeks earlier and provide targeted interventions that actually work.",
+        "avatar": "👨‍🏫",
+        "metric": "4 weeks earlier intervention"
+      },
+      {
+        "name": "Lisa Thompson",
+        "role": "Chief Learning Officer",
+        "company": "Global Corporation",
+        "content": "The predictive analytics help us forecast training needs and allocate resources effectively. We've reduced unnecessary training by 40% while improving outcomes.",
+        "avatar": "👩‍💼",
+        "metric": "40% cost reduction"
+      },
+      {
+        "name": "Dr. Maria Garcia",
+        "role": "Testing Director",
+        "company": "Professional Certification Board",
+        "content": "The item analysis and quality metrics have helped us continuously improve our certification exams. We've increased exam reliability by 25% in one year.",
+        "avatar": "👩‍⚖️",
+        "metric": "25% reliability improvement"
+      }
+    ],
+    "integration": {
+      "title": "Analytics Integration",
+      "description": "Connect with your existing data systems and business intelligence platforms.",
+      "integrations": [
+        {
+          "name": "BI Tools",
+          "icon": "fas fa-chart-bar",
+          "description": "Connect with Power BI, Tableau, and more"
+        },
+        {
+          "name": "Data Warehouses",
+          "icon": "fas fa-database",
+          "description": "Integrate with data warehouses and lakes"
+        },
+        {
+          "name": "SIS/LMS",
+          "icon": "fas fa-graduation-cap",
+          "description": "Sync with student and learning systems"
+        },
+        {
+          "name": "Custom Exports",
+          "icon": "fas fa-file-export",
+          "description": "Flexible data export options"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Data into Insights?",
+      "description": "Discover how advanced analytics can drive better decisions and improve outcomes across your organization.",
+      "actions": [
+        {
+          "text": "View Analytics Demo",
+          "href": "/analytics-demo",
+          "variant": "primary"
+        },
+        {
+          "text": "Download Report Samples",
+          "href": "/report-samples",
+          "variant": "secondary"
+        },
+        {
+          "text": "Consulting Services",
+          "href": "/analytics-consulting",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}
+

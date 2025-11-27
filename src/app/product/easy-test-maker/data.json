@@ -1,0 +1,273 @@
+{
+  "page": {
+    "title": "Exam Software",
+    "description": "Enterprise-grade exam software for high-stakes testing, certifications, and secure assessments with advanced proctoring and security features.",
+    "hero": {
+      "title": "Exam Software",
+      "subtitle": "Secure, Scalable Testing Solutions",
+      "description": "Deliver high-stakes exams with confidence using our enterprise-grade exam software. Advanced security, proctoring, and compliance features for critical testing scenarios.",
+      "cta": {
+        "primary": {
+          "text": "Schedule Demo",
+          "href": "/demo"
+        },
+        "secondary": {
+          "text": "View Security Features",
+          "href": "/security"
+        }
+      },
+      "stats": [
+        {
+          "value": "99.99%",
+          "label": "Uptime SLA"
+        },
+        {
+          "value": "1M+",
+          "label": "Exams Delivered"
+        },
+        {
+          "value": "100%",
+          "label": "Compliance"
+        },
+        {
+          "value": "Zero",
+          "label": "Security Breaches"
+        }
+      ]
+    },
+    "features": [
+      {
+        "icon": "fas fa-shield-alt",
+        "title": "Advanced Security",
+        "description": "Bank-level security with encryption, secure browser, and comprehensive cheating prevention.",
+        "benefits": [
+          "Secure browser lockdown",
+          "Encrypted data transmission",
+          "Cheating detection algorithms"
+        ]
+      },
+      {
+        "icon": "fas fa-video",
+        "title": "Live & AI Proctoring",
+        "description": "Choose between live human proctoring or AI-powered automated proctoring solutions.",
+        "benefits": [
+          "Live human proctors",
+          "AI behavior analysis",
+          "Multi-angle recording"
+        ]
+      },
+      {
+        "icon": "fas fa-cogs",
+        "title": "Flexible Delivery",
+        "description": "Deliver exams in testing centers, remotely, or in hybrid models with consistent experience.",
+        "benefits": [
+          "Test center management",
+          "Remote proctoring",
+          "Hybrid delivery options"
+        ]
+      },
+      {
+        "icon": "fas fa-tachometer-alt",
+        "title": "Performance Analytics",
+        "description": "Comprehensive analytics and reporting for exam performance and integrity monitoring.",
+        "benefits": [
+          "Real-time monitoring",
+          "Detailed analytics",
+          "Integrity scoring"
+        ]
+      },
+      {
+        "icon": "fas fa-user-check",
+        "title": "Identity Verification",
+        "description": "Multi-factor identity verification including photo ID, biometrics, and facial recognition.",
+        "benefits": [
+          "Photo ID verification",
+          "Biometric authentication",
+          "Continuous monitoring"
+        ]
+      },
+      {
+        "icon": "fas fa-file-contract",
+        "title": "Compliance Ready",
+        "description": "Built-in compliance with global standards including ADA, GDPR, and industry-specific regulations.",
+        "benefits": [
+          "ADA accessibility",
+          "GDPR compliance",
+          "Industry certifications"
+        ]
+      }
+    ],
+    "useCases": [
+      {
+        "category": "High-Stakes Certification",
+        "icon": "fas fa-award",
+        "cases": [
+          {
+            "title": "Professional Certifications",
+            "description": "Deliver secure certification exams for industries like IT, healthcare, and finance.",
+            "metrics": "Industry-standard security"
+          },
+          {
+            "title": "License Examinations",
+            "description": "Administer licensing exams with strict security and compliance requirements.",
+            "metrics": "100% regulatory compliance"
+          },
+          {
+            "title": "Board Certifications",
+            "description": "Manage complex board certification processes with multiple exam components.",
+            "metrics": "Streamlined certification process"
+          }
+        ]
+      },
+      {
+        "category": "Academic Testing",
+        "icon": "fas fa-graduation-cap",
+        "cases": [
+          {
+            "title": "University Entrance Exams",
+            "description": "Administer secure entrance exams with remote proctoring and identity verification.",
+            "metrics": "Scalable to thousands of candidates"
+          },
+          {
+            "title": "Final Degree Exams",
+            "description": "Conduct secure final examinations for degree programs and courses.",
+            "metrics": "Academic integrity maintained"
+          },
+          {
+            "title": "Placement Testing",
+            "description": "Place students in appropriate courses based on secure assessment results.",
+            "metrics": "Accurate placement decisions"
+          }
+        ]
+      },
+      {
+        "category": "Corporate Assessment",
+        "icon": "fas fa-building",
+        "cases": [
+          {
+            "title": "Executive Assessments",
+            "description": "Evaluate leadership candidates with secure, proctored assessment centers.",
+            "metrics": "Confidential assessment process"
+          },
+          {
+            "title": "Promotion Testing",
+            "description": "Administer fair and secure tests for internal promotion decisions.",
+            "metrics": "Objective promotion criteria"
+          },
+          {
+            "title": "Global Hiring",
+            "description": "Scale hiring assessments across multiple countries with consistent security.",
+            "metrics": "Global assessment standardization"
+          }
+        ]
+      }
+    ],
+    "assessmentTypes": [
+      {
+        "name": "Proctored Exams",
+        "icon": "fas fa-eye",
+        "description": "Fully proctored exams with live or AI monitoring and advanced security",
+        "skills": ["High-stakes assessment", "Security compliance", "Professional standards"],
+        "duration": "2-4 hours",
+        "questions": "100-200 questions"
+      },
+      {
+        "name": "Adaptive Testing",
+        "icon": "fas fa-brain",
+        "description": "Computerized adaptive testing that adjusts difficulty based on performance",
+        "skills": ["Precise ability measurement", "Efficient testing", "Accurate scoring"],
+        "duration": "1-2 hours",
+        "questions": "Variable length"
+      },
+      {
+        "name": "Performance Exams",
+        "icon": "fas fa-tasks",
+        "description": "Practical and performance-based examinations with real-world scenarios",
+        "skills": ["Practical application", "Problem-solving", "Real-world skills"],
+        "duration": "3-6 hours",
+        "questions": "Case studies & scenarios"
+      },
+      {
+        "name": "Oral Examinations",
+        "icon": "fas fa-microphone",
+        "description": "Structured oral exams with recording and evaluation capabilities",
+        "skills": ["Verbal communication", "Critical thinking", "Professional judgment"],
+        "duration": "30-90 minutes",
+        "questions": "Structured interview"
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. Amanda Roberts",
+        "role": "Certification Director",
+        "company": "Medical Board Council",
+        "content": "The exam software handles our most critical medical certification exams with flawless security. The proctoring features give us complete confidence in exam integrity.",
+        "avatar": "👩‍⚕️",
+        "metric": "Zero security incidents"
+      },
+      {
+        "name": "James Peterson",
+        "role": "Testing Director",
+        "company": "Global University System",
+        "content": "We administer 50,000+ entrance exams annually. The platform scales perfectly and maintains security across all our testing locations worldwide.",
+        "avatar": "👨‍🎓",
+        "metric": "50K+ exams annually"
+      },
+      {
+        "name": "Maria Gonzalez",
+        "role": "HR Executive",
+        "company": "Fortune 500 Company",
+        "content": "Our executive assessment process has been transformed. The secure testing environment ensures fair evaluation of all leadership candidates.",
+        "avatar": "👩‍💼",
+        "metric": "100% candidate trust"
+      }
+    ],
+    "integration": {
+      "title": "Enterprise Integration",
+      "description": "Seamlessly integrate with your existing enterprise systems and workflows.",
+      "integrations": [
+        {
+          "name": "CRM Systems",
+          "icon": "fas fa-address-card",
+          "description": "Connect with candidate management systems"
+        },
+        {
+          "name": "Payment Gateways",
+          "icon": "fas fa-credit-card",
+          "description": "Integrated exam fee processing"
+        },
+        {
+          "name": "Certificate Systems",
+          "icon": "fas fa-certificate",
+          "description": "Automated certificate generation"
+        },
+        {
+          "name": "API Ecosystem",
+          "icon": "fas fa-plug",
+          "description": "Comprehensive REST API access"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready for Enterprise-Grade Exam Delivery?",
+      "description": "Schedule a demo to see how our exam software can transform your high-stakes testing program.",
+      "actions": [
+        {
+          "text": "Schedule Demo",
+          "href": "/demo",
+          "variant": "primary"
+        },
+        {
+          "text": "Security Overview",
+          "href": "/security",
+          "variant": "secondary"
+        },
+        {
+          "text": "Enterprise Pricing",
+          "href": "/enterprise-pricing",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}

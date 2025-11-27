@@ -1,0 +1,261 @@
+{
+  "page": {
+    "title": "Language Schools",
+    "description": "Comprehensive language assessment solutions for language schools, institutions, and corporate language training programs. Measure proficiency and track progress effectively.",
+    "hero": {
+      "title": "Language Schools",
+      "subtitle": "Measure Language Proficiency with Precision",
+      "description": "Transform language education with comprehensive assessment tools designed specifically for language learning. Track progress, measure proficiency, and enhance learning outcomes.",
+      "image": "🌍",
+      "cta": {
+        "primary": {
+          "text": "Schedule Language Demo",
+          "href": "/language-demo"
+        },
+        "secondary": {
+          "text": "Download Language Assessment Guide",
+          "href": "/language-guide"
+        }
+      },
+      "metrics": [
+        {
+          "value": "CEFR",
+          "label": "Aligned"
+        },
+        {
+          "value": "25+",
+          "label": "Languages"
+        },
+        {
+          "value": "95%",
+          "label": "Accuracy"
+        }
+      ]
+    },
+    "solutions": [
+      {
+        "category": "Proficiency Assessment",
+        "icon": "fas fa-language",
+        "color": "blue",
+        "items": [
+          {
+            "title": "Comprehensive Testing",
+            "description": "Assess all language skills: reading, writing, listening, and speaking with integrated evaluation.",
+            "features": ["Four skills assessment", "Integrated evaluation", "Holistic scoring"],
+            "benefit": "Complete proficiency picture"
+          },
+          {
+            "title": "CEFR Alignment",
+            "description": "Tests aligned with Common European Framework of Reference for Languages standards.",
+            "features": ["CEFR levels A1-C2", "Standardized scoring", "International recognition"],
+            "benefit": "Globally recognized standards"
+          },
+          {
+            "title": "Placement Testing",
+            "description": "Accurate placement of students in appropriate levels based on current proficiency.",
+            "features": ["Adaptive placement", "Level determination", "Class grouping"],
+            "benefit": "Optimal learning placement"
+          }
+        ]
+      },
+      {
+        "category": "Skill Development",
+        "icon": "fas fa-microphone",
+        "color": "green",
+        "items": [
+          {
+            "title": "Speaking Assessment",
+            "description": "Record and evaluate speaking skills with AI-powered pronunciation and fluency analysis.",
+            "features": ["Speech recording", "Pronunciation analysis", "Fluency scoring"],
+            "benefit": "Objective speaking evaluation"
+          },
+          {
+            "title": "Writing Evaluation",
+            "description": "Comprehensive writing assessment with grammar, vocabulary, and coherence analysis.",
+            "features": ["Grammar checking", "Vocabulary assessment", "Coherence analysis"],
+            "benefit": "Detailed writing feedback"
+          },
+          {
+            "title": "Listening Comprehension",
+            "description": "Authentic listening exercises with various accents and speech speeds.",
+            "features": ["Multiple accents", "Variable speeds", "Contextual listening"],
+            "benefit": "Real-world listening skills"
+          }
+        ]
+      },
+      {
+        "category": "Program Management",
+        "icon": "fas fa-chalkboard-teacher",
+        "color": "purple",
+        "items": [
+          {
+            "title": "Progress Tracking",
+            "description": "Monitor student progress across language skills and proficiency levels over time.",
+            "features": ["Longitudinal tracking", "Skill progression", "Achievement milestones"],
+            "benefit": "Visible learning progress"
+          },
+          {
+            "title": "Curriculum Alignment",
+            "description": "Align assessments with your specific curriculum and learning objectives.",
+            "features": ["Custom curriculum", "Learning objectives", "Outcome measurement"],
+            "benefit": "Curriculum-integrated assessment"
+          },
+          {
+            "title": "Certificate Generation",
+            "description": "Automatically generate professional language proficiency certificates.",
+            "features": ["Custom certificates", "Auto-generation", "Digital delivery"],
+            "benefit": "Professional certification"
+          }
+        ]
+      }
+    ],
+    "features": [
+      {
+        "icon": "fas fa-globe-americas",
+        "title": "Multi-Language Support",
+        "description": "Comprehensive assessment capabilities for 25+ languages with native speaker validation.",
+        "highlight": "25+ languages available"
+      },
+      {
+        "icon": "fas fa-robot",
+        "title": "AI-Powered Evaluation",
+        "description": "Advanced AI for speaking and writing evaluation with human-like scoring accuracy.",
+        "highlight": "95% scoring accuracy"
+      },
+      {
+        "icon": "fas fa-mobile-alt",
+        "title": "Mobile Learning",
+        "description": "Language assessment on any device with speech recording and listening exercises.",
+        "highlight": "Mobile speech assessment"
+      },
+      {
+        "icon": "fas fa-graduation-cap",
+        "title": "Teacher Tools",
+        "description": "Comprehensive teacher dashboard for class management and individual student tracking.",
+        "highlight": "Teacher-friendly interface"
+      }
+    ],
+    "caseStudies": [
+      {
+        "company": "Global Language Institute",
+        "industry": "Language Education",
+        "challenge": "Inefficient manual assessment processes and inconsistent proficiency evaluation",
+        "solution": "Implemented automated language assessment platform with AI evaluation",
+        "results": [
+          "Reduced assessment time by 70%",
+          "Improved placement accuracy by 45%",
+          "Scaled to 10,000+ students annually"
+        ],
+        "logo": "🎓"
+      },
+      {
+        "company": "Corporate Language Solutions",
+        "industry": "Corporate Training",
+        "challenge": "Unable to measure language progress in employee training programs",
+        "solution": "Deployed progress tracking and proficiency measurement system",
+        "results": [
+          "Measured 2.5 CEFR level improvement average",
+          "Increased program completion by 60%",
+          "Expanded to 50+ corporate clients"
+        ],
+        "logo": "🏢"
+      },
+      {
+        "company": "University Language Center",
+        "industry": "Higher Education",
+        "challenge": "Standardized testing for international student admissions",
+        "solution": "Implemented CEFR-aligned placement and proficiency testing",
+        "results": [
+          "Streamlined international admissions",
+          "Improved student success rates by 35%",
+          "Recognized by 100+ universities globally"
+        ],
+        "logo": "🏛️"
+      }
+    ],
+    "integration": {
+      "title": "Language Education Ecosystem",
+      "description": "Connect with your existing language learning platforms and educational systems.",
+      "partners": [
+        {
+          "name": "Duolingo",
+          "icon": "fas fa-owl",
+          "category": "Language Learning"
+        },
+        {
+          "name": "Rosetta Stone",
+          "icon": "fas fa-stone",
+          "category": "Language Software"
+        },
+        {
+          "name": "Babbel",
+          "icon": "fas fa-comments",
+          "category": "Language App"
+        },
+        {
+          "name": "CEFR",
+          "icon": "fas fa-flag-europe",
+          "category": "Standards"
+        },
+        {
+          "name": "ACTFL",
+          "icon": "fas fa-flag-usa",
+          "category": "Standards"
+        },
+        {
+          "name": "Pearson English",
+          "icon": "fas fa-book-open",
+          "category": "Assessment"
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "name": "Dr. Elena Rodriguez",
+        "role": "Academic Director",
+        "company": "Global Language Institute",
+        "content": "The platform has revolutionized how we assess language proficiency. The AI-powered speaking evaluation is remarkably accurate, and the progress tracking helps us demonstrate learning outcomes to students and parents.",
+        "avatar": "👩‍🏫",
+        "metric": "70% time reduction"
+      },
+      {
+        "name": "James Kim",
+        "role": "Training Manager",
+        "company": "Corporate Language Solutions",
+        "content": "Our corporate clients love the data-driven approach to language training. We can now show concrete progress and ROI, which has been crucial for renewals and expansion.",
+        "avatar": "👨‍💼",
+        "metric": "2.5 level improvement"
+      },
+      {
+        "name": "Dr. Sarah Mitchell",
+        "role": "Director",
+        "company": "University Language Center",
+        "content": "The CEFR alignment and international recognition have made our language testing program much more credible. We're now a preferred testing center for multiple universities.",
+        "avatar": "👩‍🎓",
+        "metric": "100+ university recognition"
+      }
+    ],
+    "cta": {
+      "title": "Ready to Transform Language Assessment?",
+      "description": "Join leading language schools and institutions using our comprehensive assessment platform to measure proficiency and enhance learning outcomes.",
+      "background": "gradient",
+      "actions": [
+        {
+          "text": "Schedule Language Demo",
+          "href": "/language-demo",
+          "variant": "primary"
+        },
+        {
+          "text": "Download Language Toolkit",
+          "href": "/language-toolkit",
+          "variant": "secondary"
+        },
+        {
+          "text": "View Language Cases",
+          "href": "/language-cases",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}

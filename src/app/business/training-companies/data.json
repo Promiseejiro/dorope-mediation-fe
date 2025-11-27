@@ -1,0 +1,261 @@
+{
+  "page": {
+    "title": "Training Companies & Departments",
+    "description": "Comprehensive assessment solutions for training organizations and corporate training departments. Measure training effectiveness and demonstrate ROI.",
+    "hero": {
+      "title": "Training Companies & Departments",
+      "subtitle": "Measure Training Impact with Precision",
+      "description": "Demonstrate training effectiveness, measure ROI, and deliver engaging learning experiences with our comprehensive assessment platform for training professionals.",
+      "image": "🎯",
+      "cta": {
+        "primary": {
+          "text": "Schedule Training Demo",
+          "href": "/training-demo"
+        },
+        "secondary": {
+          "text": "Download Training Kit",
+          "href": "/training-kit"
+        }
+      },
+      "metrics": [
+        {
+          "value": "85%",
+          "label": "ROI Measurement"
+        },
+        {
+          "value": "95%",
+          "label": "Engagement Rate"
+        },
+        {
+          "value": "3x",
+          "label": "Client Retention"
+        }
+      ]
+    },
+    "solutions": [
+      {
+        "category": "Training Effectiveness",
+        "icon": "fas fa-chart-line",
+        "color": "blue",
+        "items": [
+          {
+            "title": "Pre-Post Assessment",
+            "description": "Measure knowledge gain with pre-and post-training assessments and detailed analytics.",
+            "features": ["Knowledge measurement", "Progress tracking", "Impact analysis"],
+            "benefit": "Quantify training effectiveness"
+          },
+          {
+            "title": "Skill Transfer Evaluation",
+            "description": "Assess application of learned skills in real-world scenarios and workplace performance.",
+            "features": ["Scenario-based assessment", "Practical application", "Workplace impact"],
+            "benefit": "Measure skill application"
+          },
+          {
+            "title": "ROI Calculation",
+            "description": "Calculate training return on investment with comprehensive cost-benefit analysis.",
+            "features": ["Cost tracking", "Benefit measurement", "ROI reporting"],
+            "benefit": "Demonstrate training value"
+          }
+        ]
+      },
+      {
+        "category": "Program Management",
+        "icon": "fas fa-cogs",
+        "color": "green",
+        "items": [
+          {
+            "title": "Program Customization",
+            "description": "Create tailored assessment programs for different training modules and client needs.",
+            "features": ["Custom assessments", "Client branding", "Flexible configurations"],
+            "benefit": "Personalized training solutions"
+          },
+          {
+            "title": "Multi-Client Management",
+            "description": "Manage multiple training programs and clients from a single platform.",
+            "features": ["Client portals", "Program segregation", "Bulk management"],
+            "benefit": "Scale training operations"
+          },
+          {
+            "title": "Progress Monitoring",
+            "description": "Track participant progress throughout training programs with real-time dashboards.",
+            "features": ["Real-time tracking", "Progress alerts", "Completion monitoring"],
+            "benefit": "Ensure program completion"
+          }
+        ]
+      },
+      {
+        "category": "Engagement & Delivery",
+        "icon": "fas fa-users",
+        "color": "purple",
+        "items": [
+          {
+            "title": "Interactive Learning",
+            "description": "Create engaging, interactive assessments that enhance learning retention.",
+            "features": ["Gamified elements", "Interactive scenarios", "Multimedia content"],
+            "benefit": "Increase engagement by 60%"
+          },
+          {
+            "title": "Mobile Learning",
+            "description": "Deliver training assessments on any device with our mobile-optimized platform.",
+            "features": ["Mobile-responsive", "Offline capability", "App-like experience"],
+            "benefit": "Accessible anywhere, anytime"
+          },
+          {
+            "title": "Certificate Generation",
+            "description": "Automatically generate professional certificates upon training completion.",
+            "features": ["Custom certificates", "Auto-generation", "Digital delivery"],
+            "benefit": "Instant certification"
+          }
+        ]
+      }
+    ],
+    "features": [
+      {
+        "icon": "fas fa-bullseye",
+        "title": "Training-Specific Assessments",
+        "description": "Pre-built assessment templates designed specifically for training evaluation and measurement.",
+        "highlight": "40+ training templates"
+      },
+      {
+        "icon": "fas fa-chart-pie",
+        "title": "Comprehensive Analytics",
+        "description": "Detailed analytics on training effectiveness, participant engagement, and program ROI.",
+        "highlight": "ROI measurement tools"
+      },
+      {
+        "icon": "fas fa-user-graduate",
+        "title": "Participant Management",
+        "description": "Streamline participant enrollment, progress tracking, and certificate management.",
+        "highlight": "Bulk participant management"
+      },
+      {
+        "icon": "fas fa-sync",
+        "title": "LMS Integration",
+        "description": "Seamlessly integrate with popular Learning Management Systems and training platforms.",
+        "highlight": "One-click LMS sync"
+      }
+    ],
+    "caseStudies": [
+      {
+        "company": "Leadership Development Inc.",
+        "industry": "Corporate Training",
+        "challenge": "Unable to measure leadership training effectiveness and ROI",
+        "solution": "Implemented pre-post assessment system with skill transfer evaluation",
+        "results": [
+          "Measured 45% skill improvement post-training",
+          "Calculated 320% ROI on training investment",
+          "Increased client renewal rate by 60%"
+        ],
+        "logo": "👨‍💼"
+      },
+      {
+        "company": "TechSkills Academy",
+        "industry": "Technical Training",
+        "challenge": "High dropout rates in technical certification programs",
+        "solution": "Integrated interactive assessments and progress monitoring",
+        "results": [
+          "Reduced dropout rate from 35% to 12%",
+          "Improved certification pass rates by 40%",
+          "Scaled to 5,000+ participants annually"
+        ],
+        "logo": "💻"
+      },
+      {
+        "company": "Global Sales Institute",
+        "industry": "Sales Training",
+        "challenge": "Unable to track sales skill application post-training",
+        "solution": "Deployed scenario-based assessments and performance tracking",
+        "results": [
+          "Measured 28% increase in sales performance",
+          "Reduced sales training cycle by 50%",
+          "Expanded to 15 new corporate clients"
+        ],
+        "logo": "📈"
+      }
+    ],
+    "integration": {
+      "title": "Training Ecosystem Integration",
+      "description": "Connect with your existing training technology stack for seamless program delivery.",
+      "partners": [
+        {
+          "name": "Moodle",
+          "icon": "fas fa-graduation-cap",
+          "category": "LMS"
+        },
+        {
+          "name": "Cornerstone",
+          "icon": "fas fa-cube",
+          "category": "LMS"
+        },
+        {
+          "name": "Docebo",
+          "icon": "fas fa-book",
+          "category": "LMS"
+        },
+        {
+          "name": "TalentLMS",
+          "icon": "fas fa-star",
+          "category": "LMS"
+        },
+        {
+          "name": "Canvas",
+          "icon": "fas fa-palette",
+          "category": "LMS"
+        },
+        {
+          "name": "Blackboard",
+          "icon": "fas fa-chalkboard",
+          "category": "LMS"
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "name": "Dr. Michael Chen",
+        "role": "CEO & Founder",
+        "company": "Leadership Development Inc.",
+        "content": "The assessment platform has transformed how we demonstrate training value to clients. We can now show concrete ROI and skill improvement metrics that win us new business.",
+        "avatar": "👨‍🎓",
+        "metric": "320% ROI measured"
+      },
+      {
+        "name": "Sarah Johnson",
+        "role": "Training Director",
+        "company": "TechSkills Academy",
+        "content": "Our technical training programs have become much more effective with the interactive assessments. Participants are more engaged, and completion rates have skyrocketed.",
+        "avatar": "👩‍💻",
+        "metric": "88% completion rate"
+      },
+      {
+        "name": "Robert Martinez",
+        "role": "Head of Corporate Training",
+        "company": "Global Sales Institute",
+        "content": "The ability to track skill application post-training has been a game-changer. We can now prove our sales training directly impacts revenue generation.",
+        "avatar": "👨‍💼",
+        "metric": "28% sales increase"
+      }
+    ],
+    "cta": {
+      "title": "Ready to Transform Your Training Programs?",
+      "description": "Join leading training organizations using data-driven assessments to demonstrate value and drive better learning outcomes.",
+      "background": "gradient",
+      "actions": [
+        {
+          "text": "Schedule Training Demo",
+          "href": "/training-demo",
+          "variant": "primary"
+        },
+        {
+          "text": "Download Training Toolkit",
+          "href": "/training-toolkit",
+          "variant": "secondary"
+        },
+        {
+          "text": "View Case Studies",
+          "href": "/training-cases",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}

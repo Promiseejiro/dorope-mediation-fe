@@ -1,0 +1,273 @@
+{
+  "page": {
+    "title": "Easy Test Maker",
+    "description": "Create professional tests and exams effortlessly with our intuitive test maker. Perfect for educators, certification bodies, and corporate training.",
+    "hero": {
+      "title": "Easy Test Maker",
+      "subtitle": "Create Professional Tests in Minutes",
+      "description": "Design, distribute, and grade tests effortlessly with our user-friendly platform. Perfect for educators, trainers, and certification programs.",
+      "cta": {
+        "primary": {
+          "text": "Create Your First Test",
+          "href": "/signup"
+        },
+        "secondary": {
+          "text": "Watch Tutorial",
+          "href": "/tutorial"
+        }
+      },
+      "stats": [
+        {
+          "value": "90%",
+          "label": "Time Saved"
+        },
+        {
+          "value": "25+",
+          "label": "Question Formats"
+        },
+        {
+          "value": "15K+",
+          "label": "Tests Created"
+        },
+        {
+          "value": "99.9%",
+          "label": "Uptime"
+        }
+      ]
+    },
+    "features": [
+      {
+        "icon": "fas fa-magic",
+        "title": "Intuitive Test Builder",
+        "description": "Create tests with our drag-and-drop interface that requires no technical skills or training.",
+        "benefits": [
+          "Drag-and-drop interface",
+          "No technical skills needed",
+          "Instant preview"
+        ]
+      },
+      {
+        "icon": "fas fa-copy",
+        "title": "Question Bank",
+        "description": "Build and organize your question library for quick test assembly and reuse.",
+        "benefits": [
+          "Organized question library",
+          "Quick search & filter",
+          "Reuse questions easily"
+        ]
+      },
+      {
+        "icon": "fas fa-lock",
+        "title": "Secure Test Delivery",
+        "description": "Protect test integrity with advanced security features and cheating prevention.",
+        "benefits": [
+          "Browser lockdown",
+          "Randomized questions",
+          "Time limits"
+        ]
+      },
+      {
+        "icon": "fas fa-robot",
+        "title": "Auto-Grading",
+        "description": "Save time with automatic grading for objective questions and rubrics for subjective answers.",
+        "benefits": [
+          "Instant scoring",
+          "Custom rubrics",
+          "Grade scaling"
+        ]
+      },
+      {
+        "icon": "fas fa-print",
+        "title": "Print & Digital",
+        "description": "Create tests for both online delivery and professional printed formats.",
+        "benefits": [
+          "Online & print ready",
+          "Professional formatting",
+          "Answer key generation"
+        ]
+      },
+      {
+        "icon": "fas fa-users",
+        "title": "Collaborative Creation",
+        "description": "Work with colleagues to create tests together with real-time collaboration features.",
+        "benefits": [
+          "Real-time collaboration",
+          "Version control",
+          "Comment & review"
+        ]
+      }
+    ],
+    "useCases": [
+      {
+        "category": "Academic Testing",
+        "icon": "fas fa-university",
+        "cases": [
+          {
+            "title": "Unit Tests & Exams",
+            "description": "Create comprehensive unit tests and final exams with mixed question types and secure delivery.",
+            "metrics": "Reduce creation time by 75%"
+          },
+          {
+            "title": "Practice Tests",
+            "description": "Generate unlimited practice tests with randomized questions for student preparation.",
+            "metrics": "Unlimited practice variants"
+          },
+          {
+            "title": "Standardized Testing",
+            "description": "Create standardized tests with consistent formatting and scoring across multiple classes.",
+            "metrics": "Ensure testing consistency"
+          }
+        ]
+      },
+      {
+        "category": "Professional Certification",
+        "icon": "fas fa-award",
+        "cases": [
+          {
+            "title": "Certification Exams",
+            "description": "Develop secure certification exams with proctoring and advanced security features.",
+            "metrics": "Industry-standard security"
+          },
+          {
+            "title": "Skills Assessment",
+            "description": "Test professional skills and competencies with scenario-based questions.",
+            "metrics": "Accurate skill measurement"
+          },
+          {
+            "title": "License Renewal",
+            "description": "Create tests for professional license renewal and continuing education requirements.",
+            "metrics": "Compliance tracking"
+          }
+        ]
+      },
+      {
+        "category": "Corporate Assessment",
+        "icon": "fas fa-building",
+        "cases": [
+          {
+            "title": "Employee Testing",
+            "description": "Assess employee knowledge and skills for training and development purposes.",
+            "metrics": "Identify training needs"
+          },
+          {
+            "title": "Pre-Employment Screening",
+            "description": "Screen job candidates with role-specific tests and automated scoring.",
+            "metrics": "Faster hiring decisions"
+          },
+          {
+            "title": "Compliance Testing",
+            "description": "Ensure regulatory compliance with mandatory testing and tracking.",
+            "metrics": "Audit-ready reporting"
+          }
+        ]
+      }
+    ],
+    "assessmentTypes": [
+      {
+        "name": "Multiple Choice",
+        "icon": "fas fa-check-circle",
+        "description": "Traditional multiple choice with single or multiple correct answers",
+        "skills": ["Knowledge recall", "Concept application", "Critical thinking"],
+        "duration": "30-60 minutes",
+        "questions": "20-50 questions"
+      },
+      {
+        "name": "True/False",
+        "icon": "fas fa-balance-scale",
+        "description": "Binary choice questions for quick knowledge checks",
+        "skills": ["Fact recall", "Concept understanding", "Quick assessment"],
+        "duration": "10-20 minutes",
+        "questions": "15-30 questions"
+      },
+      {
+        "name": "Fill-in-Blank",
+        "icon": "fas fa-pencil-alt",
+        "description": "Open-ended questions requiring specific answers",
+        "skills": ["Precise knowledge", "Terminology", "Detailed understanding"],
+        "duration": "15-30 minutes",
+        "questions": "10-25 questions"
+      },
+      {
+        "name": "Matching",
+        "icon": "fas fa-exchange-alt",
+        "description": "Connect related items from two columns",
+        "skills": ["Association", "Relationship understanding", "Classification"],
+        "duration": "10-25 minutes",
+        "questions": "10-20 matches"
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. Robert Chen",
+        "role": "University Professor",
+        "company": "Stanford University",
+        "content": "The easy test maker has revolutionized how I create exams. What used to take hours now takes minutes, and the automated grading saves me countless hours.",
+        "avatar": "👨‍🏫",
+        "metric": "8 hours saved per exam"
+      },
+      {
+        "name": "Lisa Thompson",
+        "role": "HR Director",
+        "company": "Global Tech Solutions",
+        "content": "We use the test maker for all our hiring assessments. The question bank feature lets us quickly create role-specific tests for different positions.",
+        "avatar": "👩‍💼",
+        "metric": "60% faster hiring"
+      },
+      {
+        "name": "Mark Williams",
+        "role": "Training Coordinator",
+        "company": "Healthcare Partners",
+        "content": "Creating compliance tests used to be a nightmare. Now we have templates for all our regulatory requirements, and tracking is automatic.",
+        "avatar": "👨‍⚕️",
+        "metric": "100% compliance"
+      }
+    ],
+    "integration": {
+      "title": "Easy Integration",
+      "description": "Connect with your existing systems and workflows seamlessly.",
+      "integrations": [
+        {
+          "name": "Gradebook Sync",
+          "icon": "fas fa-table",
+          "description": "Automatically sync scores with gradebooks"
+        },
+        {
+          "name": "Student Information",
+          "icon": "fas fa-user-graduate",
+          "description": "Connect with student information systems"
+        },
+        {
+          "name": "Proctoring Services",
+          "icon": "fas fa-eye",
+          "description": "Integrate with online proctoring solutions"
+        },
+        {
+          "name": "Cloud Storage",
+          "icon": "fas fa-cloud",
+          "description": "Sync with Google Drive and Dropbox"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Start Creating Professional Tests Today",
+      "description": "Join educators and professionals worldwide who are saving time and improving assessment quality.",
+      "actions": [
+        {
+          "text": "Try It Free",
+          "href": "/signup",
+          "variant": "primary"
+        },
+        {
+          "text": "See Pricing",
+          "href": "/pricing",
+          "variant": "secondary"
+        },
+        {
+          "text": "Contact Sales",
+          "href": "/contact",
+          "variant": "outline"
+        }
+      ]
+    }
+  }
+}
