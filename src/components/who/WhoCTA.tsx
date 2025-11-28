@@ -56,7 +56,7 @@ const WhoCTA: React.FC = () => {
               <span>Enterprise-grade security</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <i className="fas fa-clock text-blue-500"></i>
+              <i className="fas fa-clock text-primary"></i>
               <span>14-day free trial</span>
             </div>
             <div className="flex items-center justify-center gap-2">

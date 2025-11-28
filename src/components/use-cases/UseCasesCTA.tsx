@@ -52,7 +52,7 @@ const UseCasesCTA: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-sm text-gray-500">
             <div className="flex items-center justify-center gap-2">
-              <i className="fas fa-clock text-blue-500"></i>
+              <i className="fas fa-clock text-primary"></i>
               <span>14-day free trial</span>
             </div>
             <div className="flex items-center justify-center gap-2">

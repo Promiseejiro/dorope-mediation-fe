@@ -1,9 +1,8 @@
-// components/ui/Checkbox.tsx
 import React from "react";
 
 interface CheckboxProps {
   id: string;
-  label?: string;
+  label?: string | React.ReactNode;
   error?: string;
   touched?: boolean;
   className?: string;

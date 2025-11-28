@@ -22,7 +22,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
   data,
 }) => {
   const colorMap = {
-    blue: "from-blue-500 to-blue-600",
+    blue: "from-primary to-blue-600",
     green: "from-green-500 to-green-600",
     purple: "from-purple-500 to-purple-600",
     orange: "from-orange-500 to-orange-600",
@@ -52,7 +52,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-2 rounded-full text-sm mb-6">
+              <div className="inline-flex items-center gap-2 bg-primary/20 border border-blue-400/30 px-4 py-2 rounded-full text-sm mb-6">
                 <i className="fas fa-briefcase"></i>
                 <span>Business Solutions</span>
               </div>
@@ -130,7 +130,7 @@ const BusinessPageTemplate: React.FC<BusinessPageTemplateProps> = ({
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
-              <div className="bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+              <div className="bg-linear-to-br from-primary/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
                 <div className="text-8xl text-center mb-4">
                   {data.hero.image}
                 </div>

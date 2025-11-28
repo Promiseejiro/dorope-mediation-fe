@@ -9,10 +9,13 @@ import Header from "@/components/layout/Header";
 import UseCasesSection from "@/components/sections/home/UseCasesSection";
 import ImpactSection from "@/components/sections/home/ImpactSection";
 import TestimonialSection from "@/components/sections/home/Testimonials";
+import MobileHeader from "@/components/layout/MobileHeader";
 
 export default function HomePage() {
   return (
     <>
+      <Header />
+      <MobileHeader />
       <main>
         <Hero />
         <TrustedBy />
@@ -23,6 +26,7 @@ export default function HomePage() {
         <Blog />
         <CreateTest />
       </main>
+      <Footer />
     </>
   );
 }

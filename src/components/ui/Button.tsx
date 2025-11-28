@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   ...props
 }) => {
-  const baseClasses = "font-medium rounded-lg transition";
+  const baseClasses = "font-medium rounded-lg transition cursor-pointer";
 
   const variantClasses: Record<ButtonVariant, string> = {
     primary: "bg-primary text-white hover:bg-secondary",

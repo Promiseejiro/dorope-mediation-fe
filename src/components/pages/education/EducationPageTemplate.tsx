@@ -115,7 +115,7 @@ const EducationPageTemplate: React.FC<EducationPageTemplateProps> = ({
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-white/10 to-blue-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+              <div className="bg-gradient-to-br from-white/10 to-primary/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
                 <div className="text-8xl text-center mb-4">
                   {data.hero.image}
                 </div>

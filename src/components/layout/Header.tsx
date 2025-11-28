@@ -392,7 +392,6 @@ const navigationData: NavigationData = {
   },
 };
 
-// Type guard functions
 const hasIcon = (
   item: NavItemBase | NavItemWithIcon
 ): item is NavItemWithIcon => {

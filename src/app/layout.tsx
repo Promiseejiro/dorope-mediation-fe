@@ -36,10 +36,8 @@ export default function RootLayout({
         <Providers>
           <QueryProvider>
             <div className="bg-gray-50 min-h-screen flex flex-col">
-              <Header />
-              <MobileHeader />
+              
               {children}
-              <Footer />
             </div>
           </QueryProvider>
         </Providers>
