@@ -13,7 +13,7 @@ export default async function DashboardLayout({
 
   const userRole =
     (session?.user?.role as "admin" | "teacher" | "student" | "super-admin") ||
-    "student";
+    "teacher";
 
   return (
     <DashboardLayoutClient userRole={userRole} userName={session?.user?.name}>
