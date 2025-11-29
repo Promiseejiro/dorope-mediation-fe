@@ -2,6 +2,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { twMerge } from "tailwind-merge";
 import Button from "../ui/Button";
 
 interface GoBackProps {
@@ -27,11 +28,13 @@ const GoBack: React.FC<GoBackProps> = ({
     }
   };
 
+  const mergedClassNames = twMerge("flex items-center gap-2", className);
+
   return (
     <Button
       variant={variant}
       onClick={handleGoBack}
-      className={`flex items-center gap-2 ${className}`}
+      className={mergedClassNames}
     >
       <i className="fas fa-arrow-left"></i>
       {label}

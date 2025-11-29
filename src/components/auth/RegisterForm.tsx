@@ -190,18 +190,18 @@ const RegisterForm: React.FC = () => {
         <Button
           variant="secondary"
           size="lg"
-          className="w-full flex items-center justify-center gap-3"
+          className="w-full flex items-center justify-center gap-3 px-2"
           onClick={() => handleSocialRegister("google")}
           disabled={isLoading}
         >
-          <i className="fab fa-google text-red-500"></i>
+          <i className="fab fa-google text-primary"></i>
           Continue with Google
         </Button>
 
         <Button
           variant="secondary"
           size="lg"
-          className="w-full flex items-center justify-center gap-3"
+          className="w-full flex items-center justify-center gap-3 px-2"
           onClick={() => handleSocialRegister("microsoft")}
           disabled={isLoading}
         >

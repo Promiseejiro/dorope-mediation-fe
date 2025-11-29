@@ -108,7 +108,7 @@ const LoginForm: React.FC = () => {
 
           <Link
             href="/forgot-password"
-            className="text-sm text-primary hover:text-secondary font-medium"
+            className=" text-sm text-primary hover:text-secondary font-medium"
           >
             Forgot password?
           </Link>
@@ -140,18 +140,18 @@ const LoginForm: React.FC = () => {
         <Button
           variant="secondary"
           size="lg"
-          className="w-full flex items-center justify-center gap-3"
+          className="w-full flex items-center justify-center gap-3 px-2"
           onClick={() => handleSocialLogin("google")}
           disabled={isLoading}
         >
-          <i className="fab fa-google text-red-500"></i>
+          <i className="fab fa-google text-primary"></i>
           Continue with Google
         </Button>
 
         <Button
           variant="secondary"
           size="lg"
-          className="w-full flex items-center justify-center gap-3"
+          className="w-full flex items-center justify-center gap-3 px-2"
           onClick={() => handleSocialLogin("microsoft")}
           disabled={isLoading}
         >

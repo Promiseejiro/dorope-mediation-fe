@@ -28,7 +28,7 @@ const AuthHeader: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <GoBack fallbackUrl="/" />
+            <GoBack fallbackUrl="/" className="px-2" />
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...props
 }) => {
   return (
-    <div className={`mb-4 ${className}`}>
+    <div className={`${className}`}>
       <div className="flex items-center">
         <input
           id={id}

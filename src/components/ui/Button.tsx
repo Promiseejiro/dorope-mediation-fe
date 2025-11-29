@@ -1,4 +1,4 @@
-// components/ui/Button.tsx
+import { twMerge } from "tailwind-merge";
 import React from "react";
 import Link from "next/link";
 
@@ -44,7 +44,12 @@ const Button: React.FC<ButtonProps> = ({
     lg: "px-8 py-4 text-lg",
   };
 
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = twMerge(
+    baseClasses,
+    variantClasses[variant],
+    sizeClasses[size],
+    className
+  );
 
   if (href) {
     return (

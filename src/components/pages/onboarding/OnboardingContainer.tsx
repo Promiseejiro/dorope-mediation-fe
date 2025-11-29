@@ -41,7 +41,7 @@ const OnboardingContainer: React.FC<OnboardingContainerProps> = ({
           <div className="flex justify-between mt-8 pt-8 border-t border-gray-200">
             <Button
               variant="outline"
-              size="lg"
+              size="md"
               onClick={onPrevious}
               disabled={currentStep === 1}
               className="flex items-center"
@@ -51,7 +51,7 @@ const OnboardingContainer: React.FC<OnboardingContainerProps> = ({
 
             <Button
               variant="primary"
-              size="lg"
+              size="sm"
               onClick={onNext}
               disabled={!canProceed}
               className="flex items-center"
