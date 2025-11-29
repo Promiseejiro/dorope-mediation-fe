@@ -1,3 +1,4 @@
+// app/dashboard/layout.tsx
 import DashboardLayoutClient from "@/components/layout/DashboardLayoutClient";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
@@ -16,7 +17,11 @@ export default async function DashboardLayout({
     "teacher";
 
   return (
-    <DashboardLayoutClient userRole={userRole} userName={session?.user?.name}>
+    <DashboardLayoutClient
+      userRole={userRole}
+      userName={session?.user?.name}
+      userData={session?.user} // Pass entire user data
+    >
       {children}
     </DashboardLayoutClient>
   );

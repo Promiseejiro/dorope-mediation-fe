@@ -1,25 +1,33 @@
-// components/layout/DashboardLayoutClient.tsx
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import DashboardSidebar from "@/components/layout/DashboardSidebar";
 
 interface DashboardLayoutClientProps {
   children: React.ReactNode;
   userRole: "admin" | "teacher" | "student" | "super-admin";
   userName?: string | null;
+  userData?: any; // Add this
 }
 
 export default function DashboardLayoutClient({
   children,
   userRole,
   userName,
+  userData,
 }: DashboardLayoutClientProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleNav = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const childrenWithProps = React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { userData } as any);
+    }
+    return child;
+  });
 
   return (
     <div className="flex h-screen bg-gray-50">
