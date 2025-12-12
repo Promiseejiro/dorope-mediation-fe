@@ -1,30 +1,37 @@
 "use client";
 
 import React, { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useOrgStore } from "@/store/organizationStore";
 import DashboardSidebar from "@/components/layout/DashboardSidebar";
+
+type UserRole = "admin" | "teacher" | "student" | "super-admin";
 
 interface DashboardLayoutClientProps {
   children: React.ReactNode;
-  userRole: "admin" | "teacher" | "student" | "super-admin";
-  userName?: string | null;
-  userData?: any; // Add this
 }
 
 export default function DashboardLayoutClient({
   children,
-  userRole,
-  userName,
-  userData,
 }: DashboardLayoutClientProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const { data: session } = useSession();
+
+  const { getOrganizationData } = useOrgStore();
+  const orgData = getOrganizationData();
+
+  const userName = session?.user?.name ?? "User";
+  const userRole: UserRole = (session?.user?.role as UserRole) || "teacher";
+  const userData = session?.user;
+
   const toggleNav = () => {
-    setSidebarOpen(!sidebarOpen);
+    setSidebarOpen((prev) => !prev);
   };
 
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { userData } as any);
+      return React.cloneElement(child, { userData, orgData } as any);
     }
     return child;
   });
@@ -87,19 +94,19 @@ export default function DashboardLayoutClient({
 
         {/* Main Content Area */}
         <main className="flex-1 overflow-auto">
-          <div className="p-6">{children}</div>
+          <div className="p-6">{childrenWithProps}</div>
         </main>
       </div>
     </div>
   );
 }
 
-function getDashboardTitle(role: string): string {
-  const titles = {
+function getDashboardTitle(role: UserRole | string): string {
+  const titles: Record<UserRole, string> = {
     admin: "School Administration Dashboard",
     teacher: "Teacher Dashboard",
     student: "Student Dashboard",
     "super-admin": "System Administration Dashboard",
   };
-  return titles[role as keyof typeof titles] || "Dashboard";
+  return titles[role as UserRole] || "Dashboard";
 }

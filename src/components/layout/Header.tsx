@@ -604,11 +604,13 @@ const Header: React.FC = () => {
           ) : session ? (
             <>
               <span
-                className={`font-medium transition-colors duration-300 ${
-                  isScrolled ? "text-white" : "text-gray-700"
+                className={`w-10 h-10 border-solid border-2 rounded-full font-medium transition-colors duration-300 font-semibold flex items-center justify-center text-lg ${
+                  isScrolled
+                    ? "text-white border-white"
+                    : "text-primary border-primary"
                 }`}
               >
-                {session.user?.name}
+                {session.user?.name.slice(0, 1)}
               </span>
               <Button
                 variant={isScrolled ? "outline" : "outline"}
@@ -638,7 +640,7 @@ const Header: React.FC = () => {
                   Login
                 </Button>
               </Link>
-              <Link href="/signup">
+              <Link href="/register">
                 <Button
                   variant={isScrolled ? "secondary" : "primary"}
                   size="sm"

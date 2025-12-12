@@ -1,8 +1,6 @@
-// app/onboarding/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
-import { OnboardingData, OnboardingStep } from "../../../types/onboarding";
 import WelcomeStep from "@/components/pages/onboarding/steps/WelcomeStep";
 import UserTypeStep from "@/components/pages/onboarding/steps/UserTypeStep";
 import PurposeStep from "@/components/pages/onboarding/steps/PurposeStep";
@@ -11,8 +9,14 @@ import OrganizationInfoStep from "@/components/pages/onboarding/steps/Organizati
 import CompletionStep from "@/components/pages/onboarding/steps/CompletionStep";
 import OnboardingContainer from "@/components/pages/onboarding/OnboardingContainer";
 import AssessmentTypeStep from "@/components/pages/onboarding/steps/AssessmentTypeStep";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { OnboardingData, OnboardingStep } from "@/types/user";
+import { toastCustom } from "@/utils/toast";
+import { useRouter } from "next/navigation";
+import { completeOnboarding, getUserDetails } from "@/request/userRequest";
 
 export default function OnboardingPage() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState<OnboardingStep>(1);
   const [onboardingData, setOnboardingData] = useState<OnboardingData>({
     userType: null,
@@ -21,21 +25,28 @@ export default function OnboardingPage() {
     industry: null,
     organizationInfo: {
       name: "",
-      size: "",
+      // size: "",
       website: "",
       description: "",
     },
   });
 
   const totalSteps = onboardingData.userType === "organization" ? 7 : 6;
+  const mutation = useMutation({
+    mutationFn: (data: OnboardingData) => completeOnboarding(data),
+    onSuccess: (data, formdata) => {
+      setCurrentStep((prev) => (prev + 1) as OnboardingStep);
+    },
+    onError: (error: any) => {
+      toastCustom(error.response.data.message, "error");
+    },
+  });
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
-      setCurrentStep((prev) => (prev + 1) as OnboardingStep);
+      mutation.mutate(onboardingData);
     } else {
-      // Handle completion - redirect to dashboard
-      console.log("Onboarding completed:", onboardingData);
-      window.location.href = "/dashboard";
+      window.location.href = "/admin";
     }
   };
 
@@ -49,7 +60,6 @@ export default function OnboardingPage() {
     setOnboardingData((prev) => ({ ...prev, ...data }));
   };
 
-  // Check if user can proceed to next step
   const canProceed = () => {
     switch (currentStep) {
       case 1: // Welcome - always can proceed
@@ -65,10 +75,10 @@ export default function OnboardingPage() {
       case 6: // Organization info (if applicable)
         if (onboardingData.userType === "organization") {
           // Safe check with optional chaining and nullish coalescing
-          return (
-            (onboardingData.organizationInfo?.name?.trim().length ?? 0) > 0 &&
-            (onboardingData.organizationInfo?.size?.length ?? 0) > 0
-          );
+          // return (
+          //   (onboardingData.organizationInfo?.name?.trim().length ?? 0) > 0 &&
+          //   // (onboardingData.organizationInfo?.size?.length ?? 0) > 0
+          // );
         }
         return true; // Skip this step for non-organization users
       case 7: // Completion - always can proceed
@@ -111,7 +121,6 @@ export default function OnboardingPage() {
           />
         );
       case 6:
-        // Show organization info step only for organization users
         if (onboardingData.userType === "organization") {
           return (
             <OrganizationInfoStep
@@ -122,7 +131,6 @@ export default function OnboardingPage() {
             />
           );
         } else {
-          // Skip to completion for non-organization users
           return <CompletionStep />;
         }
       case 7:
@@ -131,6 +139,14 @@ export default function OnboardingPage() {
         return <WelcomeStep />;
     }
   };
+
+  const { data, error } = useQuery({
+    queryKey: ["fetchuser-details"],
+    queryFn: getUserDetails,
+  });
+  if (data?.registrationComplete) {
+    router.push("/select-organization");
+  }
 
   return (
     <OnboardingContainer

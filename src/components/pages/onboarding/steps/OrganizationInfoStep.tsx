@@ -3,7 +3,7 @@ import Input from "@/components/ui/Input";
 
 interface OrganizationInfo {
   name: string;
-  size: string;
+  // size: string;
   description?: string;
 }
 
@@ -18,7 +18,7 @@ const OrganizationInfoStep: React.FC<OrganizationInfoStepProps> = ({
 }) => {
   const [formData, setFormData] = useState<OrganizationInfo>({
     name: organizationInfo?.name || "",
-    size: organizationInfo?.size || "",
+    // size: organizationInfo?.size || "",
     description: organizationInfo?.description || "",
   });
 
@@ -53,6 +53,7 @@ const OrganizationInfoStep: React.FC<OrganizationInfoStepProps> = ({
 
       <div className="space-y-6">
         <Input
+          name="name"
           id="organization-name"
           label="Organization Name *"
           type="text"
@@ -62,7 +63,7 @@ const OrganizationInfoStep: React.FC<OrganizationInfoStepProps> = ({
           className="mb-4"
         />
 
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Organization Size *
           </label>
@@ -101,7 +102,7 @@ const OrganizationInfoStep: React.FC<OrganizationInfoStepProps> = ({
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="mb-4">
           <label

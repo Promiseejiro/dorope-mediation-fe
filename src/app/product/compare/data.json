@@ -9,7 +9,7 @@
       "cta": {
         "primary": {
           "text": "Start Free Trial",
-          "href": "/signup"
+          "href": "/register"
         },
         "secondary": {
           "text": "Contact Sales",
@@ -246,7 +246,7 @@
         },
         {
           "text": "Start Free Trial",
-          "href": "/signup",
+          "href": "/register",
           "variant": "secondary"
         },
         {

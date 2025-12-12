@@ -9,7 +9,7 @@
       "cta": {
         "primary": {
           "text": "Create Your First Test",
-          "href": "/signup"
+          "href": "/register"
         },
         "secondary": {
           "text": "Watch Tutorial",
@@ -254,7 +254,7 @@
       "actions": [
         {
           "text": "Try It Free",
-          "href": "/signup",
+          "href": "/register",
           "variant": "primary"
         },
         {

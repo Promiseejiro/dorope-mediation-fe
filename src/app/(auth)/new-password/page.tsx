@@ -7,20 +7,20 @@ import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
-
-interface NewPasswordFormData {
-  newPassword: string;
-  confirmPassword: string;
-}
+import { useMutation } from "@tanstack/react-query";
+import { ResetPasswordFormData } from "@/types/auth";
+import { toastCustom } from "@/utils/toast";
+import { ResetPassword } from "@/request/authRequest";
+import { useAuthStore } from "@/store/authStore";
 
 const NewPasswordPage: React.FC = () => {
   const router = useRouter();
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { storedEmail } = useAuthStore();
 
-  const initialValues: NewPasswordFormData = {
+  const initialValues: ResetPasswordFormData = {
     newPassword: "",
     confirmPassword: "",
+    email: storedEmail,
   };
 
   const validationSchema = Yup.object({
@@ -36,23 +36,23 @@ const NewPasswordPage: React.FC = () => {
       .required("Confirm password is required"),
   });
 
-  const handleSubmit = async (values: NewPasswordFormData) => {
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Setting new password");
-
-      // Redirect to success page
-      router.push("/auth/password-reset-success");
-    } catch (error) {
-      console.error("Password reset error:", error);
-    }
-  };
-
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: handleSubmit,
+    onSubmit: (data: ResetPasswordFormData) => {
+      console.log(data);
+      mutation.mutate(data);
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: (data: ResetPasswordFormData) => ResetPassword(data),
+    onSuccess: (data, formdata) => {
+      router.push("/login");
+    },
+    onError: (error: any) => {
+      toastCustom(error.response.data.message, "error");
+    },
   });
 
   return (
@@ -67,57 +67,32 @@ const NewPasswordPage: React.FC = () => {
       </div>
 
       <form onSubmit={formik.handleSubmit} className="space-y-6">
-        <div className="relative">
-          <Input
-            id="newPassword"
-            label="New Password"
-            type={showNewPassword ? "text" : "password"}
-            placeholder="Enter new password"
-            value={formik.values.newPassword}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.errors.newPassword}
-            touched={formik.touched.newPassword}
-          />
-          <button
-            type="button"
-            className="absolute right-3 top-9 text-gray-500 hover:text-gray-700"
-            onClick={() => setShowNewPassword(!showNewPassword)}
-          >
-            {showNewPassword ? (
-              <i className="fas fa-eye-slash"></i>
-            ) : (
-              <i className="fas fa-eye"></i>
-            )}
-          </button>
-        </div>
+        <Input
+          id="newPassword"
+          label="New Password"
+          type="password"
+          placeholder="Enter new password"
+          value={formik.values.newPassword}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.newPassword}
+          touched={formik.touched.newPassword}
+          showPasswordToggle={true} // Add this prop to enable toggle
+        />
 
-        <div className="relative">
-          <Input
-            id="confirmPassword"
-            label="Confirm New Password"
-            type={showConfirmPassword ? "text" : "password"}
-            placeholder="Confirm new password"
-            value={formik.values.confirmPassword}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.errors.confirmPassword}
-            touched={formik.touched.confirmPassword}
-          />
-          <button
-            type="button"
-            className="absolute right-3 top-9 text-gray-500 hover:text-gray-700"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-          >
-            {showConfirmPassword ? (
-              <i className="fas fa-eye-slash"></i>
-            ) : (
-              <i className="fas fa-eye"></i>
-            )}
-          </button>
-        </div>
-
-        <div className="p-4 bg-blue-50 rounded-lg">
+        <Input
+          id="confirmPassword"
+          label="Confirm New Password"
+          type="password"
+          placeholder="Confirm new password"
+          value={formik.values.confirmPassword}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.confirmPassword}
+          touched={formik.touched.confirmPassword}
+          showPasswordToggle={true}
+        />
+        {/* <div className="p-4 bg-blue-50 rounded-lg">
           <p className="text-sm text-primary">
             <strong>Password requirements:</strong>
             <br />• At least 8 characters
@@ -125,16 +100,17 @@ const NewPasswordPage: React.FC = () => {
             <br />• One lowercase letter
             <br />• One number
           </p>
-        </div>
+        </div> */}
 
         <Button
           type="submit"
           variant="primary"
           size="lg"
           className="w-full"
-          disabled={formik.isSubmitting}
+          loading={mutation.isPending}
+          disabled={mutation.isPending}
         >
-          {formik.isSubmitting ? "Resetting..." : "Reset Password"}
+          Reset Password
         </Button>
       </form>
     </div>

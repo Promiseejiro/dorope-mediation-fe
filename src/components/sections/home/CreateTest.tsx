@@ -18,9 +18,11 @@ const CreateTest: React.FC = () => {
             your online assessments. It's on the house. You're welcome.
           </p>
 
-          <Button variant="primary" size="lg" className="mb-12">
-            Sign up free
-          </Button>
+          <div className="flex items-center justify-center">
+            <Button variant="primary" size="lg" className="mb-12">
+              Sign up free
+            </Button>
+          </div>
         </div>
       </div>
     </section>

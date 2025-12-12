@@ -7,12 +7,15 @@ import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import Logo from "@/components/common/Logo";
-
-interface ForgotPasswordFormData {
-  email: string;
-}
+import { useMutation } from "@tanstack/react-query";
+import { forgetPassword } from "@/request/authRequest";
+import { ForgotPasswordFormData } from "@/types/auth";
+import { toastCustom } from "@/utils/toast";
+import { useAuthStore } from "@/store/authStore";
 
 const ForgotPasswordPage: React.FC = () => {
+  const { setstoredEmail } = useAuthStore();
+
   const router = useRouter();
 
   const initialValues: ForgotPasswordFormData = {
@@ -25,21 +28,23 @@ const ForgotPasswordPage: React.FC = () => {
       .required("Email is required"),
   });
 
-  const handleSubmit = async (values: ForgotPasswordFormData) => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Sending reset email to:", values.email);
-
-      router.push("/auth/reset-password-otp");
-    } catch (error) {
-      console.error("Forgot password error:", error);
-    }
-  };
+  const mutation = useMutation({
+    mutationFn: (data: ForgotPasswordFormData) => forgetPassword(data),
+    onSuccess: (data, formdata) => {
+      router.push("/reset-password-otp");
+    },
+    onError: (error: any) => {
+      toastCustom(error.response.data.message, "error");
+    },
+  });
 
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: handleSubmit,
+    onSubmit: (values: ForgotPasswordFormData) => {
+      mutation.mutate(values);
+      setstoredEmail(values.email);
+    },
   });
 
   return (
@@ -75,9 +80,10 @@ const ForgotPasswordPage: React.FC = () => {
           variant="primary"
           size="lg"
           className="w-full"
-          disabled={formik.isSubmitting}
+          loading={mutation.isPending}
+          disabled={mutation.isPending}
         >
-          {formik.isSubmitting ? "Sending..." : "Send Reset Code"}
+          Send Reset Code
         </Button>
       </form>
 

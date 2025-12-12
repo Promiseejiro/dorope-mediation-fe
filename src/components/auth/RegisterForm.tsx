@@ -1,4 +1,3 @@
-// components/auth/RegisterForm.tsx
 "use client";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -9,30 +8,41 @@ import Button from "../ui/Button";
 import Checkbox from "../ui/Checkbox";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-interface RegisterValues {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  agreeTerms: boolean;
-}
+import { useMutation } from "@tanstack/react-query";
+import { RegisterValues } from "../../types/auth";
+import { registerUser } from "@/request/authRequest";
+import { toastCustom } from "@/utils/toast";
+import { useAuthStore } from "@/store/authStore";
 
 const RegisterForm: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { setstoredEmail } = useAuthStore();
   const [error, setError] = useState("");
   const router = useRouter();
 
+  const mutation = useMutation({
+    mutationFn: (data: RegisterValues) => registerUser(data),
+    onSuccess: (data, formdata) => {
+      setstoredEmail(formdata.email);
+      router.push("/verify");
+    },
+    onError: (error: any) => {
+      toastCustom(error.response.data.message, "error");
+    },
+  });
   const formik = useFormik<RegisterValues>({
     initialValues: {
-      fullName: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      // confirmPassword: "",
       agreeTerms: false,
     },
     validationSchema: Yup.object({
-      fullName: Yup.string()
+      firstName: Yup.string()
+        .min(2, "Full name must be at least 2 characters")
+        .required("Full name is required"),
+      lastName: Yup.string()
         .min(2, "Full name must be at least 2 characters")
         .required("Full name is required"),
       email: Yup.string()
@@ -41,51 +51,29 @@ const RegisterForm: React.FC = () => {
       password: Yup.string()
         .min(6, "Password must be at least 6 characters")
         .required("Password is required"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password")], "Passwords must match")
-        .required("Confirm password is required"),
+      // confirmPassword: Yup.string()
+      //   .oneOf([Yup.ref("password")], "Passwords must match")
+      //   .required("Confirm password is required"),
       agreeTerms: Yup.boolean().oneOf(
         [true],
         "You must accept the terms and conditions"
       ),
     }),
     onSubmit: async (values) => {
-      setIsLoading(true);
-      setError("");
-
-      // Here you would typically make an API call to register the user
+      mutation.mutate(values);
       try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-
-        // After successful registration, sign in the user
-        const result = await signIn("credentials", {
-          redirect: false,
-          email: values.email,
-          password: values.password,
-        });
-
-        if (result?.error) {
-          setError("Registration successful but login failed");
-        } else {
-          router.push("/");
-        }
       } catch (error) {
         setError("Registration failed. Please try again.");
       }
-
-      setIsLoading(false);
     },
   });
 
   const handleSocialRegister = async (provider: "google" | "microsoft") => {
-    setIsLoading(true);
     try {
       await signIn(provider, { callbackUrl: "/" });
     } catch (error) {
       setError(`Failed to register with ${provider}`);
     }
-    setIsLoading(false);
   };
 
   return (
@@ -96,15 +84,26 @@ const RegisterForm: React.FC = () => {
 
       <form onSubmit={formik.handleSubmit} className="space-y-4">
         <Input
-          id="fullName"
-          label="Full Name"
+          id="firstName"
+          label="First Name"
           type="text"
-          placeholder="Enter your full name"
-          value={formik.values.fullName}
+          placeholder="Enter your FirstName name"
+          value={formik.values.firstName}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.errors.fullName}
-          touched={formik.touched.fullName}
+          error={formik.errors.firstName}
+          touched={formik.touched.firstName}
+        />
+        <Input
+          id="lastName"
+          label="Last Name"
+          type="text"
+          placeholder="Enter your LastName name"
+          value={formik.values.lastName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.lastName}
+          touched={formik.touched.lastName}
         />
 
         <Input
@@ -129,9 +128,10 @@ const RegisterForm: React.FC = () => {
           onBlur={formik.handleBlur}
           error={formik.errors.password}
           touched={formik.touched.password}
+          showPasswordToggle={true}
         />
 
-        <Input
+        {/* <Input
           id="confirmPassword"
           label="Confirm Password"
           type="password"
@@ -141,7 +141,7 @@ const RegisterForm: React.FC = () => {
           onBlur={formik.handleBlur}
           error={formik.errors.confirmPassword}
           touched={formik.touched.confirmPassword}
-        />
+        /> */}
 
         <Checkbox
           id="agreeTerms"
@@ -169,9 +169,10 @@ const RegisterForm: React.FC = () => {
           variant="primary"
           size="lg"
           className="w-full"
-          disabled={isLoading}
+          loading={mutation.isPending}
+          disabled={mutation.isPending}
         >
-          {isLoading ? "Creating account..." : "Create Account"}
+          Create Account
         </Button>
       </form>
 
@@ -192,7 +193,7 @@ const RegisterForm: React.FC = () => {
           size="lg"
           className="w-full flex items-center justify-center gap-3 px-2"
           onClick={() => handleSocialRegister("google")}
-          disabled={isLoading}
+          // disabled={isLoading}
         >
           <i className="fab fa-google text-primary"></i>
           Continue with Google
@@ -203,7 +204,7 @@ const RegisterForm: React.FC = () => {
           size="lg"
           className="w-full flex items-center justify-center gap-3 px-2"
           onClick={() => handleSocialRegister("microsoft")}
-          disabled={isLoading}
+          // disabled={isLoading}
         >
           <i className="fab fa-microsoft text-primary"></i>
           Continue with Microsoft

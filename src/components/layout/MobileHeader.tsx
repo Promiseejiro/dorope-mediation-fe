@@ -373,7 +373,7 @@ const MobileHeader: React.FC = () => {
                     Login
                   </Link>
                   <Link
-                    href="/signup"
+                    href="/register"
                     className="block w-full text-center px-4 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors duration-200"
                     onClick={closeMenu}
                   >

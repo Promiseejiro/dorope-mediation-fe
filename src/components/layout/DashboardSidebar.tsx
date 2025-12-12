@@ -48,30 +48,38 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       { name: "Settings", href: "/dashboard/settings", icon: "fas fa-cog" },
     ],
     teacher: [
-      { name: "Dashboard", href: "/dashboard", icon: "fas fa-chart-pie" },
-      { name: "My Classes", href: "/classes", icon: "fas fa-users" },
+      {
+        name: "Dashboard",
+        href: "/teacher/dashboard",
+        icon: "fas fa-chart-pie",
+      },
+      { name: "My Classes", href: "/teacher/classes", icon: "fas fa-users" },
       {
         name: "Question Bank",
-        href: "/questions",
+        href: "/teacher/questions",
         icon: "fas fa-database",
       },
-      { name: "Exams", href: "/exams", icon: "fas fa-file-alt" },
+      { name: "Exams", href: "/teacher/exams", icon: "fas fa-file-alt" },
       {
         name: "Marking",
-        href: "/marking",
+        href: "/teacher/marking",
         icon: "fas fa-check-circle",
       },
-      { name: "Reports", href: "/reports", icon: "fas fa-chart-bar" },
+      { name: "Reports", href: "/teacher/reports", icon: "fas fa-chart-bar" },
     ],
     student: [
-      { name: "Dashboard", href: "/dashboard", icon: "fas fa-chart-pie" },
+      {
+        name: "Dashboard",
+        href: "/student/dashboard",
+        icon: "fas fa-chart-pie",
+      },
       {
         name: "Available Exams",
-        href: "/exams",
+        href: "/student/available-exams",
         icon: "fas fa-file-alt",
       },
-      { name: "My Results", href: "/results", icon: "fas fa-award" },
-      { name: "Profile", href: "/profile", icon: "fas fa-user" },
+      { name: "My Results", href: "/student/my-results", icon: "fas fa-award" },
+      { name: "Profile", href: "/student/profile", icon: "fas fa-user" },
     ],
     "super-admin": [
       { name: "Dashboard", href: "/dashboard", icon: "fas fa-chart-pie" },

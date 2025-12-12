@@ -1,6 +1,6 @@
 // components/sections/Blog.tsx
 import Link from "next/link";
-import { BlogPost } from "../../../../types";
+import { BlogPost } from "../../../types";
 import Button from "@/components/ui/Button";
 
 const Blog: React.FC = () => {

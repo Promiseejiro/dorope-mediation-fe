@@ -1,47 +1,47 @@
 "use client";
 import Link from "next/link";
 import Button from "../../ui/Button";
-import { UseCase } from "../../../../types";
+import { UseCase } from "../../../types";
 import { useState } from "react";
+import UseCaseTabs from "../../ui/UseCaseTabs";
 
 const UseCasesSection: React.FC = () => {
-  const [useCase, setUseCase] = useState<"business" | "education">("business");
+  const [useCase, setUseCase] = useState("business");
+
+  const tabs = [
+    { Name: "Business", value: "business", icon: "fas fa-briefcase" },
+    { Name: "Education", value: "education", icon: "fas fa-graduation-cap" },
+  ];
 
   const businessUseCases: (UseCase & { icon: string })[] = [
     {
       title: "Recruitment",
-      description:
-        "Identify real talents without the hassle of time-consuming CV screening",
+      description: "Identify real talents without...",
       icon: "fas fa-users",
     },
     {
       title: "Employee Assessments",
-      description:
-        "Online workforce assessments encourage your employees to grow and cultivate a positive team spirit",
+      description: "Online workforce assessments...",
       icon: "fas fa-chart-bar",
     },
     {
       title: "Training",
-      description:
-        "Evaluate skills and knowledge in a professional and distraction-free environment",
+      description: "Evaluate skills and knowledge...",
       icon: "fas fa-bullseye",
     },
     {
       title: "Sales Training",
-      description:
-        "Assess and improve sales team performance with targeted training assessments",
+      description: "Assess and improve sales...",
       icon: "fas fa-dollar-sign",
     },
     {
       title: "Customer Service",
-      description:
-        "Ensure your customer service team delivers exceptional support experiences",
+      description: "Ensure your support team excels...",
       icon: "fas fa-headset",
     },
     {
       title: "Safety Procedures",
-      description:
-        "Test employee knowledge of safety protocols and compliance requirements",
+      description: "Test employee safety protocol...",
       icon: "fas fa-shield-alt",
     },
   ];
@@ -49,37 +49,32 @@ const UseCasesSection: React.FC = () => {
   const educationUseCases: (UseCase & { icon: string })[] = [
     {
       title: "Quizzes",
-      description:
-        "Engage your remote students or connected classrooms in a way that's efficient and fun",
+      description: "Engage your students...",
       icon: "fas fa-edit",
     },
     {
       title: "Exams",
-      description:
-        "Test skills and knowledge in a professional and no-distraction environment",
+      description: "Test skills in a distraction-free environment",
       icon: "fas fa-book",
     },
     {
       title: "Homework",
-      description: "Give friendly and interactive after school assignments",
+      description: "Interactive assignments",
       icon: "fas fa-home",
     },
     {
       title: "Competition",
-      description:
-        "Experience learners, showcase skills and foster healthy academic competition",
+      description: "Encourage healthy academic competition",
       icon: "fas fa-trophy",
     },
     {
       title: "Formative Assessment",
-      description:
-        "Provide immediate feedback to guide student learning and improvement",
+      description: "Immediate feedback for improvement",
       icon: "fas fa-chart-line",
     },
     {
       title: "Course Evaluation",
-      description:
-        "Gather student feedback to improve teaching methods and course content",
+      description: "Gather feedback for improvement",
       icon: "fas fa-star",
     },
   ];
@@ -90,54 +85,35 @@ const UseCasesSection: React.FC = () => {
   return (
     <section className="py-16 bg-gray-50 px-4">
       <div className="container mx-auto px-4">
-        {/* Toggle Switch */}
-        <div className="flex items-center justify-center mb-12">
-          <div className="relative flex bg-gray-100 rounded-xl px-2 py-1 border border-gray-300 shadow-sm">
-            <button
-              onClick={() => setUseCase("business")}
-              className={`relative z-10 px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center ${
-                useCase === "business"
-                  ? "text-primary font-semibold bg-white shadow-sm  transition-all duration-300 ease-in-out"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <i className="fas fa-briefcase text-lg"></i>
-              Business
-            </button>
+        {/* ✔ Reusable Tabs */}
+        <UseCaseTabs
+          tabs={tabs}
+          active={useCase}
+          onChange={setUseCase}
+          className="mb-12"
+        />
 
-            <button
-              onClick={() => setUseCase("education")}
-              className={`relative z-10 px-8 py-3 rounded-lg flex items-center gap-2 text-sm font-medium transition-all duration-300 min-w-[140px] justify-center ${
-                useCase === "education"
-                  ? "text-primary font-semibold bg-white shadow-sm  transition-all duration-300 ease-in-out"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <i className="fas fa-graduation-cap text-lg"></i>
-              Education
-            </button>
-          </div>
-        </div>
-
-        {/* Content */}
+        {/* Title */}
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
           {useCase === "business"
             ? "Business Use Cases"
             : "Education Use Cases"}
         </h2>
+
         <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
           {useCase === "business"
             ? "Streamline your business processes with our comprehensive assessment solutions"
             : "Enhance learning experiences with our interactive educational assessment tools"}
         </p>
 
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentUseCases.map((useCaseItem, index) => (
             <div
               key={index}
               className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 group"
             >
-              <div className="text-2xl text-primary mb-4 ">
+              <div className="text-2xl text-primary mb-4">
                 <i className={useCaseItem.icon}></i>
               </div>
 
@@ -145,9 +121,7 @@ const UseCasesSection: React.FC = () => {
                 {useCaseItem.title}
               </h3>
 
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                {useCaseItem.description}
-              </p>
+              <p className="text-gray-600 mb-4">{useCaseItem.description}</p>
 
               <Link href="#">
                 <Button
@@ -162,18 +136,21 @@ const UseCasesSection: React.FC = () => {
           ))}
         </div>
 
+        {/* CTA */}
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6">
             Ready to get started with{" "}
             {useCase === "business" ? "business" : "educational"} assessments?
           </p>
+
           <Link
             href={useCase === "business" ? "/business-demo" : "/education-demo"}
           >
-            <Button variant="primary" size="lg">
-              Get Started Free
-              <i className="fas fa-arrow-right ml-2"></i>
-            </Button>
+            <div className="flex items-center justify-center">
+              <Button variant="primary" size="lg">
+                Get Started Free <i className="fas fa-arrow-right ml-2"></i>
+              </Button>
+            </div>
           </Link>
         </div>
       </div>

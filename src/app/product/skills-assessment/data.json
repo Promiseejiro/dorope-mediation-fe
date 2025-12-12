@@ -254,7 +254,7 @@
       "actions": [
         {
           "text": "Start Free Trial",
-          "href": "/signup",
+          "href": "/register",
           "variant": "primary"
         },
         {

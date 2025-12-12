@@ -5,7 +5,7 @@ export interface OnboardingData {
     industry: string | null;
     organizationInfo?: {
         name: string;
-        size: string;
+        // size: string;
         website?: string;
         description?: string;
     };

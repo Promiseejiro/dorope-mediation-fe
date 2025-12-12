@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter, Host_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -6,6 +7,8 @@ import Providers from "@/providers/session-provider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileHeader from "@/components/layout/MobileHeader";
+import LayoutWrapper from "./layoutWrapper";
+import ToastContainer from "@/components/ui/ToastContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 const hostGrotesk = Host_Grotesk({
@@ -35,10 +38,13 @@ export default function RootLayout({
       <body className={`${inter.className} ${hostGrotesk.className}`}>
         <Providers>
           <QueryProvider>
-            <div className="bg-gray-50 min-h-screen flex flex-col">
-              
-              {children}
-            </div>
+            <LayoutWrapper>
+              <div className="bg-gray-50 min-h-screen flex flex-col">
+                {children}
+              </div>
+              <ToastContainer />
+              <div id="modal-root"></div>
+            </LayoutWrapper>
           </QueryProvider>
         </Providers>
       </body>

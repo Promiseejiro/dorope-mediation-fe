@@ -1,7 +1,7 @@
 // components/onboarding/OnboardingContainer.tsx
 import React from "react";
 import Button from "@/components/ui/Button";
-import { OnboardingStep } from "../../../../types/onboarding";
+import { OnboardingStep } from "@/types/user";
 
 interface OnboardingContainerProps {
   children: React.ReactNode;

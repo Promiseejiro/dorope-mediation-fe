@@ -26,7 +26,7 @@ const ModalBackdrop = ({
     return ReactDOM.createPortal(
       <div
         onClick={onClose}
-        className={`absolute inset-0 h-screen ${className}`}
+        className={`fixed w-screen z-60 inset-0 h-screen ${className}`}
       >
         {children}
       </div>,

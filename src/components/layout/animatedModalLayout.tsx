@@ -14,7 +14,7 @@ export default function AnimatedModalLayout({
   children,
   className = "",
   setShowModal,
-  maxWidth = 500,
+  maxWidth = 896,
   showCloseIcon = false,
 }: IAnimatedModalLayout) {
   const modalBackgroundRef = useRef<HTMLDivElement | null>(null);
@@ -49,7 +49,7 @@ export default function AnimatedModalLayout({
             <i className="fa-regular fa-circle-xmark text-black"></i>
           </span>
         )}
-        {children}
+        <div className="max-h-[90vh] overflow-y-auto"> {children}</div>
       </div>
     </ModalBackdrop>
   );

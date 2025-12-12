@@ -1,4 +1,4 @@
-// app/auth/reset-password-otp/page.tsx
+// app/reset-password-otp/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,15 +7,30 @@ import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import OtpInput from "@/components/ui/OtpInput";
 import Button from "@/components/ui/Button";
-
-interface ResetPasswordOtpFormData {
-  otp: string;
-}
+import { VerifyResetPasswordFormData } from "@/types/auth";
+import { useMutation } from "@tanstack/react-query";
+import { toastCustom } from "@/utils/toast";
+import {
+  ResendResetPassword,
+  verifyResetPassword,
+} from "@/request/authRequest";
+import { useAuthStore } from "@/store/authStore";
 
 const ResetPasswordOtpPage: React.FC = () => {
   const router = useRouter();
   const [countdown, setCountdown] = useState(60);
   const [canResend, setCanResend] = useState(false);
+  const { storedEmail, setstoredEmail } = useAuthStore();
+
+  useEffect(() => {
+    if (!storedEmail) {
+      router.push("/forgot-password");
+    }
+  }, [storedEmail, router]);
+
+  if (!storedEmail) {
+    return null;
+  }
 
   useEffect(() => {
     if (countdown > 0) {
@@ -26,8 +41,9 @@ const ResetPasswordOtpPage: React.FC = () => {
     }
   }, [countdown]);
 
-  const initialValues: ResetPasswordOtpFormData = {
+  const initialValues: VerifyResetPasswordFormData = {
     otp: "",
+    email: storedEmail,
   };
 
   const validationSchema = Yup.object({
@@ -37,30 +53,39 @@ const ResetPasswordOtpPage: React.FC = () => {
       .required("OTP is required"),
   });
 
-  const handleSubmit = async (values: ResetPasswordOtpFormData) => {
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Verifying reset OTP:", values.otp);
+  const mutation = useMutation({
+    mutationFn: (data: VerifyResetPasswordFormData) =>
+      verifyResetPassword(data),
+    onSuccess: (data, formdata) => {
+      router.push("/new-password");
+    },
+    onError: (error: any) => {
+      toastCustom(error.response.data.message, "error");
+    },
+  });
 
-      // Redirect to new password page after verification
-      router.push("/auth/new-password");
-    } catch (error) {
-      console.error("OTP verification error:", error);
-    }
-  };
+  const resetMutation = useMutation({
+    mutationFn: (email: string) => ResendResetPassword(email),
+    onSuccess: (data, formdata) => {},
+    onError: (error: any) => {
+      toastCustom(error.response.data.message, "error");
+    },
+  });
 
   const handleResendOtp = () => {
     setCountdown(60);
     setCanResend(false);
-    // Add resend OTP logic here
-    console.log("Resending reset OTP...");
+    resetMutation.mutate(storedEmail);
   };
 
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: handleSubmit,
+    onSubmit: (data: VerifyResetPasswordFormData) => {
+      console.log(data.email);
+      mutation.mutate(data);
+      setstoredEmail(data.email);
+    },
   });
 
   return (
@@ -94,9 +119,10 @@ const ResetPasswordOtpPage: React.FC = () => {
           variant="primary"
           size="lg"
           className="w-full"
-          disabled={formik.isSubmitting || formik.values.otp.length !== 6}
+          loading={mutation.isPending}
+          disabled={mutation.isPending}
         >
-          {formik.isSubmitting ? "Verifying..." : "Verify Code"}
+          Verify Code
         </Button>
       </form>
 
@@ -107,7 +133,7 @@ const ResetPasswordOtpPage: React.FC = () => {
             <button
               type="button"
               onClick={handleResendOtp}
-              className="text-primary hover:text-secondary font-medium"
+              className="text-primary hover:text-secondary font-medium cursor-pointer"
             >
               Resend OTP
             </button>

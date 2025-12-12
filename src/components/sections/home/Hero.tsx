@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             AI-powered skills and knowledge assessment platform, designed for
             educational institutions and organizations worldwide.
           </p>
-          <div className="flex flex-col sm:flex-row justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
+          <div className="flex flex-col justify-center  sm:flex-row lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
             <Button variant="primary" size="lg">
               Sign up - it's free
             </Button>
@@ -42,28 +42,31 @@ const Hero: React.FC = () => {
           />
         </div>
       </div>
-      <div className="bg-white mt-8">
-        <div className="container flex flex-col lg:flex-row justify-center items-center gap-8 p-8  mx-auto  ">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Here to take a test?
-            </h2>
-            <p className="text-gray-600 mb-6">
+      <div className="bg-primary mt-8 ">
+        <div className="container flex flex-col lg:flex-row justify-center items-center lg:gap-8 p-8  w-full  ">
+          <div className="w-full text-white flex-1 text-center lg:text-left">
+            <h2 className="text-4xl font-bold mb-2 ">Here to take a test?</h2>
+            <p className=" mb-6 text-lg">
               No registration required. Enter your access code and start.
             </p>
           </div>
-          <div className="flex flex-col justify-end sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 flex-1 w-full">
-            <Input
-              id="accessCode"
-              placeholder="Enter the access code"
-              value={accessCode}
-              onChange={(e) => setAccessCode(e.target.value)}
-              className="grow "
-            />
-            <div className="w-full">
-              <Button variant="accent" size="md" className="lg:max-w-40 w-full">
-                Start your test
-              </Button>
+          <div className="flex border-solid   flex-col justify-end sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 flex-1 w-full">
+            <div className="w-full flex flex-col lg:flex-row  lg:gap-4">
+              <div className="w-full ">
+                <Input
+                  id="accessCode"
+                  placeholder="Enter the access code"
+                  value={accessCode}
+                  onChange={(e) => setAccessCode(e.target.value)}
+                  className="grow"
+                  placeHolderClassName="placeholder:text-white"
+                />
+              </div>
+              <div className="w-full lg:w-[40%]">
+                <Button variant="accent" size="md" className="w-full">
+                  Start your test
+                </Button>
+              </div>
             </div>
           </div>
         </div>
