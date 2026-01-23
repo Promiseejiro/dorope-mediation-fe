@@ -53,8 +53,8 @@ const Button: React.FC<ButtonProps> = ({
 
   const sizeClasses: Record<ButtonSize, string> = {
     sm: "px-4 py-2 text-sm rounded-md",
-    md: "px-6 py-3 rounded-lg",
-    lg: "px-8 py-4 text-lg rounded-xl",
+    md: "px-6 py-3 rounded-4xl",
+    lg: "px-8 py-4 text-lg rounded-4xl",
   };
 
   const classes = twMerge(

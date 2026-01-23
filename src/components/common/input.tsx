@@ -68,7 +68,7 @@ const Input: React.FC<InputProps> = ({
             rows={rows}
             required={required}
             className={twMerge(
-              `w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
+              `w-full px-4 py-3 border rounded-4xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
                 error && touched ? "border-red-500" : "border-gray-300"
               } ${placeHolderClassName}`,
             )}
@@ -85,7 +85,7 @@ const Input: React.FC<InputProps> = ({
             onBlur={onBlur}
             required={required}
             className={twMerge(
-              `w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
+              `w-full px-4 py-3 border rounded-4xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
                 error && touched ? "border-red-500" : "border-gray-300"
               } ${showPasswordToggle ? "pr-10" : ""} ${placeHolderClassName}`,
             )}

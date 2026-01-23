@@ -38,7 +38,11 @@ const Header = () => {
             className="md:hidden text-primary text-2xl"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <i className="fas fa-bars"></i>
+            {mobileMenuOpen ? (
+              <i className="fas fa-times"></i>
+            ) : (
+              <i className="fas fa-bars"></i>
+            )}
           </button>
 
           <nav className="hidden md:block">
@@ -60,17 +64,17 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`fixed top-14 right-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
         <div className="p-6 pt-16">
-          <button
+          {/* <button
             className="absolute top-6 right-6 text-primary text-2xl"
             onClick={() => setMobileMenuOpen(false)}
           >
             <i className="fas fa-times"></i>
-          </button>
+          </button> */}
           <ul className="space-y-6">
             {navItems.map((item) => (
               <li key={item.label}>
