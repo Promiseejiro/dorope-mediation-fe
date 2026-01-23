@@ -1,32 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #005cad;
-  --secondary: #1e40af;
-  --accent: #F59E0B;
-  --gray: #E5E7EB;
-  --background: #ffffff;
-  --foreground: #171717;
-  --destructive: #FF3B30;
+  --primary: #2e7d32;
+  --secondary: #1b5e20;
+  --accent: #4caf50;
+  --gray: #f5f5f5;
+  --background: #e8f5e9;
+  --foreground: #1b5e20;
+  --destructive: #f44336;
   --black: #000000;
+  --primary-light: #c8e6c9;
+  --primary-dark: #a5d6a7;
 }
 
 @theme inline {
   --color-primary: var(--primary);
-  --color-search: var(--search);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-gray: var(--gray);
   --color-black: var(--black);
   --color-destructive: var(--destructive);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-grotesk: var(--font-sans);
 
-  --font-grotesk: var(--font-host-grotesk);
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
 }
 
 body {
@@ -35,19 +41,12 @@ body {
   font-family: var(--font-grotesk), Arial, Helvetica, sans-serif;
 }
 
-/* Smooth fade-in element example */
-#cobe {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }
 
-#cobe.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Button link styling, fully compatible with CSS variables + Tailwind */
+/* Button link styling */
 @layer components {
   .btn-link {
     background: transparent;
@@ -72,13 +71,13 @@ body {
 }
 
 @keyframes fadeIn {
-  from { 
-    opacity: 0; 
-    transform: translateY(10px); 
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

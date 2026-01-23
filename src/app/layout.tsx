@@ -1,32 +1,23 @@
-// app/layout.tsx
 import type { Metadata } from "next";
-import { Inter, Host_Grotesk } from "next/font/google";
+import { Host_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import QueryProvider from "@/providers/query-provider";
-import Providers from "@/providers/session-provider";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import MobileHeader from "@/components/layout/MobileHeader";
-import LayoutWrapper from "./layoutWrapper";
-import ToastContainer from "@/components/ui/ToastContainer";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/components/common/Header";
 const hostGrotesk = Host_Grotesk({
   variable: "--font-host-grotesk",
   subsets: ["latin"],
 });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EduAssess - Digital Assessment Platform",
-  description:
-    "AI-powered skills and knowledge assessment platform, designed for educational institutions and organizations worldwide.",
+  title: "Dorope Mediation & Conciliation for Peace Building",
+  description: "Building peace through mediation and conciliation services",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <head>
@@ -35,18 +26,9 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
       </head>
-      <body className={`${inter.className} ${hostGrotesk.className}`}>
-        <Providers>
-          <QueryProvider>
-            <LayoutWrapper>
-              <div className="bg-gray-50 min-h-screen flex flex-col">
-                {children}
-              </div>
-              <ToastContainer />
-              <div id="modal-root"></div>
-            </LayoutWrapper>
-          </QueryProvider>
-        </Providers>
+      <body className={hostGrotesk.className}>
+        <Header />
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );
