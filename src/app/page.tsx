@@ -138,7 +138,7 @@ export default function Home() {
         id="home"
         className="relative bg-gradient-to-r from-primary-light/20 to-white"
       >
-        <div className="container mx-auto px-4 py-20 md:py-32">
+        <div className="container mx-auto px-4 lg:px-10 py-20 md:py-32">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Building Peace Through Mediation & Conciliation
@@ -163,7 +163,7 @@ export default function Home() {
 
       {/* Events Section */}
       <section id="events" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Our Peace Building Events
@@ -234,7 +234,7 @@ export default function Home() {
 
       {/* Why Mediation Section */}
       <section id="comparison" className="py-20 bg-primary-light/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Why Choose Mediation Over Court?
@@ -325,7 +325,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Success Stories & Testimonials
@@ -369,7 +369,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-primary-light/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Our Mediation Services
@@ -403,7 +403,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Contact Us
@@ -512,7 +512,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-foreground text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="text-2xl font-bold mb-4">
