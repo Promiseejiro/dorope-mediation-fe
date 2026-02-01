@@ -2,25 +2,51 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Router } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
+  const navigation = useRouter();
+  const pathName = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Home", href: "#home" },
     { label: "Peace Events", href: "#events" },
     { label: "Why Mediation", href: "#comparison" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Teams", href: "/teams" },
     { label: "Services", href: "#services" },
     { label: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
     setMobileMenuOpen(false);
+
+    // If it's a hash link (section on current page)
+    if (href.startsWith("#")) {
+      // If we're not on the homepage, navigate to homepage first
+      if (pathName !== "/") {
+        navigation.push(`/${href}`);
+      } else {
+        // We're already on homepage, just scroll
+        const elementId = href.substring(1);
+        const element = document.getElementById(elementId);
+        if (element) {
+          const headerOffset = 80; // Adjust based on header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    } else {
+      navigation.push(href);
+    }
   };
 
   return (
@@ -28,7 +54,13 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-10 py-5">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3">
-            <i className="fas fa-dove text-4xl text-primary"></i>
+            <Image
+              alt="Dorop Mediation logo"
+              height={60}
+              width={60}
+              src="/assets/images/logo.png"
+            />
+            {/* <i className="fas fa-dove text-4xl text-primary"></i> */}
             <div className="text-2xl font-bold text-foreground">
               Dorope<span className="text-accent">{`  `}Mediation</span>
             </div>
@@ -48,13 +80,22 @@ const Header = () => {
           <nav className="hidden md:block">
             <ul className="flex gap-8">
               {navItems.map((item) => (
-                <li key={item.label}>
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-foreground font-semibold hover:text-accent transition-colors text-lg"
-                  >
-                    {item.label}
-                  </button>
+                <li key={item.label} className="cursor-pointer">
+                  {item.href.startsWith("#") ? (
+                    <button
+                      onClick={() => scrollToSection(item.href)}
+                      className="text-foreground font-semibold hover:text-accent transition-colors text-lg"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-foreground font-semibold hover:text-accent transition-colors text-lg"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

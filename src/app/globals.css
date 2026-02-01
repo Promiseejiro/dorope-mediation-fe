@@ -41,12 +41,32 @@ body {
   font-family: var(--font-grotesk), Arial, Helvetica, sans-serif;
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Button link styling */
+/* Team Member Card Animations */
+.team-card {
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.05);
+}
+
+.team-image {
+  transition: transform 0.3s ease;
+}
+
+/* Volunteer Form Styles */
+.volunteer-form-section {
+  background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
 @layer components {
   .btn-link {
     background: transparent;

@@ -43,19 +43,19 @@ const events = [
 
 const testimonials = [
   {
-    text: "Harmony Bridge helped our community resolve a 5-year land dispute that was tearing us apart. Their mediators were patient, understanding, and helped us find a solution that worked for everyone. Today, we're not just neighbors - we're partners in community development.",
+    text: "Dorope Mediation helped our community resolve a 5-year land dispute that was tearing us apart. Their mediators were patient, understanding, and helped us find a solution that worked for everyone. Today, we're not just neighbors - we're partners in community development.",
     name: "James Okafor",
     role: "Community Leader, Riverside District",
     icon: "fas fa-user",
   },
   {
-    text: "After nearly taking our partnership dispute to court, we decided to try mediation with Harmony Bridge. In just three sessions, we resolved issues that had been brewing for years. We saved thousands in legal fees and preserved our business relationship.",
+    text: "After nearly taking our partnership dispute to court, we decided to try mediation with Dorope Mediation. In just three sessions, we resolved issues that had been brewing for years. We saved thousands in legal fees and preserved our business relationship.",
     name: "Sarah Johnson",
     role: "Business Owner, TechSolutions Inc.",
     icon: "fas fa-user-tie",
   },
   {
-    text: "The family mediation services helped us navigate a difficult inheritance dispute. Instead of tearing our family apart in court, we found a solution that honored our parents' wishes and kept our family relationships intact. I can't recommend Harmony Bridge enough.",
+    text: "The family mediation services helped us navigate a difficult inheritance dispute. Instead of tearing our family apart in court, we found a solution that honored our parents' wishes and kept our family relationships intact. I can't recommend Dorope Mediation enough.",
     name: "Michael Chen",
     role: "Family Mediation Client",
     icon: "fas fa-user-friends",
@@ -176,7 +176,7 @@ export default function Home() {
 
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-gray-700">
-              At Harmony Bridge, we organize and participate in numerous peace
+              At Dorope Mediation, we organize and participate in numerous peace
               building events throughout the year. These events bring together
               communities, facilitate dialogue, and create lasting solutions to
               conflicts. Click on any event to view details.
@@ -444,7 +444,7 @@ export default function Home() {
                     <h4 className="font-bold text-foreground mb-1">
                       Phone Number
                     </h4>
-                    <p className="text-gray-700">+1 (555) 123-4567</p>
+                    <p className="text-gray-700">+234 901 583 797 9</p>
                   </div>
                 </div>
 
@@ -454,7 +454,7 @@ export default function Home() {
                     <h4 className="font-bold text-foreground mb-1">
                       Email Address
                     </h4>
-                    <p className="text-gray-700">info@harmonybridge.org</p>
+                    <p className="text-gray-700">doropemediationng@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -516,7 +516,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="text-2xl font-bold mb-4">
-                Harmony<span className="text-primary-light">Bridge</span>
+                Dorope<span className="text-primary-light">Mediation</span>
               </div>
               <p className="text-gray-300 mb-6">
                 Building bridges of understanding through professional mediation
@@ -575,11 +575,11 @@ export default function Home() {
                 </p>
                 <p className="flex items-center">
                   <i className="fas fa-phone mr-3"></i>
-                  +1 (555) 123-4567
+                  +234 901 583 797 9
                 </p>
                 <p className="flex items-center">
                   <i className="fas fa-envelope mr-3"></i>
-                  info@harmonybridge.org
+                  doropemediationng@gmail.com
                 </p>
               </div>
             </div>
@@ -587,7 +587,7 @@ export default function Home() {
 
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
             <p>
-              &copy; 2023 Harmony Bridge | Mediation & Conciliation for Peace
+              &copy; 2023 Dorope Mediation | Mediation & Conciliation for Peace
               Building. All rights reserved.
             </p>
           </div>
