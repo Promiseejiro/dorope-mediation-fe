@@ -150,10 +150,10 @@ export default function Home() {
               peaceful solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="#contact" size="lg">
+              <Button href="#contact" size="md">
                 Request Mediation
               </Button>
-              <Button href="#events" variant="outline" size="lg">
+              <Button href="#events" variant="outline" size="md">
                 View Peace Events
               </Button>
             </div>
