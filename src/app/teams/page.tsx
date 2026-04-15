@@ -8,11 +8,11 @@ import { useState } from "react";
 // Team data
 const leadershipTeam = [
   {
-    name: "Dr. Sarah Johnson",
+    name: "Mr. Oluwaseun Ojo",
     role: "Founder & CEO",
-    bio: "With over 20 years of experience in conflict resolution and peace building, Dr. Johnson has led mediation efforts in over 50 communities worldwide. She holds a PhD in Peace Studies from Harvard University.",
+    bio: "Description here .",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1776234130/_DSC0008_041846_acbfxx.jpg",
     expertise: [
       "Community Mediation",
       "Peace Building",
@@ -23,11 +23,11 @@ const leadershipTeam = [
     linkedin: "https://linkedin.com/in/sarahjohnson",
   },
   {
-    name: "Michael Rodriguez",
-    role: "Chief Operations Officer",
-    bio: "Michael oversees all operational aspects of Harmony Bridge, ensuring our mediation services run smoothly and efficiently. He brings 15 years of NGO management experience.",
+    name: "Barr. Oluwatosin Aribo [LL.B, B.L, LL.M]",
+    role: "Founder & CEO",
+    bio: "Description here .",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1776234079/IMG-20260211-WA0000_qykovp.jpg",
     expertise: [
       "Operations",
       "Project Management",
@@ -36,23 +36,8 @@ const leadershipTeam = [
     ],
     email: "michael@harmonybridge.org",
     linkedin: "https://linkedin.com/in/michaelrodriguez",
-  },
-  {
-    name: "Dr. Amina Hassan",
-    role: "Director of Mediation Services",
-    bio: "Dr. Hassan specializes in cross-cultural mediation and has developed innovative approaches to resolving complex community conflicts. She holds a Doctorate in Conflict Resolution.",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    expertise: [
-      "Cross-cultural Mediation",
-      "Training",
-      "Research",
-      "Community Engagement",
-    ],
-    email: "amina@harmonybridge.org",
-    linkedin: "https://linkedin.com/in/aminahassan",
-  },
-];
+  }]
+
 
 const mediationTeam = [
   {

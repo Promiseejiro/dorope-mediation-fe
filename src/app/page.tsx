@@ -1,5 +1,7 @@
 "use client";
-
+ import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/input";
 import { useState } from "react";
@@ -86,12 +88,6 @@ const services = [
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
 
   const openModal = (index: number) => {
     setCurrentImageIndex(index);
@@ -114,22 +110,35 @@ export default function Home() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(
-      "Thank you for your message! We will contact you soon to discuss mediation options.",
-    );
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+
+  const formik = useFormik({
+  initialValues: {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  },
+  validationSchema: Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    subject: Yup.string().required("Subject is required"),
+    message: Yup.string().required("Message is required"),
+  }),
+  onSubmit: async (values, { resetForm }) => {
+    console.log(values)
+    try {
+  const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
+   //   alert("Message sent successfully!");
+   //   resetForm();
+   
+   console.log(" submit form")
+    } catch (error) {
+      console.log(error);
+    alert("Something went wrong!");
+    }
+  },
+});
 
   return (
     <>
@@ -461,50 +470,61 @@ export default function Home() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8">
-              <form onSubmit={handleSubmit}>
-                <Input
-                  id="name"
-                  name="name"
-                  label="Your Name"
-                  placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  label="Your Email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  id="subject"
-                  name="subject"
-                  label="Subject"
-                  placeholder="Enter subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  id="message"
-                  name="message"
-                  type="textarea"
-                  label="Your Message"
-                  placeholder="Enter your message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  required
-                />
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
+<form onSubmit={formik.handleSubmit}>
+  <Input
+    id="name"
+    name="name"
+    label="Your Name"
+    placeholder="Enter your name"
+    value={formik.values.name}
+    onChange={formik.handleChange}
+  />
+  {formik.touched.name && formik.errors.name && (
+    <p className="text-red-500 text-sm">{formik.errors.name}</p>
+  )}
+
+  <Input
+    id="email"
+    name="email"
+    type="email"
+    label="Your Email"
+    placeholder="Enter your email"
+    value={formik.values.email}
+    onChange={formik.handleChange}
+  />
+  {formik.touched.email && formik.errors.email && (
+    <p className="text-red-500 text-sm">{formik.errors.email}</p>
+  )}
+
+  <Input
+    id="subject"
+    name="subject"
+    label="Subject"
+    placeholder="Enter subject"
+    value={formik.values.subject}
+    onChange={formik.handleChange}
+  />
+  {formik.touched.subject && formik.errors.subject && (
+    <p className="text-red-500 text-sm">{formik.errors.subject}</p>
+  )}
+
+  <Input
+    id="message"
+    name="message"
+    type="textarea"
+    label="Your Message"
+    placeholder="Enter your message"
+    value={formik.values.message}
+    onChange={formik.handleChange}
+  />
+  {formik.touched.message && formik.errors.message && (
+    <p className="text-red-500 text-sm">{formik.errors.message}</p>
+  )}
+
+  <Button type="submit" className="w-full">
+    Send Message
+  </Button>
+</form>
             </div>
           </div>
         </div>
