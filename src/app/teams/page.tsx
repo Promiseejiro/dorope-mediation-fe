@@ -207,7 +207,8 @@ export default function TeamPage() {
       setSubmitError(null);
       
       try {
-        const response = await axios.post(`http://localhost:3000/volunteer`, values);
+        // const response = await axios.post(`http://localhost:3000/volunteer`, values);
+        const response = await axios.post(`https://dorope-be-2.onrender.com/volunteer`, values);
         
         if (response.data.message) {
           alert(response.data.message || "Thank you for your interest in volunteering! We will review your application and contact you soon.");
