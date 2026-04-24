@@ -128,12 +128,15 @@ export default function Home() {
   onSubmit: async (values, { resetForm }) => {
     console.log(values)
     try {
-  const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
+  const res = await axios.post("http://localhost:3000/contact", values);
+  // const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
    //   alert("Message sent successfully!");
-   //   resetForm();
+
+   alert(res.data.message || "Message sent successfully!");
+     resetForm();
    
-   console.log(" submit form")
-    } catch (error) {
+console.log(res.data)
+  } catch (error) {
       console.log(error);
     alert("Something went wrong!");
     }

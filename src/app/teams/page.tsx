@@ -3,9 +3,12 @@
 import Button from "@/components/common/Button";
 import Input from "@/components/common/input";
 import TeamMemberCard from "@/components/common/TeamMemberCard";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import { useState } from "react";
 
-// Team data
+
 const leadershipTeam = [
   {
     name: "Mr. Oluwaseun Ojo",
@@ -36,8 +39,8 @@ const leadershipTeam = [
     ],
     email: "michael@harmonybridge.org",
     linkedin: "https://linkedin.com/in/michaelrodriguez",
-  }]
-
+  },
+];
 
 const mediationTeam = [
   {
@@ -145,28 +148,49 @@ const volunteerRoles = [
   "Youth Mentor",
 ];
 
+// API URL - update with your actual API endpoint
+
 export default function TeamPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    occupation: "",
-    experience: "",
-    skills: "",
-    roleInterest: "",
-    availability: "",
-    motivation: "",
+  const [selectedRole, setSelectedRole] = useState("");
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // Formik validation schema
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .required("First name is required")
+      .min(2, "First name must be at least 2 characters"),
+    lastName: Yup.string()
+      .required("Last name is required")
+      .min(2, "Last name must be at least 2 characters"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    phone: Yup.string()
+      .required("Phone number is required")
+      .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,6}$/, 
+        "Please enter a valid phone number"),
+    occupation: Yup.string()
+      .required("Occupation is required")
+      .min(2, "Please enter a valid occupation"),
+    experience: Yup.string()
+      .required("Experience is required")
+      .min(10, "Please provide at least 10 characters describing your experience"),
+    skills: Yup.string()
+      .required("Skills are required")
+      .min(10, "Please provide at least 10 characters describing your skills"),
+    roleInterest: Yup.string()
+      .required("Please select or enter a role of interest"),
+    availability: Yup.string()
+      .required("Availability is required")
+      .min(5, "Please provide your availability details"),
+    motivation: Yup.string()
+      .required("Motivation is required")
+      .min(20, "Please provide at least 20 characters explaining your motivation"),
   });
 
-  const [selectedRole, setSelectedRole] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(
-      "Thank you for your interest in volunteering! We will review your application and contact you soon.",
-    );
-    setFormData({
+  // Formik setup
+  const formik = useFormik({
+    initialValues: {
       firstName: "",
       lastName: "",
       email: "",
@@ -177,21 +201,39 @@ export default function TeamPage() {
       roleInterest: "",
       availability: "",
       motivation: "",
-    });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+    },
+    validationSchema,
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      setSubmitError(null);
+      
+      try {
+        const response = await axios.post(`http://localhost:3000/volunteer`, values);
+        
+        if (response.data.message) {
+          alert(response.data.message || "Thank you for your interest in volunteering! We will review your application and contact you soon.");
+          resetForm();
+          setSelectedRole("");
+        }
+      } catch (error: any) {
+        console.error("Volunteer application error:", error);
+        const errorMessage = error.response?.data?.message || "Something went wrong. Please try again later.";
+        setSubmitError(errorMessage);
+        alert(errorMessage);
+      } finally {
+        setSubmitting(false);
+      }
+    },
+  });
 
   const handleRoleClick = (role: string) => {
     setSelectedRole(role);
-    setFormData({ ...formData, roleInterest: role });
+    formik.setFieldValue("roleInterest", role);
+  };
+
+  const handleClearForm = () => {
+    formik.resetForm();
+    setSelectedRole("");
+    setSubmitError(null);
   };
 
   return (
@@ -327,6 +369,7 @@ export default function TeamPage() {
                   {volunteerRoles.map((role, index) => (
                     <button
                       key={index}
+                      type="button"
                       onClick={() => handleRoleClick(role)}
                       className={`px-4 py-2 rounded-lg border transition-all duration-200 ${
                         selectedRole === role
@@ -346,116 +389,181 @@ export default function TeamPage() {
                 )}
               </div>
 
-              <form onSubmit={handleSubmit}>
+              {submitError && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <i className="fas fa-exclamation-circle mr-2"></i>
+                  {submitError}
+                </div>
+              )}
+
+              <form onSubmit={formik.handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <Input
-                    id="firstName"
-                    name="firstName"
-                    label="First Name"
-                    placeholder="Enter your first name"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                  <Input
-                    id="lastName"
-                    name="lastName"
-                    label="Last Name"
-                    placeholder="Enter your last name"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
+                  <div>
+                    <Input
+                      id="firstName"
+                      name="firstName"
+                      label="First Name"
+                      placeholder="Enter your first name"
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                    />
+                    {formik.touched.firstName && formik.errors.firstName && (
+                      <p className="text-red-500 text-sm mt-1">{formik.errors.firstName}</p>
+                    )}
+                  </div>
+                  <div>
+                    <Input
+                      id="lastName"
+                      name="lastName"
+                      label="Last Name"
+                      placeholder="Enter your last name"
+                      value={formik.values.lastName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                    />
+                    {formik.touched.lastName && formik.errors.lastName && (
+                      <p className="text-red-500 text-sm mt-1">{formik.errors.lastName}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    label="Email Address"
-                    placeholder="Enter your email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                  <Input
-                    id="phone"
-                    name="phone"
-                    label="Phone Number"
-                    placeholder="Enter your phone number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
+                  <div>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      label="Email Address"
+                      placeholder="Enter your email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                    />
+                    {formik.touched.email && formik.errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{formik.errors.email}</p>
+                    )}
+                  </div>
+                  <div>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      label="Phone Number"
+                      placeholder="Enter your phone number"
+                      value={formik.values.phone}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                    />
+                    {formik.touched.phone && formik.errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">{formik.errors.phone}</p>
+                    )}
+                  </div>
                 </div>
 
-                <Input
-                  id="occupation"
-                  name="occupation"
-                  label="Current Occupation"
-                  placeholder="What do you currently do?"
-                  value={formData.occupation}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="mb-6">
+                  <Input
+                    id="occupation"
+                    name="occupation"
+                    label="Current Occupation"
+                    placeholder="What do you currently do?"
+                    value={formik.values.occupation}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    required
+                  />
+                  {formik.touched.occupation && formik.errors.occupation && (
+                    <p className="text-red-500 text-sm mt-1">{formik.errors.occupation}</p>
+                  )}
+                </div>
 
-                <Input
-                  id="experience"
-                  name="experience"
-                  label="Relevant Experience"
-                  placeholder="Describe any relevant experience in mediation, community work, or volunteering"
-                  type="textarea"
-                  value={formData.experience}
-                  onChange={handleChange}
-                  rows={3}
-                />
+                <div className="mb-6">
+                  <Input
+                    id="experience"
+                    name="experience"
+                    label="Relevant Experience"
+                    placeholder="Describe any relevant experience in mediation, community work, or volunteering"
+                    type="textarea"
+                    value={formik.values.experience}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    rows={3}
+                  />
+                  {formik.touched.experience && formik.errors.experience && (
+                    <p className="text-red-500 text-sm mt-1">{formik.errors.experience}</p>
+                  )}
+                </div>
 
-                <Input
-                  id="skills"
-                  name="skills"
-                  label="Skills & Qualifications"
-                  placeholder="List your skills and any relevant qualifications"
-                  type="textarea"
-                  value={formData.skills}
-                  onChange={handleChange}
-                  rows={3}
-                />
+                <div className="mb-6">
+                  <Input
+                    id="skills"
+                    name="skills"
+                    label="Skills & Qualifications"
+                    placeholder="List your skills and any relevant qualifications"
+                    type="textarea"
+                    value={formik.values.skills}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    rows={3}
+                  />
+                  {formik.touched.skills && formik.errors.skills && (
+                    <p className="text-red-500 text-sm mt-1">{formik.errors.skills}</p>
+                  )}
+                </div>
 
-                <Input
-                  id="roleInterest"
-                  name="roleInterest"
-                  label="Role of Interest"
-                  placeholder="Which volunteer role are you interested in?"
-                  value={selectedRole || formData.roleInterest}
-                  onChange={handleChange}
-                  required
-                  disabled={!!selectedRole}
-                />
+                <div className="mb-6">
+                  <Input
+                    id="roleInterest"
+                    name="roleInterest"
+                    label="Role of Interest"
+                    placeholder="Which volunteer role are you interested in?"
+                    value={selectedRole || formik.values.roleInterest}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    required
+                    disabled={!!selectedRole}
+                  />
+                  {formik.touched.roleInterest && formik.errors.roleInterest && (
+                    <p className="text-red-500 text-sm mt-1">{formik.errors.roleInterest}</p>
+                  )}
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="mb-6">
                   <Input
                     id="availability"
                     name="availability"
                     label="Availability"
                     placeholder="e.g., Weekends, Evenings, 10-15 hours/week"
-                    value={formData.availability}
-                    onChange={handleChange}
+                    value={formik.values.availability}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     required
                   />
+                  {formik.touched.availability && formik.errors.availability && (
+                    <p className="text-red-500 text-sm mt-1">{formik.errors.availability}</p>
+                  )}
                 </div>
 
-                <Input
-                  id="motivation"
-                  name="motivation"
-                  label="Why do you want to volunteer with us?"
-                  placeholder="Tell us about your motivation to join our peace building mission"
-                  type="textarea"
-                  value={formData.motivation}
-                  onChange={handleChange}
-                  rows={4}
-                  required
-                />
+                <div className="mb-6">
+                  <Input
+                    id="motivation"
+                    name="motivation"
+                    label="Why do you want to volunteer with us?"
+                    placeholder="Tell us about your motivation to join our peace building mission"
+                    type="textarea"
+                    value={formik.values.motivation}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    rows={4}
+                    required
+                  />
+                  {formik.touched.motivation && formik.errors.motivation && (
+                    <p className="text-red-500 text-sm mt-1">{formik.errors.motivation}</p>
+                  )}
+                </div>
 
                 <div className="mt-8">
                   <div className="flex items-start mb-6">
@@ -474,28 +582,26 @@ export default function TeamPage() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button type="submit" className="w-full sm:w-auto">
-                      Submit Volunteer Application
+                    <Button 
+                      type="submit" 
+                      className="w-full sm:w-auto"
+                      disabled={formik.isSubmitting}
+                    >
+                      {formik.isSubmitting ? (
+                        <>
+                          <i className="fas fa-spinner fa-spin mr-2"></i>
+                          Submitting...
+                        </>
+                      ) : (
+                        "Submit Volunteer Application"
+                      )}
                     </Button>
                     <Button
                       type="button"
                       variant="outline"
-                      onClick={() => {
-                        setFormData({
-                          firstName: "",
-                          lastName: "",
-                          email: "",
-                          phone: "",
-                          occupation: "",
-                          experience: "",
-                          skills: "",
-                          roleInterest: "",
-                          availability: "",
-                          motivation: "",
-                        });
-                        setSelectedRole("");
-                      }}
+                      onClick={handleClearForm}
                       className="w-full sm:w-auto"
+                      disabled={formik.isSubmitting}
                     >
                       Clear Form
                     </Button>
