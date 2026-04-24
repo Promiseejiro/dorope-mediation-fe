@@ -131,7 +131,6 @@ export default function Home() {
   const res = await axios.post("http://localhost:3000/contact", values);
   // const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
    //   alert("Message sent successfully!");
-
    alert(res.data.message || "Message sent successfully!");
      resetForm();
    
