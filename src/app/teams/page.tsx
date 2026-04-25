@@ -7,6 +7,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
+
 
 
 const leadershipTeam = [
@@ -205,22 +207,19 @@ export default function TeamPage() {
     validationSchema,
     onSubmit: async (values, { resetForm, setSubmitting }) => {
       setSubmitError(null);
-      
-      
       try {
         // const response = await axios.post(`http://localhost:3000/volunteer`, values);
         const response = await axios.post(`https://dorope-be-2.onrender.com/volunteer`, values);
         
         if (response.data.message) {
-          alert(response.data.message || "Thank you for your interest in volunteering! We will review your application and contact you soon.");
+          toast.success(response.data.message || "Thank you for your interest in volunteering! We will review your application and contact you soon.");
           resetForm();
           setSelectedRole("");
         }
       } catch (error: any) {
-        console.error("Volunteer application error:", error);
         const errorMessage = error.response?.data?.message || "Something went wrong. Please try again later.";
         setSubmitError(errorMessage);
-        alert(errorMessage);
+        toast.error(errorMessage);
       } finally {
         setSubmitting(false);
       }
@@ -588,15 +587,8 @@ export default function TeamPage() {
                       type="submit" 
                       className="w-full sm:w-auto"
                       disabled={formik.isSubmitting}
-                    >
-                      {formik.isSubmitting ? (
-                        <>
-                          <i className="fas fa-spinner fa-spin mr-2"></i>
-                          Submitting...
-                        </>
-                      ) : (
-                        "Submit Volunteer Application"
-                      )}
+                   loading={formik.isSubmitting}  >
+                   Submit Volunteer Application
                     </Button>
                     <Button
                       type="button"

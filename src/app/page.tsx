@@ -1,64 +1,57 @@
 "use client";
- import { useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/input";
 import { useState } from "react";
-
-// Event data
+import toast from "react-hot-toast";
+// Event data with multiple images per event
 const events = [
   {
-    title: "Community Reconciliation Forum",
-    date: "March 15, 2023",
-    description:
-      "A successful mediation between two neighboring communities that had been in conflict over land resources for over a decade.",
-    image:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
-    caption:
+    title: "Event: Career Day and Peace sensitization at Gladele British Academy, Abuja",
+    date: "2025",
+    description: `The Career Day and Peace Sensitization event at Gladele British Academy is designed to inspire and guide students toward a purposeful future while promoting a culture of peace and mutual understanding.
+
+This impactful mediation-focused program brings together professionals from diverse fields to share real-life career experiences, helping students explore opportunities, set goals, and make informed decisions about their future paths.
+
+In addition, the peace sensitization segment emphasizes conflict resolution, effective communication, and the importance of peaceful coexistence in society. Through interactive discussions and practical insights, students are equipped with the skills needed to manage disagreements constructively and become ambassadors of peace in their communities.
+
+Overall, the event aims to shape well-rounded individuals who are not only career-driven but also socially responsible and committed to fostering harmony.`,
+    images: [
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1777139185/IMG-20260211-WA0003_ec5jdr.jpg",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1777139185/IMG-20260211-WA0001_fuwncr.jpg",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1777139185/IMG-20260211-WA0002_wue2ag.jpg",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1777139184/IMG-20260211-WA0000_wv7nrq.jpg",
+    ],
+    captions: [
       "Community leaders signing the peace agreement after successful mediation.",
+      "Students actively participating in the peace sensitization workshop.",
+      "Career guidance session with professionals from various fields.",
+      "Group photo of all participants and organizers at the event.",
+    ],
     icon: "fas fa-hands-helping",
   },
-  {
-    title: "Youth Peace Workshop",
-    date: "June 22, 2023",
-    description:
-      "Empowering young leaders with conflict resolution skills to become ambassadors of peace in their schools and communities.",
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-    caption:
-      "Youth participants engaged in a conflict resolution role-playing exercise.",
-    icon: "fas fa-users",
-  },
-  {
-    title: "Business Mediation Summit",
-    date: "August 10, 2023",
-    description:
-      "Resolving partnership disputes between local businesses and fostering collaborative economic development.",
-    image:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-    caption:
-      "Business leaders shaking hands after successful mediation of partnership disputes.",
-    icon: "fas fa-handshake",
-  },
+  
 ];
 
 const testimonials = [
   {
     text: "Dorope Mediation helped our community resolve a 5-year land dispute that was tearing us apart. Their mediators were patient, understanding, and helped us find a solution that worked for everyone. Today, we're not just neighbors - we're partners in community development.",
-    name: "James Okafor",
+  
+    name: "Oyedele Daniel",
     role: "Community Leader, Riverside District",
     icon: "fas fa-user",
   },
   {
     text: "After nearly taking our partnership dispute to court, we decided to try mediation with Dorope Mediation. In just three sessions, we resolved issues that had been brewing for years. We saved thousands in legal fees and preserved our business relationship.",
-    name: "Sarah Johnson",
+  name: "Mr Adebanjo",
     role: "Business Owner, TechSolutions Inc.",
     icon: "fas fa-user-tie",
   },
   {
     text: "The family mediation services helped us navigate a difficult inheritance dispute. Instead of tearing our family apart in court, we found a solution that honored our parents' wishes and kept our family relationships intact. I can't recommend Dorope Mediation enough.",
-    name: "Michael Chen",
+    name: "Mrs Daramola",
     role: "Family Mediation Client",
     icon: "fas fa-user-friends",
   },
@@ -86,11 +79,13 @@ const services = [
 ];
 
 export default function Home() {
+  const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = (index: number) => {
-    setCurrentImageIndex(index);
+  const openModal = (eventIdx: number, imgIdx: number = 0) => {
+    setCurrentEventIndex(eventIdx);
+    setCurrentImageIndex(imgIdx);
     setModalOpen(true);
     document.body.style.overflow = "hidden";
   };
@@ -101,46 +96,51 @@ export default function Home() {
   };
 
   const navigateModal = (direction: "prev" | "next") => {
+    const currentEvent = events[currentEventIndex];
+    const totalImages = currentEvent.images.length;
+    
     if (direction === "prev") {
-      setCurrentImageIndex(
-        (prev) => (prev - 1 + events.length) % events.length,
-      );
+      setCurrentImageIndex((prev) => (prev - 1 + totalImages) % totalImages);
     } else {
-      setCurrentImageIndex((prev) => (prev + 1) % events.length);
+      setCurrentImageIndex((prev) => (prev + 1) % totalImages);
     }
   };
 
-
+  const navigateEvent = (direction: "prev" | "next") => {
+    const newEventIndex = direction === "prev" 
+      ? (currentEventIndex - 1 + events.length) % events.length
+      : (currentEventIndex + 1) % events.length;
+    setCurrentEventIndex(newEventIndex);
+    setCurrentImageIndex(0);
+  };
 
   const formik = useFormik({
-  initialValues: {
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  },
-  validationSchema: Yup.object({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    subject: Yup.string().required("Subject is required"),
-    message: Yup.string().required("Message is required"),
-  }),
-  onSubmit: async (values, { resetForm }) => {
-    console.log(values)
-    try {
-  const res = await axios.post("http://localhost:3000/contact", values);
-  // const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
-   //   alert("Message sent successfully!");
-   alert(res.data.message || "Message sent successfully!");
-     resetForm();
-   
-console.log(res.data)
-  } catch (error) {
-      console.log(error);
-    alert("Something went wrong!");
-    }
-  },
-});
+    initialValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+      subject: Yup.string().required("Subject is required"),
+      message: Yup.string().required("Message is required"),
+    }),
+    onSubmit: async (values, { resetForm }) => {
+      console.log(values);
+      try {
+        // const res = await axios.post("http://localhost:3000/contact", values);
+        const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
+        toast.success(res.data.message || "Message sent successfully!");
+        resetForm();
+        console.log(res.data);
+      } catch (error) {
+        console.log(error);
+        toast.error("Something went wrong!");
+      }
+    },
+  });
 
   return (
     <>
@@ -190,28 +190,70 @@ console.log(res.data)
               At Dorope Mediation, we organize and participate in numerous peace
               building events throughout the year. These events bring together
               communities, facilitate dialogue, and create lasting solutions to
-              conflicts. Click on any event to view details.
+              conflicts. Click on any event image to view gallery.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {events.map((event, index) => (
+            {events.map((event, eventIdx) => (
               <div
-                key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                onClick={() => openModal(index)}
+                key={eventIdx}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="bg-primary-light h-56 flex items-center justify-center">
-                  <i className={`${event.icon} text-6xl text-primary`}></i>
+                {/* Image Gallery Preview */}
+                <div className="relative">
+                  <div 
+                    className="bg-primary-light h-56 flex items-center justify-center cursor-pointer relative group"
+                    onClick={() => openModal(eventIdx, 0)}
+                  >
+                    <img 
+                      src={event.images[0]} 
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                    {event.images.length > 1 && (
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="bg-white/90 rounded-full px-4 py-2 text-gray-800 font-semibold flex items-center gap-2">
+                          <i className="fas fa-images"></i>
+                          <span>{event.images.length} photos</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {/* Thumbnail strip */}
+                  {event.images.length > 1 && (
+                    <div className="absolute bottom-2 left-2 right-2 flex gap-1 justify-center">
+                      {event.images.slice(0, 4).map((_, idx) => (
+                        <div 
+                          key={idx}
+                          className={`w-2 h-2 rounded-full cursor-pointer transition-all ${
+                            idx === 0 ? 'bg-white w-4' : 'bg-white/60'
+                          }`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openModal(eventIdx, idx);
+                          }}
+                        ></div>
+                      ))}
+                      {event.images.length > 4 && (
+                        <div className="w-2 h-2 rounded-full bg-white/40"></div>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
                     {event.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{event.description}</p>
-                  <div className="flex items-center text-accent font-semibold">
+                  <p className="text-gray-600 mb-4 line-clamp-3">{event.description}</p>
+                  <div className="flex items-center text-accent font-semibold mb-3">
                     <i className="far fa-calendar-alt mr-2"></i>
                     {event.date}
+                  </div>
+                  {/* Image count indicator */}
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <i className="fas fa-images mr-1"></i>
+                    <span>{event.images.length} event photos</span>
                   </div>
                 </div>
               </div>
@@ -224,10 +266,10 @@ console.log(res.data)
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { number: "127", label: "Conflicts Resolved" },
-                { number: "42", label: "Communities Helped" },
-                { number: "89%", label: "Satisfaction Rate" },
-                { number: "15", label: "Peace Workshops" },
+                { number: "5", label: "Conflicts Resolved" },
+                { number: "2", label: "Communities Helped" },
+                { number: "85%", label: "Satisfaction Rate" },
+                { number: "1", label: "Peace Workshops" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-5xl font-bold text-primary mb-2">
@@ -444,7 +486,7 @@ console.log(res.data)
                       Our Office
                     </h4>
                     <p className="text-gray-700">
-                      123 Peace Avenue, Harmony City, HC 10101
+                      57, King D Plaza, Gbessa-Sauka, Opposite Immigration Headquarters, Airport Road Abuja
                     </p>
                   </div>
                 </div>
@@ -455,7 +497,7 @@ console.log(res.data)
                     <h4 className="font-bold text-foreground mb-1">
                       Phone Number
                     </h4>
-                    <p className="text-gray-700">+234 901 583 797 9</p>
+                    <p className="text-gray-700">+234 901 583 797 9, +234 816 945 493 3</p>
                   </div>
                 </div>
 
@@ -472,61 +514,61 @@ console.log(res.data)
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8">
-<form onSubmit={formik.handleSubmit}>
-  <Input
-    id="name"
-    name="name"
-    label="Your Name"
-    placeholder="Enter your name"
-    value={formik.values.name}
-    onChange={formik.handleChange}
-  />
-  {formik.touched.name && formik.errors.name && (
-    <p className="text-red-500 text-sm">{formik.errors.name}</p>
-  )}
+              <form onSubmit={formik.handleSubmit}>
+                <Input
+                  id="name"
+                  name="name"
+                  label="Your Name"
+                  placeholder="Enter your name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                />
+                {formik.touched.name && formik.errors.name && (
+                  <p className="text-red-500 text-sm">{formik.errors.name}</p>
+                )}
 
-  <Input
-    id="email"
-    name="email"
-    type="email"
-    label="Your Email"
-    placeholder="Enter your email"
-    value={formik.values.email}
-    onChange={formik.handleChange}
-  />
-  {formik.touched.email && formik.errors.email && (
-    <p className="text-red-500 text-sm">{formik.errors.email}</p>
-  )}
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  label="Your Email"
+                  placeholder="Enter your email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                />
+                {formik.touched.email && formik.errors.email && (
+                  <p className="text-red-500 text-sm">{formik.errors.email}</p>
+                )}
 
-  <Input
-    id="subject"
-    name="subject"
-    label="Subject"
-    placeholder="Enter subject"
-    value={formik.values.subject}
-    onChange={formik.handleChange}
-  />
-  {formik.touched.subject && formik.errors.subject && (
-    <p className="text-red-500 text-sm">{formik.errors.subject}</p>
-  )}
+                <Input
+                  id="subject"
+                  name="subject"
+                  label="Subject"
+                  placeholder="Enter subject"
+                  value={formik.values.subject}
+                  onChange={formik.handleChange}
+                />
+                {formik.touched.subject && formik.errors.subject && (
+                  <p className="text-red-500 text-sm">{formik.errors.subject}</p>
+                )}
 
-  <Input
-    id="message"
-    name="message"
-    type="textarea"
-    label="Your Message"
-    placeholder="Enter your message"
-    value={formik.values.message}
-    onChange={formik.handleChange}
-  />
-  {formik.touched.message && formik.errors.message && (
-    <p className="text-red-500 text-sm">{formik.errors.message}</p>
-  )}
+                <Input
+                  id="message"
+                  name="message"
+                  type="textarea"
+                  label="Your Message"
+                  placeholder="Enter your message"
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                />
+                {formik.touched.message && formik.errors.message && (
+                  <p className="text-red-500 text-sm">{formik.errors.message}</p>
+                )}
 
-  <Button type="submit" className="w-full">
-    Send Message
-  </Button>
-</form>
+                <Button type="submit" className="w-full" loading={formik.isSubmitting}>
+                  Send Message
+                </Button>
+              </form>
             </div>
           </div>
         </div>
@@ -593,11 +635,11 @@ console.log(res.data)
               <div className="space-y-3 text-gray-300">
                 <p className="flex items-center">
                   <i className="fas fa-map-marker-alt mr-3"></i>
-                  123 Peace Avenue, Harmony City
+                  57, King D Plaza, Gbessa-Sauka, Opposite Immigration Headquarters, Airport Road Abuja
                 </p>
                 <p className="flex items-center">
                   <i className="fas fa-phone mr-3"></i>
-                  +234 901 583 797 9
+                  +234 901 583 797 9, +234 816 945 493 3
                 </p>
                 <p className="flex items-center">
                   <i className="fas fa-envelope mr-3"></i>
@@ -609,44 +651,97 @@ console.log(res.data)
 
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
             <p>
-              &copy; 2023 Dorope Mediation | Mediation & Conciliation for Peace
+              &copy; 2025 Dorope Mediation | Mediation & Conciliation for Peace
               Building. All rights reserved.
             </p>
           </div>
         </div>
       </footer>
 
-      {/* Image Modal */}
+      {/* Image Gallery Modal */}
       {modalOpen && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl max-h-[90vh]">
+          <div className="relative max-w-5xl w-full max-h-[90vh]">
             <button
               onClick={closeModal}
-              className="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300"
+              className="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300 z-10"
             >
               &times;
             </button>
+            
+            {/* Event navigation buttons */}
             <button
-              onClick={() => navigateModal("prev")}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30"
+              onClick={() => navigateEvent("prev")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/70 transition-all z-10 ml-2"
             >
               <i className="fas fa-chevron-left"></i>
             </button>
+            
             <button
-              onClick={() => navigateModal("next")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30"
+              onClick={() => navigateEvent("next")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/70 transition-all z-10 mr-2"
             >
               <i className="fas fa-chevron-right"></i>
             </button>
+
+            {/* Image navigation buttons */}
+            <button
+              onClick={() => navigateModal("prev")}
+              className="absolute left-16 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
+            >
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            
+            <button
+              onClick={() => navigateModal("next")}
+              className="absolute right-16 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
+            >
+              <i className="fas fa-chevron-right"></i>
+            </button>
+
+            {/* Main Image */}
             <img
-              src={events[currentImageIndex].image}
-              alt={events[currentImageIndex].title}
-              className="rounded-lg w-full h-auto max-h-[70vh] object-cover"
+              src={events[currentEventIndex].images[currentImageIndex]}
+              alt={`${events[currentEventIndex].title} - Image ${currentImageIndex + 1}`}
+              className="rounded-lg w-full h-auto max-h-[70vh] object-contain"
             />
+            
+            {/* Image counter */}
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+              {currentImageIndex + 1} / {events[currentEventIndex].images.length}
+            </div>
+
+            {/* Thumbnail strip */}
+            {events[currentEventIndex].images.length > 1 && (
+              <div className="absolute -bottom-20 left-0 right-0 flex justify-center gap-2 mt-4">
+                {events[currentEventIndex].images.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                      idx === currentImageIndex 
+                        ? 'border-primary scale-110' 
+                        : 'border-white/50 hover:border-white'
+                    }`}
+                  >
+                    <img 
+                      src={img} 
+                      alt={`Thumbnail ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+
             <div className="text-white text-center mt-4 text-lg">
-              <p className="font-bold">{events[currentImageIndex].title}</p>
+              <p className="font-bold">{events[currentEventIndex].title}</p>
               <p className="text-gray-300">
-                {events[currentImageIndex].caption}
+                {events[currentEventIndex].captions?.[currentImageIndex] || events[currentEventIndex].captions?.[0] || "Event moments"}
+              </p>
+              <p className="text-accent text-sm mt-1">
+                <i className="far fa-calendar-alt mr-1"></i>
+                {events[currentEventIndex].date}
               </p>
             </div>
           </div>
