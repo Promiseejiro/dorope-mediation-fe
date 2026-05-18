@@ -9,8 +9,6 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-
-
 const leadershipTeam = [
   {
     name: "Mr. Oluwaseun Ojo",
@@ -169,25 +167,34 @@ export default function TeamPage() {
       .required("Email is required"),
     phone: Yup.string()
       .required("Phone number is required")
-      .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,6}$/, 
-        "Please enter a valid phone number"),
+      .matches(
+        /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,6}$/,
+        "Please enter a valid phone number",
+      ),
     occupation: Yup.string()
       .required("Occupation is required")
       .min(2, "Please enter a valid occupation"),
     experience: Yup.string()
       .required("Experience is required")
-      .min(10, "Please provide at least 10 characters describing your experience"),
+      .min(
+        10,
+        "Please provide at least 10 characters describing your experience",
+      ),
     skills: Yup.string()
       .required("Skills are required")
       .min(10, "Please provide at least 10 characters describing your skills"),
-    roleInterest: Yup.string()
-      .required("Please select or enter a role of interest"),
+    roleInterest: Yup.string().required(
+      "Please select or enter a role of interest",
+    ),
     availability: Yup.string()
       .required("Availability is required")
       .min(5, "Please provide your availability details"),
     motivation: Yup.string()
       .required("Motivation is required")
-      .min(20, "Please provide at least 20 characters explaining your motivation"),
+      .min(
+        20,
+        "Please provide at least 20 characters explaining your motivation",
+      ),
   });
 
   // Formik setup
@@ -209,15 +216,23 @@ export default function TeamPage() {
       setSubmitError(null);
       try {
         // const response = await axios.post(`http://localhost:3000/volunteer`, values);
-        const response = await axios.post(`https://dorope-be-2.onrender.com/volunteer`, values);
-        
+        const response = await axios.post(
+          `https://dorope-be-3.onrender.com/volunteer`,
+          values,
+        );
+
         if (response.data.message) {
-          toast.success(response.data.message || "Thank you for your interest in volunteering! We will review your application and contact you soon.");
+          toast.success(
+            response.data.message ||
+              "Thank you for your interest in volunteering! We will review your application and contact you soon.",
+          );
           resetForm();
           setSelectedRole("");
         }
       } catch (error: any) {
-        const errorMessage = error.response?.data?.message || "Something went wrong. Please try again later.";
+        const errorMessage =
+          error.response?.data?.message ||
+          "Something went wrong. Please try again later.";
         setSubmitError(errorMessage);
         toast.error(errorMessage);
       } finally {
@@ -411,7 +426,9 @@ export default function TeamPage() {
                       required
                     />
                     {formik.touched.firstName && formik.errors.firstName && (
-                      <p className="text-red-500 text-sm mt-1">{formik.errors.firstName}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.firstName}
+                      </p>
                     )}
                   </div>
                   <div>
@@ -426,7 +443,9 @@ export default function TeamPage() {
                       required
                     />
                     {formik.touched.lastName && formik.errors.lastName && (
-                      <p className="text-red-500 text-sm mt-1">{formik.errors.lastName}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.lastName}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -445,7 +464,9 @@ export default function TeamPage() {
                       required
                     />
                     {formik.touched.email && formik.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{formik.errors.email}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.email}
+                      </p>
                     )}
                   </div>
                   <div>
@@ -460,7 +481,9 @@ export default function TeamPage() {
                       required
                     />
                     {formik.touched.phone && formik.errors.phone && (
-                      <p className="text-red-500 text-sm mt-1">{formik.errors.phone}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.phone}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -477,7 +500,9 @@ export default function TeamPage() {
                     required
                   />
                   {formik.touched.occupation && formik.errors.occupation && (
-                    <p className="text-red-500 text-sm mt-1">{formik.errors.occupation}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {formik.errors.occupation}
+                    </p>
                   )}
                 </div>
 
@@ -494,7 +519,9 @@ export default function TeamPage() {
                     rows={3}
                   />
                   {formik.touched.experience && formik.errors.experience && (
-                    <p className="text-red-500 text-sm mt-1">{formik.errors.experience}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {formik.errors.experience}
+                    </p>
                   )}
                 </div>
 
@@ -511,7 +538,9 @@ export default function TeamPage() {
                     rows={3}
                   />
                   {formik.touched.skills && formik.errors.skills && (
-                    <p className="text-red-500 text-sm mt-1">{formik.errors.skills}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {formik.errors.skills}
+                    </p>
                   )}
                 </div>
 
@@ -527,9 +556,12 @@ export default function TeamPage() {
                     required
                     disabled={!!selectedRole}
                   />
-                  {formik.touched.roleInterest && formik.errors.roleInterest && (
-                    <p className="text-red-500 text-sm mt-1">{formik.errors.roleInterest}</p>
-                  )}
+                  {formik.touched.roleInterest &&
+                    formik.errors.roleInterest && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.roleInterest}
+                      </p>
+                    )}
                 </div>
 
                 <div className="mb-6">
@@ -543,9 +575,12 @@ export default function TeamPage() {
                     onBlur={formik.handleBlur}
                     required
                   />
-                  {formik.touched.availability && formik.errors.availability && (
-                    <p className="text-red-500 text-sm mt-1">{formik.errors.availability}</p>
-                  )}
+                  {formik.touched.availability &&
+                    formik.errors.availability && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.availability}
+                      </p>
+                    )}
                 </div>
 
                 <div className="mb-6">
@@ -562,7 +597,9 @@ export default function TeamPage() {
                     required
                   />
                   {formik.touched.motivation && formik.errors.motivation && (
-                    <p className="text-red-500 text-sm mt-1">{formik.errors.motivation}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {formik.errors.motivation}
+                    </p>
                   )}
                 </div>
 
@@ -583,12 +620,13 @@ export default function TeamPage() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="w-full sm:w-auto"
                       disabled={formik.isSubmitting}
-                   loading={formik.isSubmitting}  >
-                   Submit Volunteer Application
+                      loading={formik.isSubmitting}
+                    >
+                      Submit Volunteer Application
                     </Button>
                     <Button
                       type="button"

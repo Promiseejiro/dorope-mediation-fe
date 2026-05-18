@@ -9,7 +9,8 @@ import toast from "react-hot-toast";
 // Event data with multiple images per event
 const events = [
   {
-    title: "Event: Career Day and Peace sensitization at Gladele British Academy, Abuja",
+    title:
+      "Event: Career Day and Peace sensitization at Gladele British Academy, Abuja",
     date: "2025",
     description: `The Career Day and Peace Sensitization event at Gladele British Academy is designed to inspire and guide students toward a purposeful future while promoting a culture of peace and mutual understanding.
 
@@ -32,20 +33,19 @@ Overall, the event aims to shape well-rounded individuals who are not only caree
     ],
     icon: "fas fa-hands-helping",
   },
-  
 ];
 
 const testimonials = [
   {
     text: "Dorope Mediation helped our community resolve a 5-year land dispute that was tearing us apart. Their mediators were patient, understanding, and helped us find a solution that worked for everyone. Today, we're not just neighbors - we're partners in community development.",
-  
+
     name: "Oyedele Daniel",
     role: "Community Leader, Riverside District",
     icon: "fas fa-user",
   },
   {
     text: "After nearly taking our partnership dispute to court, we decided to try mediation with Dorope Mediation. In just three sessions, we resolved issues that had been brewing for years. We saved thousands in legal fees and preserved our business relationship.",
-  name: "Mr Adebanjo",
+    name: "Mr Adebanjo",
     role: "Business Owner, TechSolutions Inc.",
     icon: "fas fa-user-tie",
   },
@@ -98,7 +98,7 @@ export default function Home() {
   const navigateModal = (direction: "prev" | "next") => {
     const currentEvent = events[currentEventIndex];
     const totalImages = currentEvent.images.length;
-    
+
     if (direction === "prev") {
       setCurrentImageIndex((prev) => (prev - 1 + totalImages) % totalImages);
     } else {
@@ -107,9 +107,10 @@ export default function Home() {
   };
 
   const navigateEvent = (direction: "prev" | "next") => {
-    const newEventIndex = direction === "prev" 
-      ? (currentEventIndex - 1 + events.length) % events.length
-      : (currentEventIndex + 1) % events.length;
+    const newEventIndex =
+      direction === "prev"
+        ? (currentEventIndex - 1 + events.length) % events.length
+        : (currentEventIndex + 1) % events.length;
     setCurrentEventIndex(newEventIndex);
     setCurrentImageIndex(0);
   };
@@ -131,7 +132,10 @@ export default function Home() {
       console.log(values);
       try {
         // const res = await axios.post("http://localhost:3000/contact", values);
-        const res = await axios.post("https://dorope-be-2.onrender.com/contact", values);
+        const res = await axios.post(
+          "https://dorope-be-3.onrender.com/contact",
+          values,
+        );
         toast.success(res.data.message || "Message sent successfully!");
         resetForm();
         console.log(res.data);
@@ -202,12 +206,12 @@ export default function Home() {
               >
                 {/* Image Gallery Preview */}
                 <div className="relative">
-                  <div 
+                  <div
                     className="bg-primary-light h-56 flex items-center justify-center cursor-pointer relative group"
                     onClick={() => openModal(eventIdx, 0)}
                   >
-                    <img 
-                      src={event.images[0]} 
+                    <img
+                      src={event.images[0]}
                       alt={event.title}
                       className="w-full h-full object-cover"
                     />
@@ -224,10 +228,10 @@ export default function Home() {
                   {event.images.length > 1 && (
                     <div className="absolute bottom-2 left-2 right-2 flex gap-1 justify-center">
                       {event.images.slice(0, 4).map((_, idx) => (
-                        <div 
+                        <div
                           key={idx}
                           className={`w-2 h-2 rounded-full cursor-pointer transition-all ${
-                            idx === 0 ? 'bg-white w-4' : 'bg-white/60'
+                            idx === 0 ? "bg-white w-4" : "bg-white/60"
                           }`}
                           onClick={(e) => {
                             e.stopPropagation();
@@ -245,7 +249,9 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
                     {event.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{event.description}</p>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {event.description}
+                  </p>
                   <div className="flex items-center text-accent font-semibold mb-3">
                     <i className="far fa-calendar-alt mr-2"></i>
                     {event.date}
@@ -486,7 +492,8 @@ export default function Home() {
                       Our Office
                     </h4>
                     <p className="text-gray-700">
-                      57, King D Plaza, Gbessa-Sauka, Opposite Immigration Headquarters, Airport Road Abuja
+                      57, King D Plaza, Gbessa-Sauka, Opposite Immigration
+                      Headquarters, Airport Road Abuja
                     </p>
                   </div>
                 </div>
@@ -497,7 +504,9 @@ export default function Home() {
                     <h4 className="font-bold text-foreground mb-1">
                       Phone Number
                     </h4>
-                    <p className="text-gray-700">+234 901 583 797 9, +234 816 945 493 3</p>
+                    <p className="text-gray-700">
+                      +234 901 583 797 9, +234 816 945 493 3
+                    </p>
                   </div>
                 </div>
 
@@ -549,7 +558,9 @@ export default function Home() {
                   onChange={formik.handleChange}
                 />
                 {formik.touched.subject && formik.errors.subject && (
-                  <p className="text-red-500 text-sm">{formik.errors.subject}</p>
+                  <p className="text-red-500 text-sm">
+                    {formik.errors.subject}
+                  </p>
                 )}
 
                 <Input
@@ -562,10 +573,16 @@ export default function Home() {
                   onChange={formik.handleChange}
                 />
                 {formik.touched.message && formik.errors.message && (
-                  <p className="text-red-500 text-sm">{formik.errors.message}</p>
+                  <p className="text-red-500 text-sm">
+                    {formik.errors.message}
+                  </p>
                 )}
 
-                <Button type="submit" className="w-full" loading={formik.isSubmitting}>
+                <Button
+                  type="submit"
+                  className="w-full"
+                  loading={formik.isSubmitting}
+                >
                   Send Message
                 </Button>
               </form>
@@ -635,7 +652,8 @@ export default function Home() {
               <div className="space-y-3 text-gray-300">
                 <p className="flex items-center">
                   <i className="fas fa-map-marker-alt mr-3"></i>
-                  57, King D Plaza, Gbessa-Sauka, Opposite Immigration Headquarters, Airport Road Abuja
+                  57, King D Plaza, Gbessa-Sauka, Opposite Immigration
+                  Headquarters, Airport Road Abuja
                 </p>
                 <p className="flex items-center">
                   <i className="fas fa-phone mr-3"></i>
@@ -668,7 +686,7 @@ export default function Home() {
             >
               &times;
             </button>
-            
+
             {/* Event navigation buttons */}
             <button
               onClick={() => navigateEvent("prev")}
@@ -676,7 +694,7 @@ export default function Home() {
             >
               <i className="fas fa-chevron-left"></i>
             </button>
-            
+
             <button
               onClick={() => navigateEvent("next")}
               className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/70 transition-all z-10 mr-2"
@@ -691,7 +709,7 @@ export default function Home() {
             >
               <i className="fas fa-chevron-left"></i>
             </button>
-            
+
             <button
               onClick={() => navigateModal("next")}
               className="absolute right-16 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
@@ -705,10 +723,11 @@ export default function Home() {
               alt={`${events[currentEventIndex].title} - Image ${currentImageIndex + 1}`}
               className="rounded-lg w-full h-auto max-h-[70vh] object-contain"
             />
-            
+
             {/* Image counter */}
             <div className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-              {currentImageIndex + 1} / {events[currentEventIndex].images.length}
+              {currentImageIndex + 1} /{" "}
+              {events[currentEventIndex].images.length}
             </div>
 
             {/* Thumbnail strip */}
@@ -719,13 +738,13 @@ export default function Home() {
                     key={idx}
                     onClick={() => setCurrentImageIndex(idx)}
                     className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                      idx === currentImageIndex 
-                        ? 'border-primary scale-110' 
-                        : 'border-white/50 hover:border-white'
+                      idx === currentImageIndex
+                        ? "border-primary scale-110"
+                        : "border-white/50 hover:border-white"
                     }`}
                   >
-                    <img 
-                      src={img} 
+                    <img
+                      src={img}
                       alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-full object-cover"
                     />
@@ -737,7 +756,9 @@ export default function Home() {
             <div className="text-white text-center mt-4 text-lg">
               <p className="font-bold">{events[currentEventIndex].title}</p>
               <p className="text-gray-300">
-                {events[currentEventIndex].captions?.[currentImageIndex] || events[currentEventIndex].captions?.[0] || "Event moments"}
+                {events[currentEventIndex].captions?.[currentImageIndex] ||
+                  events[currentEventIndex].captions?.[0] ||
+                  "Event moments"}
               </p>
               <p className="text-accent text-sm mt-1">
                 <i className="far fa-calendar-alt mr-1"></i>
