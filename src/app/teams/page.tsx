@@ -148,13 +148,10 @@ const volunteerRoles = [
   "Youth Mentor",
 ];
 
-// API URL - update with your actual API endpoint
-
 export default function TeamPage() {
   const [selectedRole, setSelectedRole] = useState("");
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  // Formik validation schema
   const validationSchema = Yup.object({
     firstName: Yup.string()
       .required("First name is required")
@@ -197,7 +194,6 @@ export default function TeamPage() {
       ),
   });
 
-  // Formik setup
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -215,10 +211,6 @@ export default function TeamPage() {
     onSubmit: async (values, { resetForm, setSubmitting }) => {
       setSubmitError(null);
       try {
-        // const response = await axios.post(
-        //   `http://localhost:3000/volunteer`,
-        //   values,
-        // );
         const response = await axios.post(
           `https://dorope-be-3.onrender.com/volunteer`,
           values,
@@ -259,7 +251,7 @@ export default function TeamPage() {
     <>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Meet Our Team of Peace Builders
@@ -282,11 +274,8 @@ export default function TeamPage() {
 
       {/* Leadership Team */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-light rounded-full mb-4">
-              <i className="fas fa-crown text-2xl text-primary"></i>
-            </div>
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Leadership Team
             </h2>
@@ -306,11 +295,8 @@ export default function TeamPage() {
 
       {/* Mediation Team */}
       <section className="py-20 bg-primary-light/30">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-light rounded-full mb-4">
-              <i className="fas fa-handshake text-2xl text-primary"></i>
-            </div>
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Mediation Specialists
             </h2>
@@ -330,11 +316,8 @@ export default function TeamPage() {
 
       {/* Volunteers */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-light rounded-full mb-4">
-              <i className="fas fa-heart text-2xl text-primary"></i>
-            </div>
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Our Amazing Volunteers
             </h2>
@@ -363,8 +346,11 @@ export default function TeamPage() {
       </section>
 
       {/* Volunteer Form Section */}
-      <section id="volunteer" className="volunteer-form-section py-20">
-        <div className="container mx-auto px-4">
+      <section
+        id="volunteer"
+        className="volunteer-form-section py-20 bg-gray-50/50"
+      >
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -376,7 +362,7 @@ export default function TeamPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white rounded-xl border border-gray-200 p-8">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
                   Available Volunteer Roles
@@ -390,7 +376,7 @@ export default function TeamPage() {
                       key={index}
                       type="button"
                       onClick={() => handleRoleClick(role)}
-                      className={`px-4 py-2 rounded-lg border transition-all duration-200 ${
+                      className={`px-4 py-2 rounded-lg border transition-colors duration-200 ${
                         selectedRole === role
                           ? "bg-primary text-white border-primary"
                           : "bg-gray-50 text-gray-700 border-gray-300 hover:border-primary hover:bg-primary-light/20"
@@ -410,7 +396,6 @@ export default function TeamPage() {
 
               {submitError && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                  <i className="fas fa-exclamation-circle mr-2"></i>
                   {submitError}
                 </div>
               )}
@@ -612,7 +597,7 @@ export default function TeamPage() {
                       type="checkbox"
                       id="terms"
                       required
-                      className="mt-1 mr-3"
+                      className="mt-1 mr-3 rounded border-gray-300 text-primary focus:ring-primary"
                     />
                     <label htmlFor="terms" className="text-gray-700 text-sm">
                       I agree to the terms and conditions of volunteering. I
@@ -645,17 +630,14 @@ export default function TeamPage() {
               </form>
             </div>
 
-            <div className="mt-12 bg-primary-light rounded-xl p-8">
+            <div className="mt-12 bg-primary-light border border-primary/20 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-foreground mb-4">
                 What to Expect After Applying
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-envelope-open-text text-white"></i>
-                  </div>
                   <h4 className="font-bold text-foreground mb-2">
-                    Application Review
+                    1. Application Review
                   </h4>
                   <p className="text-gray-700 text-sm">
                     Our team will review your application within 5-7 business
@@ -663,19 +645,17 @@ export default function TeamPage() {
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-video text-white"></i>
-                  </div>
-                  <h4 className="font-bold text-foreground mb-2">Interview</h4>
+                  <h4 className="font-bold text-foreground mb-2">
+                    2. Interview
+                  </h4>
                   <p className="text-gray-700 text-sm">
                     Selected candidates will be invited for a virtual interview.
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-graduation-cap text-white"></i>
-                  </div>
-                  <h4 className="font-bold text-foreground mb-2">Training</h4>
+                  <h4 className="font-bold text-foreground mb-2">
+                    3. Training
+                  </h4>
                   <p className="text-gray-700 text-sm">
                     All volunteers receive comprehensive training in conflict
                     resolution.
@@ -689,7 +669,7 @@ export default function TeamPage() {
 
       {/* Benefits of Volunteering */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Benefits of Volunteering
@@ -703,25 +683,21 @@ export default function TeamPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: "fas fa-certificate",
                 title: "Professional Training",
                 description:
                   "Receive training in mediation and conflict resolution techniques.",
               },
               {
-                icon: "fas fa-network-wired",
                 title: "Networking",
                 description:
                   "Connect with professionals in peace building and mediation.",
               },
               {
-                icon: "fas fa-award",
                 title: "Certification",
                 description:
                   "Earn a certificate of appreciation and recommendation letters.",
               },
               {
-                icon: "fas fa-hand-holding-heart",
                 title: "Make a Difference",
                 description:
                   "Directly contribute to building peaceful communities.",
@@ -729,11 +705,8 @@ export default function TeamPage() {
             ].map((benefit, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 text-center"
+                className="bg-gray-50 border border-gray-200/80 rounded-xl p-6 text-center"
               >
-                <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className={`${benefit.icon} text-2xl text-primary`}></i>
-                </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">
                   {benefit.title}
                 </h3>

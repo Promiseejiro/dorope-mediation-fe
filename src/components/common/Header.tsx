@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Router } from "next/router";
 import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
-  const navigation = useRouter();
-  const pathName = usePathname();
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -23,75 +23,82 @@ const Header = () => {
   const scrollToSection = (href: string) => {
     setMobileMenuOpen(false);
 
-    // If it's a hash link (section on current page)
     if (href.startsWith("#")) {
-      // If we're not on the homepage, navigate to homepage first
-      if (pathName !== "/") {
-        navigation.push(`/${href}`);
-      } else {
-        // We're already on homepage, just scroll
-        const elementId = href.substring(1);
-        const element = document.getElementById(elementId);
-        if (element) {
-          const headerOffset = 80; // Adjust based on header height
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition =
-            elementPosition + window.pageYOffset - headerOffset;
+      if (pathname !== "/") {
+        router.push(`/${href}`);
+        return;
+      }
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-        }
+      const elementId = href.substring(1);
+      const element = document.getElementById(elementId);
+
+      if (element) {
+        const headerOffset = 88;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+
+        window.scrollTo({
+          top: elementPosition - headerOffset,
+          behavior: "smooth",
+        });
       }
     } else {
-      navigation.push(href);
+      router.push(href);
     }
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 lg:px-10 py-5">
-        <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              alt="Dorop Mediation logo"
-              height={60}
-              width={60}
-              src="/assets/images/logo.png"
-            />
-            {/* <i className="fas fa-dove text-4xl text-primary"></i> */}
-            <div className="text-2xl font-bold text-foreground">
-              Dorope<span className="text-accent">{`  `}Mediation</span>
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="flex items-center gap-3 shrink-0"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-slate-100 bg-slate-50">
+              <Image
+                src="/assets/images/logo.png"
+                alt="Dorope Mediation logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+                priority
+              />
+            </div>
+
+            <div className="hidden sm:block">
+              <div className="text-lg font-bold tracking-tight text-slate-900 leading-none">
+                Dorope<span className="text-primary"> Mediation</span>
+              </div>
+              <p className="mt-1 text-[10px] font-medium uppercase tracking-widest text-slate-500">
+                Mediation & Conciliation
+              </p>
             </div>
           </Link>
 
-          <button
-            className="md:hidden text-primary text-2xl"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <i className="fas fa-times"></i>
-            ) : (
-              <i className="fas fa-bars"></i>
-            )}
-          </button>
-
+          {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex gap-8">
+            <ul className="flex items-center gap-8">
               {navItems.map((item) => (
-                <li key={item.label} className="cursor-pointer">
+                <li key={item.label}>
                   {item.href.startsWith("#") ? (
                     <button
+                      type="button"
                       onClick={() => scrollToSection(item.href)}
-                      className="text-foreground font-semibold hover:text-accent transition-colors text-lg"
+                      className="py-2 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"
                     >
                       {item.label}
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-foreground font-semibold hover:text-accent transition-colors text-lg"
+                      className={`py-2 text-sm font-semibold transition-colors ${
+                        pathname === item.href
+                          ? "text-primary"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
                     >
                       {item.label}
                     </Link>
@@ -100,34 +107,66 @@ const Header = () => {
               ))}
             </ul>
           </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            type="button"
+            aria-label={
+              mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="md:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50"
+          >
+            <i
+              className={`fas ${
+                mobileMenuOpen ? "fa-times" : "fa-bars"
+              } text-sm`}
+            />
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-14 right-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
+        className={`md:hidden overflow-hidden border-t border-slate-100 bg-white transition-all duration-300 ${
+          mobileMenuOpen
+            ? "max-h-[500px] opacity-100"
+            : "max-h-0 opacity-0 pointer-events-none"
+        }`}
       >
-        <div className="p-6 pt-16">
-          {/* <button
-            className="absolute top-6 right-6 text-primary text-2xl"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <i className="fas fa-times"></i>
-          </button> */}
-          <ul className="space-y-6">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <button
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-foreground font-semibold hover:text-accent transition-colors text-lg w-full text-left"
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-6">
+          <nav>
+            <ul className="space-y-1">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  {item.href.startsWith("#") ? (
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection(item.href)}
+                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+                    >
+                      <span>{item.label}</span>
+                      <i className="fas fa-chevron-right text-xs text-slate-400" />
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                        pathname === item.href
+                          ? "bg-slate-50 text-primary"
+                          : "text-slate-700 hover:bg-slate-50"
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <i className="fas fa-chevron-right text-xs text-slate-400" />
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </header>

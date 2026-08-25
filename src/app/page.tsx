@@ -6,6 +6,7 @@ import Button from "@/components/common/Button";
 import Input from "@/components/common/input";
 import { useState } from "react";
 import toast from "react-hot-toast";
+
 // Event data with multiple images per event
 const events = [
   {
@@ -31,29 +32,24 @@ Overall, the event aims to shape well-rounded individuals who are not only caree
       "Career guidance session with professionals from various fields.",
       "Group photo of all participants and organizers at the event.",
     ],
-    icon: "fas fa-hands-helping",
   },
 ];
 
 const testimonials = [
   {
     text: "Dorope Mediation helped our community resolve a 5-year land dispute that was tearing us apart. Their mediators were patient, understanding, and helped us find a solution that worked for everyone. Today, we're not just neighbors - we're partners in community development.",
-
     name: "Oyedele Daniel",
     role: "Community Leader, Riverside District",
-    icon: "fas fa-user",
   },
   {
     text: "After nearly taking our partnership dispute to court, we decided to try mediation with Dorope Mediation. In just three sessions, we resolved issues that had been brewing for years. We saved thousands in legal fees and preserved our business relationship.",
     name: "Mr Adebanjo",
     role: "Business Owner, TechSolutions Inc.",
-    icon: "fas fa-user-tie",
   },
   {
     text: "The family mediation services helped us navigate a difficult inheritance dispute. Instead of tearing our family apart in court, we found a solution that honored our parents' wishes and kept our family relationships intact. I can't recommend Dorope Mediation enough.",
     name: "Mrs Daramola",
     role: "Family Mediation Client",
-    icon: "fas fa-user-friends",
   },
 ];
 
@@ -62,19 +58,16 @@ const services = [
     title: "Community Mediation",
     description:
       "Facilitating dialogue and resolution in community conflicts to restore harmony and foster cooperation among neighbors and community groups.",
-    icon: "fas fa-hands-helping",
   },
   {
     title: "Workplace Conciliation",
     description:
       "Resolving workplace disputes through confidential mediation to improve working relationships and organizational productivity.",
-    icon: "fas fa-balance-scale",
   },
   {
     title: "Family Mediation",
     description:
       "Helping families navigate difficult conversations and find mutually acceptable solutions to familial conflicts.",
-    icon: "fas fa-home",
   },
 ];
 
@@ -129,18 +122,14 @@ export default function Home() {
       message: Yup.string().required("Message is required"),
     }),
     onSubmit: async (values, { resetForm }) => {
-      console.log(values);
       try {
-        // const res = await axios.post("http://localhost:3000/contact", values);
         const res = await axios.post(
           "https://dorope-be-3.onrender.com/contact",
           values,
         );
         toast.success(res.data.message || "Message sent successfully!");
         resetForm();
-        console.log(res.data);
       } catch (error) {
-        console.log(error);
         toast.error("Something went wrong!");
       }
     },
@@ -153,7 +142,7 @@ export default function Home() {
         id="home"
         className="relative bg-gradient-to-r from-primary-light/20 to-white"
       >
-        <div className="container mx-auto px-4 lg:px-10 py-20 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-4 py-20 md:py-32">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Building Peace Through Mediation & Conciliation
@@ -178,7 +167,7 @@ export default function Home() {
 
       {/* Events Section */}
       <section id="events" className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Our Peace Building Events
@@ -202,7 +191,7 @@ export default function Home() {
             {events.map((event, eventIdx) => (
               <div
                 key={eventIdx}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-xl border border-gray-200 overflow-hidden"
               >
                 {/* Image Gallery Preview */}
                 <div className="relative">
@@ -216,9 +205,8 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                     {event.images.length > 1 && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="bg-white/90 rounded-full px-4 py-2 text-gray-800 font-semibold flex items-center gap-2">
-                          <i className="fas fa-images"></i>
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="bg-white/90 rounded-full px-4 py-2 text-gray-800 font-semibold text-sm">
                           <span>{event.images.length} photos</span>
                         </div>
                       </div>
@@ -252,13 +240,10 @@ export default function Home() {
                   <p className="text-gray-600 mb-4 line-clamp-3">
                     {event.description}
                   </p>
-                  <div className="flex items-center text-accent font-semibold mb-3">
-                    <i className="far fa-calendar-alt mr-2"></i>
+                  <div className="text-accent font-semibold mb-3">
                     {event.date}
                   </div>
-                  {/* Image count indicator */}
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <i className="fas fa-images mr-1"></i>
+                  <div className="text-gray-500 text-sm">
                     <span>{event.images.length} event photos</span>
                   </div>
                 </div>
@@ -266,7 +251,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="bg-primary-light rounded-xl p-8 md:p-12">
+          <div className="bg-primary-light border border-primary/20 rounded-xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-foreground text-center mb-8">
               Peace We Have Achieved
             </h3>
@@ -293,7 +278,7 @@ export default function Home() {
 
       {/* Why Mediation Section */}
       <section id="comparison" className="py-20 bg-primary-light/30">
-        <div className="container mx-auto px-4 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Why Choose Mediation Over Court?
@@ -306,9 +291,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Mediation Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary">
+            <div className="bg-white rounded-xl p-8 border border-gray-200  ">
               <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center">
-                <i className="fas fa-peace text-primary mr-3"></i>
                 Mediation & Conciliation
               </h3>
               <p className="text-gray-700 mb-6">
@@ -326,7 +310,7 @@ export default function Home() {
                   "Voluntary Process: Parties control the outcome, not a judge",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <i className="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                    <span className="text-primary font-bold mr-3">•</span>
                     <span className="text-gray-700">
                       <strong>{item.split(":")[0]}:</strong>
                       {item.split(":")[1]}
@@ -337,9 +321,8 @@ export default function Home() {
             </div>
 
             {/* Court Card */}
-            <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-destructive">
+            <div className="bg-white rounded-xl p-8 border border-gray-200  ">
               <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center">
-                <i className="fas fa-gavel text-destructive mr-3"></i>
                 Traditional Court System
               </h3>
               <p className="text-gray-700 mb-6">
@@ -356,7 +339,7 @@ export default function Home() {
                   "Loss of Control: Outcome is determined by a third party (judge)",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <i className="fas fa-times-circle text-destructive mr-3 mt-1"></i>
+                    <span className="text-destructive font-bold mr-3">•</span>
                     <span className="text-gray-700">
                       <strong>{item.split(":")[0]}:</strong>
                       {item.split(":")[1]}
@@ -367,7 +350,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-primary-light rounded-xl p-8 border-l-4 border-primary">
+          <div className="bg-primary-light rounded-xl p-8 border border-primary/20 ">
             <h4 className="text-2xl font-bold text-foreground mb-4">
               The Power of Peaceful Resolution
             </h4>
@@ -384,7 +367,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Success Stories & Testimonials
@@ -399,26 +382,16 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-6 relative border border-gray-100"
+                className="bg-white rounded-xl p-6 relative border border-gray-200 flex flex-col justify-between"
               >
-                <div className="text-6xl text-primary-light absolute -top-4 left-4">
-                  &quot;
-                </div>
-                <p className="text-gray-700 italic mb-6 mt-4">
-                  {testimonial.text}
+                <p className="text-gray-700 italic mb-6">
+                  "{testimonial.text}"
                 </p>
-                <div className="flex items-center">
-                  <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center mr-4">
-                    <i
-                      className={`${testimonial.icon} text-xl text-primary`}
-                    ></i>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-accent text-sm">{testimonial.role}</p>
-                  </div>
+                <div className="pt-4 border-t border-gray-100">
+                  <h4 className="font-bold text-foreground">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-accent text-sm">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -428,7 +401,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-primary-light/30">
-        <div className="container mx-auto px-4 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Our Mediation Services
@@ -443,12 +416,9 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-xl border border-gray-200 overflow-hidden"
               >
-                <div className="bg-primary-light p-8 text-center">
-                  <i className={`${service.icon} text-5xl text-primary`}></i>
-                </div>
-                <div className="p-6">
+                <div className="p-8">
                   <h3 className="text-xl font-bold text-foreground mb-4">
                     {service.title}
                   </h3>
@@ -462,7 +432,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Contact Us
@@ -485,44 +455,33 @@ export default function Home() {
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <i className="fas fa-map-marker-alt text-primary text-xl mr-4 mt-1"></i>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-1">
-                      Our Office
-                    </h4>
-                    <p className="text-gray-700">
-                      57, King D Plaza, Gbessa-Sauka, Opposite Immigration
-                      Headquarters, Airport Road Abuja
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="font-bold text-foreground mb-1">Our Office</h4>
+                  <p className="text-gray-700">
+                    57, King D Plaza, Gbessa-Sauka, Opposite Immigration
+                    Headquarters, Airport Road Abuja
+                  </p>
                 </div>
 
-                <div className="flex items-start">
-                  <i className="fas fa-phone text-primary text-xl mr-4 mt-1"></i>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-1">
-                      Phone Number
-                    </h4>
-                    <p className="text-gray-700">
-                      +234 901 583 797 9, +234 816 945 493 3
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="font-bold text-foreground mb-1">
+                    Phone Number
+                  </h4>
+                  <p className="text-gray-700">
+                    +234 901 583 797 9, +234 816 945 493 3
+                  </p>
                 </div>
 
-                <div className="flex items-start">
-                  <i className="fas fa-envelope text-primary text-xl mr-4 mt-1"></i>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-1">
-                      Email Address
-                    </h4>
-                    <p className="text-gray-700">doropemediationng@gmail.com</p>
-                  </div>
+                <div>
+                  <h4 className="font-bold text-foreground mb-1">
+                    Email Address
+                  </h4>
+                  <p className="text-gray-700">doropemediationng@gmail.com</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-8">
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
               <form onSubmit={formik.handleSubmit}>
                 <Input
                   id="name"
@@ -593,7 +552,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-foreground text-white py-12">
-        <div className="container mx-auto px-4 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="text-2xl font-bold mb-4">
@@ -603,19 +562,6 @@ export default function Home() {
                 Building bridges of understanding through professional mediation
                 and conciliation services for peaceful conflict resolution.
               </p>
-              <div className="flex gap-4">
-                {["facebook", "twitter", "linkedin", "instagram"].map(
-                  (social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="text-white hover:text-primary-light text-xl transition-colors"
-                    >
-                      <i className={`fab fa-${social}`}></i>
-                    </a>
-                  ),
-                )}
-              </div>
             </div>
 
             <div>
@@ -650,19 +596,12 @@ export default function Home() {
             <div>
               <h4 className="text-xl font-bold mb-4">Contact Info</h4>
               <div className="space-y-3 text-gray-300">
-                <p className="flex items-center">
-                  <i className="fas fa-map-marker-alt mr-3"></i>
+                <p>
                   57, King D Plaza, Gbessa-Sauka, Opposite Immigration
                   Headquarters, Airport Road Abuja
                 </p>
-                <p className="flex items-center">
-                  <i className="fas fa-phone mr-3"></i>
-                  +234 901 583 797 9, +234 816 945 493 3
-                </p>
-                <p className="flex items-center">
-                  <i className="fas fa-envelope mr-3"></i>
-                  doropemediationng@gmail.com
-                </p>
+                <p>+234 901 583 797 9, +234 816 945 493 3</p>
+                <p>doropemediationng@gmail.com</p>
               </div>
             </div>
           </div>
@@ -692,14 +631,14 @@ export default function Home() {
               onClick={() => navigateEvent("prev")}
               className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/70 transition-all z-10 ml-2"
             >
-              <i className="fas fa-chevron-left"></i>
+              ‹
             </button>
 
             <button
               onClick={() => navigateEvent("next")}
               className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/70 transition-all z-10 mr-2"
             >
-              <i className="fas fa-chevron-right"></i>
+              ›
             </button>
 
             {/* Image navigation buttons */}
@@ -707,14 +646,14 @@ export default function Home() {
               onClick={() => navigateModal("prev")}
               className="absolute left-16 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
             >
-              <i className="fas fa-chevron-left"></i>
+              ‹
             </button>
 
             <button
               onClick={() => navigateModal("next")}
               className="absolute right-16 top-1/2 -translate-y-1/2 bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
             >
-              <i className="fas fa-chevron-right"></i>
+              ›
             </button>
 
             {/* Main Image */}
@@ -761,7 +700,6 @@ export default function Home() {
                   "Event moments"}
               </p>
               <p className="text-accent text-sm mt-1">
-                <i className="far fa-calendar-alt mr-1"></i>
                 {events[currentEventIndex].date}
               </p>
             </div>
