@@ -8,6 +8,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Link from "next/link";
+import Image from "next/image";
 
 const leadershipTeam = [
   {
@@ -264,7 +266,7 @@ export default function TeamPage() {
               href="#volunteer"
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="border-white text-white hover:bg-white hover:text-primary cursor-pointer"
             >
               Become a Volunteer
             </Button>
@@ -338,7 +340,7 @@ export default function TeamPage() {
               Join our team of dedicated volunteers and make a difference in
               your community.
             </p>
-            <Button href="#volunteer" size="lg">
+            <Button href="#volunteer" size="lg" className="cursor-pointer">
               Join as Volunteer
             </Button>
           </div>
@@ -376,7 +378,7 @@ export default function TeamPage() {
                       key={index}
                       type="button"
                       onClick={() => handleRoleClick(role)}
-                      className={`px-4 py-2 rounded-lg border transition-colors duration-200 ${
+                      className={`px-4 py-2 rounded-lg border transition-colors duration-200 cursor-pointer ${
                         selectedRole === role
                           ? "bg-primary text-white border-primary"
                           : "bg-gray-50 text-gray-700 border-gray-300 hover:border-primary hover:bg-primary-light/20"
@@ -597,7 +599,7 @@ export default function TeamPage() {
                       type="checkbox"
                       id="terms"
                       required
-                      className="mt-1 mr-3 rounded border-gray-300 text-primary focus:ring-primary"
+                      className="mt-1 mr-3 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                     />
                     <label htmlFor="terms" className="text-gray-700 text-sm">
                       I agree to the terms and conditions of volunteering. I
@@ -610,7 +612,7 @@ export default function TeamPage() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                       type="submit"
-                      className="w-full sm:w-auto"
+                      className="w-full sm:w-auto cursor-pointer"
                       disabled={formik.isSubmitting}
                       loading={formik.isSubmitting}
                     >
@@ -620,7 +622,7 @@ export default function TeamPage() {
                       type="button"
                       variant="outline"
                       onClick={handleClearForm}
-                      className="w-full sm:w-auto"
+                      className="w-full sm:w-auto cursor-pointer"
                       disabled={formik.isSubmitting}
                     >
                       Clear Form
@@ -716,6 +718,71 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-foreground text-white py-12">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="text-2xl font-bold mb-4">
+                Dorope<span className="text-primary-light">Mediation</span>
+              </div>
+              <p className="text-gray-300 mb-6">
+                Building bridges of understanding through professional mediation
+                and conciliation services for peaceful conflict resolution.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-bold mb-4">Quick Links</h4>
+              <ul className="space-y-3">
+                {[
+                  "Home",
+                  "Peace Events",
+                  "Why Mediation",
+                  "Testimonials",
+                  "Our Services",
+                  "Contact",
+                ].map((item) => (
+                  <li key={item}>
+                    <button
+                      onClick={() =>
+                        document
+                          .querySelector(
+                            `#${item.toLowerCase().replace(/\s+/g, "")}`,
+                          )
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
+                      {item}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-bold mb-4">Contact Info</h4>
+              <div className="space-y-3 text-gray-300">
+                <p>
+                  57, King D Plaza, Gbessa-Sauka, Opposite Immigration
+                  Headquarters, Airport Road Abuja
+                </p>
+                <p>+234 901 583 797 9, +234 816 945 493 3</p>
+                <p>doropemediationng@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
+            <p>
+              &copy; 2025 Dorope Mediation | Mediation & Conciliation for Peace
+              Building. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
