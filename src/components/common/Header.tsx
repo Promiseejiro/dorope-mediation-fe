@@ -54,7 +54,7 @@ const Header = () => {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 shrink-0"
+            className="flex items-center gap-3 shrink-0 cursor-pointer"
             onClick={() => setMobileMenuOpen(false)}
           >
             <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-slate-100 bg-slate-50">
@@ -87,14 +87,14 @@ const Header = () => {
                     <button
                       type="button"
                       onClick={() => scrollToSection(item.href)}
-                      className="py-2 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"
+                      className="py-2 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900 cursor-pointer"
                     >
                       {item.label}
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className={`py-2 text-sm font-semibold transition-colors ${
+                      className={`py-2 text-sm font-semibold transition-colors cursor-pointer ${
                         pathname === item.href
                           ? "text-primary"
                           : "text-slate-600 hover:text-slate-900"
@@ -116,7 +116,7 @@ const Header = () => {
             }
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="md:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50"
+            className="md:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50 cursor-pointer"
           >
             <i
               className={`fas ${
@@ -144,7 +144,7 @@ const Header = () => {
                     <button
                       type="button"
                       onClick={() => scrollToSection(item.href)}
-                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+                      className="flex cursor-pointer w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
                     >
                       <span>{item.label}</span>
                       <i className="fas fa-chevron-right text-xs text-slate-400" />
@@ -153,7 +153,7 @@ const Header = () => {
                     <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                      className={`flex w-full items-center cursor-pointer justify-between rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
                         pathname === item.href
                           ? "bg-slate-50 text-primary"
                           : "text-slate-700 hover:bg-slate-50"
