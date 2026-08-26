@@ -59,7 +59,7 @@ const testimonials = [
   {
     text: "I was a satisfied tenant, and Dorope Mediation helped prevent landlord intimidation and resolve my dispute amicably.",
     name: "Mr. Daniel",
-    role: "Community Leader, Riverside District",
+    role: "Business owner, Riverside District",
   },
   {
     text: "Dorope Mediation has helped me on several occasions to mediate and resolve disputes with my tenants, arriving at amicable resolutions.",
