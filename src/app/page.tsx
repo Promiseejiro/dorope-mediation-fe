@@ -7,7 +7,6 @@ import Input from "@/components/common/input";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-// Event data with multiple images per event
 const events = [
   {
     title:
@@ -33,22 +32,43 @@ Overall, the event aims to shape well-rounded individuals who are not only caree
       "Group photo of all participants and organizers at the event.",
     ],
   },
+  {
+    title: "Community Sensitization",
+    date: "2026",
+    description: `The Community Sensitization program is designed to educate and empower community members on the importance of peaceful coexistence, effective communication, and constructive conflict resolution.
+
+The program provides an opportunity for members of the community to openly discuss issues affecting them and gain a better understanding of how disputes can be managed peacefully and fairly.
+
+Through interactive discussions and practical guidance, participants are encouraged to embrace dialogue, respect different perspectives, and seek peaceful solutions to conflicts within their homes and communities.
+
+Overall, the sensitization aims to promote awareness, strengthen relationships within the community, and encourage a culture of peace, understanding, and cooperation.`,
+    images: [
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1787735631/WhatsApp_Image_2026-08-25_at_10.51.21_PM_sfzbxj.jpg",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1787735631/WhatsApp_Image_2026-08-25_at_10.49.19_PM_zmn0ya.jpg",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1787735631/WhatsApp_Image_2026-08-25_at_10.51.21_PM_1_xvtbvh.jpg",
+    ],
+    captions: [
+      "Community members participating in the sensitization program.",
+      "Participants engaging in discussions on peaceful coexistence and conflict resolution.",
+      "Community members and organizers during the sensitization program.",
+    ],
+  },
 ];
 
 const testimonials = [
   {
-    text: "Dorope Mediation helped our community resolve a 5-year land dispute that was tearing us apart. Their mediators were patient, understanding, and helped us find a solution that worked for everyone. Today, we're not just neighbors - we're partners in community development.",
-    name: "Oyedele Daniel",
+    text: "I was a satisfied tenant, and Dorope Mediation helped prevent landlord intimidation and resolve my dispute amicably.",
+    name: "Mr. Daniel",
     role: "Community Leader, Riverside District",
   },
   {
-    text: "After nearly taking our partnership dispute to court, we decided to try mediation with Dorope Mediation. In just three sessions, we resolved issues that had been brewing for years. We saved thousands in legal fees and preserved our business relationship.",
-    name: "Mr Adebanjo",
+    text: "Dorope Mediation has helped me on several occasions to mediate and resolve disputes with my tenants, arriving at amicable resolutions.",
+    name: "Mr. Adebanjo",
     role: "Business Owner, TechSolutions Inc.",
   },
   {
-    text: "The family mediation services helped us navigate a difficult inheritance dispute. Instead of tearing our family apart in court, we found a solution that honored our parents' wishes and kept our family relationships intact. I can't recommend Dorope Mediation enough.",
-    name: "Mrs Daramola",
+    text: "Dorope Mediation helped me resolve a dispute with my neighbor.",
+    name: "Mrs. Daramola",
     role: "Family Mediation Client",
   },
 ];

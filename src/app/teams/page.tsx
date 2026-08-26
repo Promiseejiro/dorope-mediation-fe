@@ -46,20 +46,21 @@ const leadershipTeam = [
 
 const mediationTeam = [
   {
-    name: "James Wilson",
-    role: "Senior Mediator",
-    bio: "James specializes in workplace and organizational conflicts, helping companies resolve internal disputes and improve team dynamics.",
+    name: "Promise Emosivbe",
+    role: "Mediator",
+    bio: "Dedicated to helping individuals, families, landlords, tenants, and communities resolve conflicts through dialogue, understanding, and peaceful mediation.",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1787735776/1710064908422_1_uib4co.jpg",
     expertise: [
-      "Workplace Mediation",
-      "Organizational Conflict",
-      "Team Building",
-      "Communication",
+      "Conflict Resolution",
+      "Community Mediation",
+      "Landlord-Tenant Disputes",
+      "Peacebuilding",
     ],
-    email: "james@harmonybridge.org",
-    linkedin: "https://linkedin.com/in/jameswilson",
+    email: "promiseejiro43@example.com",
+    linkedin: "https://linkedin.com/in/promiseejiro",
   },
+
   {
     name: "Maria Chen",
     role: "Family Mediation Specialist",
