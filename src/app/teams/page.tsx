@@ -44,62 +44,47 @@ const leadershipTeam = [
   },
 ];
 
+
 const mediationTeam = [
   {
-    name: "Promise Emosivbe",
-    role: "Mediator",
-    bio: "Dedicated to helping individuals, families, landlords, tenants, and communities resolve conflicts through dialogue, understanding, and peaceful mediation.",
+    name: "Aribo Oluwatosin",
+    role: "Legal Practitioner/Mediator",
+    bio: "A dedicated legal practitioner and mediator committed to helping individuals, families, landlords, tenants, and communities resolve conflicts through dialogue, understanding, and peaceful mediation.",
     image:
-      "https://res.cloudinary.com/dxqg5hify/image/upload/v1787735776/1710064908422_1_uib4co.jpg",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1788009368/WhatsApp_Image_2026-08-26_at_1.52.21_PM_z1d0gd.jpg",
     expertise: [
       "Conflict Resolution",
       "Community Mediation",
       "Landlord-Tenant Disputes",
       "Peacebuilding",
     ],
-    email: "promiseejiro43@example.com",
-    linkedin: "https://linkedin.com/in/promiseejiro",
-  },
-
-  {
-    name: "Maria Chen",
-    role: "Family Mediation Specialist",
-    bio: "Maria has dedicated her career to helping families navigate difficult conversations and find peaceful resolutions to familial conflicts.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    expertise: [
-      "Family Mediation",
-      "Child Advocacy",
-      "Elder Care",
-      "Inheritance Disputes",
-    ],
-    email: "maria@harmonybridge.org",
-    linkedin: "https://linkedin.com/in/mariachen",
+    email: "",
+    linkedin: "",
   },
   {
-    name: "David Okafor",
-    role: "Community Mediator",
-    bio: "David works directly with communities to resolve disputes and build sustainable peace agreements. He has extensive experience in rural community conflicts.",
+    name: "Onyinye Nweke",
+    role: "Legal Practitioner/Mediator",
+    bio: "A committed legal practitioner and mediator focused on supporting individuals, families, landlords, tenants, and communities in resolving disputes constructively and building lasting peaceful relationships.",
     image:
-      "https://images.unsplash.com/photo-1507591064344-4c6ce005-128?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1788009368/WhatsApp_Image_2026-08-26_at_2.20.11_PM_zapc9u.jpg",
     expertise: [
-      "Community Conflict",
-      "Land Disputes",
-      "Intercultural Dialogue",
-      "Peace Education",
+      "Conflict Resolution",
+      "Community Mediation",
+      "Landlord-Tenant Disputes",
+      "Peacebuilding",
     ],
-    email: "david@harmonybridge.org",
-    linkedin: "https://linkedin.com/in/davidokafor",
+    email: "",
+    linkedin: "",
   },
 ];
 
 const volunteers = [
   {
-    name: "Sophie Williams",
-    role: "Youth Program Coordinator",
-    bio: "Sophie volunteers her time to run our youth peace workshops, empowering the next generation with conflict resolution skills.",
+    name: "Ojo Oluwaseun",
+    role: "Peace Ambassador/ Volunteer",
+    bio: "A passionate peace ambassador who contributes to community peace initiatives, youth engagement, workshops, and activities that promote understanding, cooperation, and peaceful conflict resolution.",
     image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1788009368/WhatsApp_Image_2026-08-26_at_1.51.37_PM_k1jzme.jpg",
     expertise: [
       "Youth Engagement",
       "Workshop Facilitation",
@@ -109,34 +94,21 @@ const volunteers = [
     isVolunteer: true,
   },
   {
-    name: "Robert Kim",
-    role: "Legal Advisor Volunteer",
-    bio: "Robert provides pro bono legal advice to support our mediation processes and ensure all agreements are legally sound.",
+    name: "Promise Emosivbe",
+    role: "Volunteer",
+    bio: "A volunteer supporting the organization through software development, event planning, and workshop facilitation, helping to strengthen its programs, digital presence, and community engagement.",
     image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://res.cloudinary.com/dxqg5hify/image/upload/v1787735776/1710064908422_1_uib4co.jpg",
     expertise: [
-      "Legal Consultation",
-      "Contract Review",
-      "Compliance",
-      "Documentation",
-    ],
-    isVolunteer: true,
-  },
-  {
-    name: "Fatima Al-Mansoori",
-    role: "Community Outreach Volunteer",
-    bio: "Fatima helps bridge cultural gaps and ensures our services are accessible to diverse communities through her multilingual skills.",
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    expertise: [
-      "Multilingual Support",
-      "Community Outreach",
-      "Cultural Sensitivity",
-      "Translation",
+      "Software Development",
+      "Event Planning",
+      "Workshop Facilitation",
     ],
     isVolunteer: true,
   },
 ];
+
+
 
 const volunteerRoles = [
   "Community Mediator",
